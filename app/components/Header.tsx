@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { usePathname } from "next/navigation";
 import MenuIcon from '@mui/icons-material/Menu';
 import { Drawer } from "@mui/material";
+import ThreeYellowLines from "./Decoration";
 
 // ヘッダー
 const Header: React.FC = () => {
@@ -22,6 +23,7 @@ const Header: React.FC = () => {
 
     return (
         <header className="bg-primary-700 text-secondary-400 p-3 sm:p-5 lg:p-7">
+            <ThreeYellowLines />
             <div className="container mx-auto">
                 <nav className="flex items-center justify-between">
                     <Link href="/" legacyBehavior>
