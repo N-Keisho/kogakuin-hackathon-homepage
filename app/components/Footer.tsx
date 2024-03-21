@@ -1,4 +1,3 @@
-
 import XIcon from '@mui/icons-material/X';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import Image from 'next/image';
