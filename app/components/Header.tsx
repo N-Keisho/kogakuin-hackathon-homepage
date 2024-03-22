@@ -22,23 +22,19 @@ const Header: React.FC = () => {
     }, [pathName])
 
     return (
-        <header className="bg-primary-700 text-secondary-400 p-3 sm:p-5 lg:p-7">
+        <header className="bg-primary-700 text-secondary-400 p-5 w-full">
             <ThreeYellowLines />
-            <div className="container mx-auto">
-                <nav className="flex items-center justify-between">
+            <div className="">
+                <nav className="container mx-auto flex items-center justify-between">
                     <Link href="/" legacyBehavior>
-                        <Image src="/logo.svg" alt="Kogakuin Hackathon" width={100} height={40} />
+                        <Image src="/img/logo.svg" alt="Kogakuin Hackathon" width={100} height={40} className="ml-3"/>
                     </Link>
-
                     {/* 以下はスマホだと隠れる */}
                     <NavBar pathName={pathName} />
-
                     {/* ハンバーガーメニュー スマホだと表示される*/}
                     <HumbargerMenu open={open} toggleHamburger={toggleHamburger} />
-
                     {/* サイドバー スマホだと表示される*/}
                     <SideBar pathName={pathName} open={open} toggleHamburger={toggleHamburger} />
-
                 </nav>
             </div>
         </header>
@@ -71,7 +67,7 @@ const SideBar: React.FC<{ pathName: string, open: boolean, toggleHamburger: (eve
             <div className="bg-secondary-400 h-full text-primary-700">
                 <div className="bg-primary-700 w-full p-3">
                     <Link href="/" legacyBehavior>
-                        <Image src="/logo.svg" alt="Kogakuin Hackathon" width={100} height={40} className="m-auto" />
+                        <Image src="/img/logo.svg" alt="Kogakuin Hackathon" width={100} height={40} className="m-auto" />
                     </Link>
                 </div>
                 <ul className="flex flex-col space-y-3 p-3">
