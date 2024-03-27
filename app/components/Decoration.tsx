@@ -20,4 +20,10 @@ export const OneBlueLine = () => {
     )
 }
 
+export const SingleYellowLines = () => {
+    return (
+        <div className="absolute bg-secondary-200 py-96 w-full opacity-50" style={{clipPath: "polygon(0% 100%, 0% 80%, 100% 0%, 100% 20%)"}}></div>
+    )
+}
+
 export default ThreeYellowLines

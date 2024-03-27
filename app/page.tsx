@@ -42,7 +42,7 @@ export default function Home() {
       </div>
 
       <div className="my-10">
-        <div className="absolute bg-primary-200 py-52 w-full" style={{clipPath: "polygon(0% 100%, 0% 15%, 100% 0%, 100% 85%)"}}></div>
+        <div className="absolute bg-primary-200 py-52 w-full opacity-50" style={{clipPath: "polygon(0% 100%, 0% 15%, 100% 0%, 100% 85%)"}}></div>
         <div className="text-center relative top-14">
           <h1 className="text-primary-700 text-2xl md:text-4xl font-bold underline m-2 decoration-1 underline-offset-8">
             最新情報
