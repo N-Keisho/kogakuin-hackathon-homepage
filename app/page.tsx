@@ -1,6 +1,5 @@
 import Image from "next/image";
-import CustomButon from "./components/CustomButton";
-import { OneBlueLine } from "./components/Decoration";
+import SimpleButton from "./components/CustomButton";
 
 export default function Home() {
   return (
@@ -38,7 +37,7 @@ export default function Home() {
           <p className="text-sm md:text-lg m-4">成果を競い合うイベントです．</p>
         </div>
 
-        <CustomButon url="whats-hackathon" text="もっと詳しく！" />
+        <SimpleButton url="whats-hackathon" text="もっと詳しく！" />
       </div>
 
       <div className="my-10">

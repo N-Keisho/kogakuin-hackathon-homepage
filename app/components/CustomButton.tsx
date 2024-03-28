@@ -1,10 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import { useState } from 'react';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
-const CustomButon: React.FC<{ url: string, text: string, }> = ({ url, text }) => {
+
+// 単純なボタン
+const SimpleButton: React.FC<{ url: string, text: string, }> = ({ url, text }) => {
   return (
     <>
       <Link href={`${url}`} legacyBehavior>
@@ -15,11 +16,13 @@ const CustomButon: React.FC<{ url: string, text: string, }> = ({ url, text }) =>
     </>
   );
 }
+export default SimpleButton;
 
 
-
+// ページ送りボタン
 export const PageButton: React.FC<{ numOfDatas: number, onePageContents:number, pageIndex: number, pageHandler: (event: any) => void }> = ({ numOfDatas, onePageContents, pageIndex, pageHandler }) => {
-
+  let lowSkiped = false;
+  let highSkiped = false;
   return (
     <div >
       <button className={`m-2 h-7 w-7 text-white bg-primary-700 hover:bg-primary-400 ${pageIndex == 0 ? "hidden" : ""}`} onClick={() => pageHandler(pageIndex - 1)}>
@@ -27,7 +30,26 @@ export const PageButton: React.FC<{ numOfDatas: number, onePageContents:number, 
       </button>
       {
         Array.from({ length: Math.ceil(numOfDatas / onePageContents) }, (_, i) => i).map((i) => {
-          if ((i < pageIndex - 1 || i > pageIndex + 1) && i != 0 && i != (Math.ceil(numOfDatas / onePageContents) - 1)) return null;
+          if ((i < pageIndex - 1 || i > pageIndex + 1) && i != 0 && i != (Math.ceil(numOfDatas / onePageContents) - 1)){
+            // 2ページ以上離れたページはスキップ
+            if (!lowSkiped && i < pageIndex - 1){
+              lowSkiped = true;
+              return (
+                <a key={i} className={`m-1 h-7 w-7 text-primary-700 hover:bg-primary-400`} >
+                  ...
+                </a>
+              )
+            }
+            else if (!highSkiped && i > pageIndex + 1){
+              highSkiped = true;
+              return (
+                <a key={i} className={`m-1 h-7 w-7 text-primary-700 hover:bg-primary-400`} >
+                  ...
+                </a>
+              )
+            }
+            return null;
+          };
           return (
             <button key={i} className={`m-1 h-7 w-7 text-white bg-primary-700  ${pageIndex == i ? "bg-secondary-400 text-primary-700" : "hover:bg-primary-400"}`} onClick={() => pageHandler(i)} >
               {i + 1}
@@ -42,4 +64,3 @@ export const PageButton: React.FC<{ numOfDatas: number, onePageContents:number, 
   )
 }
 
-export default CustomButon;
