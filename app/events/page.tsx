@@ -1,8 +1,11 @@
+'use client';
 
 import React from 'react';
 import InfoCard from '../components/InfoCard';
 import DemoDeta from '../components/DemoDeta';
 import { SingleYellowLines } from '../components/Decoration';
+import { useState } from 'react';
+import { PageButton } from '../components/CustomButton';
 
 
 interface PageProps {
@@ -10,6 +13,10 @@ interface PageProps {
 }
 
 const Page: React.FC<PageProps> = () => {
+
+    const [pageIndex, setPageIndex] = useState(0);
+    const pageHandler = (index: number) => { setPageIndex(index) };
+    const onePageContents = 5;
 
 
     return (
@@ -19,12 +26,16 @@ const Page: React.FC<PageProps> = () => {
             </h1>
             <SingleYellowLines />
             <div className='w-full flex flex-col items-center'>
-            {
-                DemoDeta.map((data, index) => (
-                    <InfoCard key={index} id={index} title={data.titile} description={data.description} image={data.image} time={data.time} />
-                ))
-            }
+                {
+                    DemoDeta.map((data, index) => {
+                        if (index >= pageIndex * onePageContents && index < (pageIndex + 1) * onePageContents)
+                            return (
+                                <InfoCard key={index} category="events" id={index} title={data.titile} description={data.description} image={data.image} time={data.time} />
+                            );
+                    })
+                }
             </div>
+            <PageButton numOfDatas={DemoDeta.length} onePageContents={5} pageIndex={pageIndex} pageHandler={pageHandler} />
         </div>
     );
 };

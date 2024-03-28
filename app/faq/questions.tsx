@@ -1,3 +1,5 @@
+// 質問項目
+
 const questions = [
     {
         category: '全般の質問',
