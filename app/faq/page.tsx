@@ -8,7 +8,7 @@ const Page = () => {
                 <h1 className="text-2xl md:text-4xl text-primary-700 font-bold underline mt-4 mb-0 decoration-1 underline-offset-8 text-center ">
                     よくあるご質問
                 </h1>
-                <div className='w-full flex flex-col w-11/12 max-w-xl items-center'>
+                <div className='flex flex-col w-11/12 max-w-xl items-center'>
                     {questions.map((q, i) => (
                         <div key={i} className='w-full'>
                             <QuestionCategory category={q.category} />
