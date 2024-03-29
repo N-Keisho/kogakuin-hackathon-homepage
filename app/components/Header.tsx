@@ -77,12 +77,12 @@ const SideBar: React.FC<{ pathName: string, open: boolean, toggleHamburger: (eve
                         </Link>
                     </li>
                     <li>
-                        <Link href="/events" legacyBehavior>
+                        <Link href="/eventlist" legacyBehavior>
                             <a className={`hover:text-primary-500 underline-offset-4 font-bold ${pathName === '/events' ? "underline" : ""}`}>Events</a>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/news" legacyBehavior>
+                        <Link href="/newslist" legacyBehavior>
                             <a className={`hover:text-primary-500 underline-offset-4 font-bold ${pathName === '/news' ? "underline" : ""}`}>News</a>
                         </Link>
                     </li>
@@ -112,7 +112,7 @@ const NavBar: React.FC<{ pathName: string }> = ({ pathName }) => {
                     |
                 </li>
                 <li>
-                    <Link href="/events" legacyBehavior>
+                    <Link href="/eventlist" legacyBehavior>
                         <a className={`hover:text-secondary-200 underline-offset-4 font-bold ${pathName === '/events' ? "underline" : ""}`}>Events</a>
                     </Link>
                 </li>
@@ -120,7 +120,7 @@ const NavBar: React.FC<{ pathName: string }> = ({ pathName }) => {
                     |
                 </li>
                 <li>
-                    <Link href="/news" legacyBehavior>
+                    <Link href="/newslist" legacyBehavior>
                         <a className={`hover:text-secondary-200 underline-offset-4 font-bold ${pathName === '/news' ? "underline" : ""}`}>News</a>
                     </Link>
                 </li>
