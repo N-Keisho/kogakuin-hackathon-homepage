@@ -12,7 +12,7 @@ interface InfoCardProps {
 }
 
 const InfoCard: React.FC<InfoCardProps> = ({ category, id, title, description, thumbnaile, time }) => {
-    
+
     let isActivated = false;
 
     // titleの識別子の削除
@@ -20,12 +20,12 @@ const InfoCard: React.FC<InfoCardProps> = ({ category, id, title, description, t
     if (title.includes('???')) title = title.replace('???', '');
 
     // titleに@@が含まれている場合、isActivatedをtrueにして、@を削除する（開催中のイベント）
-    if(title.includes('@@')){
+    if (title.includes('@@')) {
         title = title.replace('@@', '');
         isActivated = true;
     }
 
-    if(title.length > 30) title = title.slice(0, 30) + '...';
+    if (title.length > 30) title = title.slice(0, 30) + '...';
     if (description.length > 55) description = description.slice(0, 55) + '...';
 
     return (
@@ -40,14 +40,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ category, id, title, description, t
                         <p className="text-xs md:text-sm text-gray-600 my-1">{description}</p>
                         <p className="text-black opacity-60 text-right text-xs absolute right-3 bottom-1 ">{time}</p>
                     </div>
-                    <div
-                        className={`${category == "event" ? "" : "hidden"} 
-                                    ${isActivated ? "bg-secondary-400" : "bg-white"}
-                                    text-primary-700 text-xs md:text-sm text-center font-bold absolute -top-2 -right-2 p-1 rounded-sm w-12 md:w-16 border border-primary-700
-                                `}
-                    >
-                        {isActivated ? "開催中" : "終了"}
-                    </div>
+                    <StatusBadge isActivated={isActivated} category={category} />
                 </div>
             </Link>
         </>
@@ -55,3 +48,19 @@ const InfoCard: React.FC<InfoCardProps> = ({ category, id, title, description, t
 };
 
 export default InfoCard;
+
+
+// 開催中か終了かを示すバッジ
+const StatusBadge: React.FC<{ isActivated: boolean, category: string, className?: string }> = ({ isActivated, category, className }) => {
+
+    return (
+        <div
+            className={`${category == "event" ? "" : "hidden"} 
+                        ${isActivated ? "bg-secondary-400" : "bg-white"}
+                        text-primary-700 text-xs md:text-sm text-center font-bold absolute -top-2 -right-2 p-1 rounded-sm w-12 md:w-16 border border-primary-700
+                    `}
+        >
+            {isActivated ? "開催中" : "終了"}
+        </div>
+    );
+};

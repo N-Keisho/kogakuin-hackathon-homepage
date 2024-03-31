@@ -32,9 +32,9 @@ const Page: React.FC<PageProps> = () => {
                         if (index >= pageIndex * onePageContents && index < (pageIndex + 1) * onePageContents)
                             return (
                                 <InfoCard 
-                                key={index} 
+                                key={data.Id} 
                                 category="news" 
-                                id={index} 
+                                id={data.Id} 
                                 title={data.Title} 
                                 description={data.Description} 
                                 thumbnaile={data.Thumbnail} 
