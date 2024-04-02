@@ -2,24 +2,25 @@ import Image from "next/image";
 import SimpleButton from "./components/CustomButton";
 import { MiniInfoCard } from "./components/InfoCard";
 import DemoData from "./components/DemoData";
-import { title } from "process";
+import Link from "next/link";
 
 export default function Home() {
 
 
-  const Data = DemoData.filter((data) => data.Title.includes('???'));
+  const CurrentEvent = DemoData.filter((data) => data.Title.includes('!!!'))[0];
+  const NewsData = DemoData.filter((data) => data.Title.includes('???'));
 
 
 
 
   return (
     <>
-      <CuttentEvent />
+      <CuttentEvent id={CurrentEvent.Id} thumbnaile={CurrentEvent.Thumbnail} />
       <Explanation />
       {/* <div className="py-2"></div> */}
 
       <div className="my-32 md:m-24 flex justify-center items-center">
-        <div className={`absolute bg-primary-200 w-full opacity-50 ${Data.length > 3 ? 'py-72' : 'py-44'}`} style={{ clipPath: "polygon(0% 100%, 0% 15%, 100% 0%, 100% 85%)" }}></div>
+        <div className={`absolute bg-primary-200 w-full opacity-50 ${NewsData.length > 3 ? 'py-72' : 'py-44'}`} style={{ clipPath: "polygon(0% 100%, 0% 15%, 100% 0%, 100% 85%)" }}></div>
         <div className="text-center relative -top-3">
           <h1 className="text-primary-700 text-2xl md:text-4xl font-bold underline m-2 decoration-1 underline-offset-8">
             最新情報
@@ -28,7 +29,7 @@ export default function Home() {
           <div className="w-full">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full justify-center items-center">
               {
-                Data.map((data, index) => {
+                NewsData.map((data, index) => {
                   if (index > 5) return;
                   const titile = data.Title.replace('???', '');
                   return (
@@ -49,16 +50,15 @@ export default function Home() {
 }
 
 
-const CuttentEvent: React.FC = () => {
+const CuttentEvent: React.FC<{ id: number, thumbnaile: string }> = ({ id, thumbnaile }) => {
   return (
     <div className="bg-secondary-400 p-8 md:p-14 text-center flex justify-center items-center">
       <div className="animate-shake-vertical">
-        <Image
-          src="/img/currentEventDemo.svg"
-          alt="Next.js Logo"
-          width={600}
-          height={600}
-        />
+        <Link href={`event?id=${id}`} legacyBehavior>
+          <div className='hover:animate-pulse'>
+            <Image src={thumbnaile} alt="Image" sizes="(max-width: 1000px) 100vw" className="w-full" width={600} height={600} />
+          </div>
+        </Link>
       </div>
     </div>
   )

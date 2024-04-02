@@ -66,6 +66,19 @@ export const MiniInfoCard: React.FC<{ category: string, id: number, title: strin
     )
 }
 
+export const TopInfoCard: React.FC<{ id: number, thumbnaile: string }> = ({ id, thumbnaile }) => {
+
+    return (
+        <>
+            <Link href={`event?id=${id}`} legacyBehavior>
+                <div className='w-40 md:w-48 hover:animate-pulse'>
+                    <Image src={thumbnaile} alt="Image" sizes="(max-width: 1000px) 100vw" className="w-full" width={300} height={300} />
+                </div>
+            </Link>
+        </>
+    )
+}
+
 
 // 開催中か終了かを示すバッジ
 const StatusBadge: React.FC<{ isActivated: boolean, category: string, className?: string }> = ({ isActivated, category, className }) => {
