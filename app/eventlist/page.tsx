@@ -19,7 +19,7 @@ const Page: React.FC<PageProps> = () => {
     const onePageContents = 5;
 
 
-    const Data = DemoData.filter((data) => data.Title.slice(0, 3) === '!!!');
+    const Data = DemoData.filter((data) => data.title.slice(0, 3) === '!!!');
 
 
     return (
@@ -34,13 +34,13 @@ const Page: React.FC<PageProps> = () => {
                         if (index >= pageIndex * onePageContents && index < (pageIndex + 1) * onePageContents){
                             return (
                                 <InfoCard
-                                    key={data.Id}
+                                    key={data.id}
                                     category="event"
-                                    id={data.Id}
-                                    title={data.Title}
-                                    description={data.Description}
-                                    thumbnaile={data.Thumbnail}
-                                    time={data.CreateAt}
+                                    id={data.id}
+                                    title={data.title}
+                                    description={data.description}
+                                    thumbnaile={data.thumbnail}
+                                    time={data.created_at}
                                 />
                             );
                         }

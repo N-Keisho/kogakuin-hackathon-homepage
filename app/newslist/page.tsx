@@ -18,7 +18,7 @@ const Page: React.FC<PageProps> = () => {
     const pageHandler = (index: number) => { setPageIndex(index) };
     const onePageContents = 5;
 
-    const Data = DemoDeta.filter((data) => data.Title.slice(0, 3) === '???');
+    const Data = DemoDeta.filter((data) => data.title.slice(0, 3) === '???');
 
     return (
         <div className='p-5 justify-center flex flex-col items-center w-full'>
@@ -32,13 +32,13 @@ const Page: React.FC<PageProps> = () => {
                         if (index >= pageIndex * onePageContents && index < (pageIndex + 1) * onePageContents)
                             return (
                                 <InfoCard 
-                                key={data.Id} 
+                                key={data.id} 
                                 category="news" 
-                                id={data.Id} 
-                                title={data.Title} 
-                                description={data.Description} 
-                                thumbnaile={data.Thumbnail} 
-                                time={data.CreateAt} />
+                                id={data.id} 
+                                title={data.title} 
+                                description={data.description} 
+                                thumbnaile={data.thumbnail} 
+                                time={data.created_at} />
                             );
                     })
                 }

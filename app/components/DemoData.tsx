@@ -1,16 +1,27 @@
 // テスト用のデータ
 
-import { Article } from '@/types/database';
+import { Article } from "@/types/article";
+import { User } from "@/types/user"
+import { TagHead } from "@/types/tag";
+
+const DemoUer : User = {
+    id: 0,
+    username : "Test"
+}
+
+const DemoTags : TagHead[] = [];
 
 const DemoData: Article[] = [
     {
-        Id: 1,
-        Title: '!!!@@DemoDeta1',
-        UserId: 1,
-        Thumbnail: 'img/currentEventDemo.svg',
-        Description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
-        SeriesId: 1,
-        Body: `
+        id: 0,
+        title: '!!!@@DemoDeta1',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: `
 # セクション0
 
 これは**マークダウン**のデモです。
@@ -48,17 +59,17 @@ console.log(message);
 \`\`\`
 [<button>ボタン](https://example.com)
         `,
-        GroupId: 1,
-        CreateAt: '2024.3.20',
     },
     {
-        Id: 2,
-        Title: '!!!@@DemoDeta2',
-        UserId: 2,
-        Thumbnail: 'img/currentEventDemo.svg',
-        Description: 'DemoDeta2です．DemoDeta2です．DemoDeta2です．DemoDeta2です．DemoDeta2です．DemoDeta2です．',
-        SeriesId: 2,
-        Body: `\
+        id: 1,
+        title: '!!!@@DemoDeta2',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: `
 # KogCoder主催クリスマスハッカソン
 
 ## ハッカソンとは
@@ -159,98 +170,220 @@ console.log(message);
 [<button>📧Mail](mailto:j222403@g.kogakuin.jp)
 [<button>🐦Twitter](https://twitter.com/kogcoder)  
 皆様のご応募をお待ちしております！質問等があれば遠慮なくご連絡ください！  
-また、興味のありそうなお友達に共有していただけると助かります！   
-`,
-        GroupId: 2,
-        CreateAt: '2024.3.21',
+また、興味のありそうなお友達に共有していただけると助かります！      
+        
+        
+        
+        `
     },
     {
-        Id: 3,
-        Title: '!!!DemoDeta3',
-        UserId: 3,
-        Thumbnail: 'img/currentEventDemo.svg',
-        Description: 'DemoDeta3です．DemoDeta3です．DemoDeta3です．DemoDeta3です．DemoDeta3です．DemoDeta3です．',
-        SeriesId: 3,
-        Body: 'DemoDeta3です．DemoDeta3です．DemoDeta3です．DemoDeta3です．DemoDeta3です．DemoDeta3です．',
-        GroupId: 3,
-        CreateAt: '2024.3.22',
+        id: 2,
+        title: '???@@DemoDeta2',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
     },
     {
-        Id: 4,
-        Title: '???DemoDeta4',
-        UserId: 4,
-        Thumbnail: 'img/currentEventDemo.svg',
-        Description: 'DemoDeta4です．DemoDeta4です．DemoDeta4です．DemoDeta4です．DemoDeta4です．DemoDeta4です．',
-        SeriesId: 4,
-        Body: 'DemoDeta4です．DemoDeta4です．DemoDeta4です．DemoDeta4です．DemoDeta4です．DemoDeta4です．',
-        GroupId: 4,
-        CreateAt: '2024.3.23',
+        id: 3,
+        title: '???@@DemoDeta3',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
     },
     {
-        Id: 5,
-        Title: '???DemoDeta5',
-        UserId: 5,
-        Thumbnail: 'img/currentEventDemo.svg',
-        Description: 'DemoDeta5です．DemoDeta5です．DemoDeta5です．DemoDeta5です．DemoDeta5です．DemoDeta5です．',
-        SeriesId: 5,
-        Body: 'DemoDeta5です．DemoDeta5です．DemoDeta5です．DemoDeta5です．DemoDeta5です．DemoDeta5です．',
-        GroupId: 5,
-        CreateAt: '2024.3.24',
+        id: 4,
+        title: '!!!DemoDeta4',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
     },
     {
-        Id: 6,
-        Title: '???DemoDeta6',
-        UserId: 6,
-        Thumbnail: 'img/currentEventDemo.svg',
-        Description: 'DemoDeta6です．DemoDeta6です．DemoDeta6です．DemoDeta6です．DemoDeta6です．DemoDeta6です．',
-        SeriesId: 6,
-        Body: 'DemoDeta6です．DemoDeta6です．DemoDeta6です．DemoDeta6です．DemoDeta6です．DemoDeta6です．',
-        GroupId: 6,
-        CreateAt: '2024.3.25',
+        id: 5,
+        title: '!!!DemoDeta5',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
     },
     {
-        Id: 7,
-        Title: '???DemoDeta7',
-        UserId: 7,
-        Thumbnail: 'img/currentEventDemo.svg',
-        Description: 'DemoDeta7です．DemoDeta7です．DemoDeta7です．DemoDeta7です．DemoDeta7です．DemoDeta7です．',
-        SeriesId: 7,
-        Body: 'DemoDeta7です．DemoDeta7です．DemoDeta7です．DemoDeta7です．DemoDeta7です．DemoDeta7です．',
-        GroupId: 7,
-        CreateAt: '2024.3.26',
+        id: 6,
+        title: '!!!DemoDeta6',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
     },
     {
-        Id: 8,
-        Title: '!!!@@DemoDeta8',
-        UserId: 8,
-        Thumbnail: 'img/currentEventDemo.svg',
-        Description: 'DemoDeta8です．DemoDeta8です．DemoDeta8です．DemoDeta8です．DemoDeta8です．DemoDeta8です．',
-        SeriesId: 8,
-        Body: 'DemoDeta8です．DemoDeta8です．DemoDeta8です．DemoDeta8です．DemoDeta8です．DemoDeta8です．',
-        GroupId: 8,
-        CreateAt: '2024.3.27',
+        id: 7,
+        title: '!!!DemoDeta7',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
     },
     {
-        Id: 9,
-        Title: '!!!@@DemoDeta9',
-        UserId: 9,
-        Thumbnail: 'img/currentEventDemo.svg',
-        Description: 'DemoDeta9です．DemoDeta9です．DemoDeta9です．DemoDeta9です．DemoDeta9です．DemoDeta9です．',
-        SeriesId: 9,
-        Body: 'DemoDeta9です．DemoDeta9です．DemoDeta9です．DemoDeta9です．DemoDeta9です．DemoDeta9です．',
-        GroupId: 9,
-        CreateAt: '2024.3.28',
+        id: 8,
+        title: '!!!DemoDeta8',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
     },
     {
-        Id: 10,
-        Title: '!!!DemoDeta10',
-        UserId: 10,
-        Thumbnail: 'img/currentEventDemo.svg',
-        Description: 'DemoDeta10です．DemoDeta10です．DemoDeta10です．DemoDeta10です．DemoDeta10です．DemoDeta10です．',
-        SeriesId: 10,
-        Body: 'DemoDeta10です．DemoDeta10です．DemoDeta10です．DemoDeta10です．DemoDeta10です．DemoDeta10です．',
-        GroupId: 10,
-        CreateAt: '2024.3.29',
+        id: 9,
+        title: '???DemoDeta9',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
+    },
+    {
+        id: 10,
+        title: '???DemoDeta10',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
+    },
+    {
+        id: 11,
+        title: '!!!DemoDeta11',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
+    },
+    {
+        id: 12,
+        title: '!!!DemoDeta12',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
+    },
+    {
+        id: 13,
+        title: '!!!DemoDeta13',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
+    },
+    {
+        id: 14,
+        title: '!!!DemoDeta14',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
+    },
+    {
+        id: 15,
+        title: '!!!DemoDeta15',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
+    },
+    {
+        id: 16,
+        title: '!!!DemoDeta16',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
+    },
+    {
+        id: 17,
+        title: '!!!DemoDeta17',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
+    },
+    {
+        id: 18,
+        title: '!!!DemoDeta18',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
+    },
+    {
+        id: 19,
+        title: '!!!DemoDeta19',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
+    },
+    {
+        id: 20,
+        title: '!!!DemoDeta20',
+        user: DemoUer,
+        thumbnail: 'img/currentEventDemo.svg',
+        description: 'DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．DemoDetaです．',
+        series_id: 1,
+        created_at: "2024.3.20",
+        tags: DemoTags,
+        body: "DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．DemoDataです．"
     }
 
 ]

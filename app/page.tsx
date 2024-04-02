@@ -7,15 +7,15 @@ import Link from "next/link";
 export default function Home() {
 
 
-  const CurrentEvent = DemoData.filter((data) => data.Title.includes('!!!'))[0];
-  const NewsData = DemoData.filter((data) => data.Title.includes('???'));
+  const CurrentEvent = DemoData.filter((data) => data.title.includes('!!!'))[0];
+  const NewsData = DemoData.filter((data) => data.title.includes('???'));
 
 
 
 
   return (
     <>
-      <CuttentEvent id={CurrentEvent.Id} thumbnaile={CurrentEvent.Thumbnail} />
+      <CuttentEvent id={CurrentEvent.id} thumbnaile={CurrentEvent.thumbnail} />
       <Explanation />
       {/* <div className="py-2"></div> */}
 
@@ -31,9 +31,9 @@ export default function Home() {
               {
                 NewsData.map((data, index) => {
                   if (index > 5) return;
-                  const titile = data.Title.replace('???', '');
+                  const titile = data.title.replace('???', '');
                   return (
-                    <MiniInfoCard key={index} category="news" id={data.Id} title={titile} thumbnaile={data.Thumbnail} time={data.CreateAt} />
+                    <MiniInfoCard key={index} category="news" id={data.id} title={titile} thumbnaile={data.thumbnail} time={data.created_at} />
                   )
                 })
               }
@@ -41,7 +41,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
       <div className="py-4">
 
       </div>

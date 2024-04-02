@@ -11,7 +11,7 @@ const Page: React.FC = () => {
     const Data = DemoData[Number(id) - 1];
 
     // 識別子に応じて返す内容を変更
-    if (Data.Title.includes('???')){
+    if (Data.title.includes('???')){
         return (
             <>
                 <EventNewsPage Data={Data} />

@@ -4,7 +4,7 @@ import React from 'react';
 import DemoData from '../components/DemoData';
 import EventNewsPage from '../components/EventNewsPage';
 import DefaultErrorPage from 'next/error'
-import { Article } from '@/types/database';
+import { Article } from '@/types/article';
 
 const Page: React.FC = () => {
 
@@ -21,15 +21,18 @@ export default Page;
 
 
 const WhatsHackathonData : Article = {
-    Id: 1,
-    Title: 'ハッカソンってなに？',
-    UserId: 1,
-    Thumbnail: 'img/currentEventDemo.svg',
-    Description: 'WhatsHackathonです．WhatsHackathonです．WhatsHackathonです．WhatsHackathonです．WhatsHackathonです．WhatsHackathonです．',
-    SeriesId: 1,
-    GroupId: 1,
-    CreateAt: '2024.4.1',
-    Body: `
+    id: 1,
+    title: 'ハッカソンってなに？',
+    user: {
+        id: 0,
+        username: "test"
+    },
+    thumbnail: 'img/currentEventDemo.svg',
+    description: 'WhatsHackathonです．WhatsHackathonです．WhatsHackathonです．WhatsHackathonです．WhatsHackathonです．WhatsHackathonです．',
+    series_id: 1,
+    created_at: '2024.4.1',
+    tags: [],
+    body: `
 # ハッカソンとは？
 
 ハッカソンとは「**ハック**」と「**マラソン**」を組み合わせた言葉で，短期間でプロジェクトを企画．開発し，成果を競い合うイベントです．

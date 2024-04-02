@@ -12,13 +12,13 @@ const Page: React.FC = () => {
 
     let isActivated = false;
     // titleに@@が含まれている場合、isActivatedをtrueにして、@を削除する（開催中のイベント）
-    if (Data.Title.includes('@@')) {
+    if (Data.title.includes('@@')) {
         isActivated = true;
     }
 
 
     // 識別子に応じて返す内容を変更
-    if (Data.Title.includes('!!!')) {
+    if (Data.title.includes('!!!')) {
         return (
             <>
                 <EventNewsPage Data={Data} Badge={true} isActivated={isActivated} />

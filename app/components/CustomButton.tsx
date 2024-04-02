@@ -7,13 +7,11 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 // 単純なボタン
 const SimpleButton: React.FC<{ url: string, text: string, }> = ({ url, text }) => {
   return (
-    <div className='my-4'>
-      <Link href={`${url}`} legacyBehavior>
-        <a className="bg-secondary-400 hover:bg-secondary-300 text-primary-700 font-bold py-2 px-5 rounded-full">
+      <Link href={`${url}`} legacyBehavior className='my-4'>
+        <a className="bg-secondary-400 hover:bg-secondary-300 text-primary-700 font-bold py-2 px-5 my-4 rounded-full">
           {text}
         </a>
       </Link>
-    </div>
   );
 }
 export default SimpleButton;
