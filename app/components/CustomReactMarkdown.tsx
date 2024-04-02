@@ -18,7 +18,7 @@ const CustomReactMarkdown: React.FC<CustomReactMarkdownProps> = ({ content, clas
                 remarkPlugins={[remarkGfm]}
                 className={className}
                 components={{
-                    h1: ({ children }) => <h1 className='text-2xl md:text-3xl font-bold mt-8 mb-4 p-2 text-primary-700 border-y-2  border-primary-700 border-dashed bg-secondary-200'>{children}</h1>,
+                    h1: ({ children }) => <h1 className='text-2xl md:text-3xl font-bold mt-8 mb-4 p-2 text-primary-700 border-y-2  border-primary-700 border-dashed bg-primary-100'>{children}</h1>,
                     h2: ({ children }) => <h2 className='text-xl md:text-2xl text-primary-700 font-bold mt-6 mb-3 underline underline-offset-4'>{children}</h2>,
                     h3: ({ children }) => <h3 className='text-lg md:text-xl text-primary-700 font-bold mt-4 mb-2'>{children}</h3>,
                     h4: ({ children }) => <h4 className='text-base md:text-lg text-primary-700 font-bold mt-2 mb-1'>{children}</h4>,
