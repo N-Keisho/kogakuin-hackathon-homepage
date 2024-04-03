@@ -1,5 +1,5 @@
-import { TagHead } from "@/types/tag";
-import { User} from "@/types/user";
+import { TagHead } from "./tag";
+import { User } from "./user";
 
 export interface Article {
     id: number;
@@ -23,26 +23,3 @@ export interface ArticleHead {
     series_id: number;
     tags: TagHead[];
 }
-
-export interface ArticleCreate {
-    title: string;
-    thumbnail: string;
-    description: string;
-    body: string;
-    series_id: number;
-    tag_ids: string;
-}
-
-export interface ArticleUpdate {
-    title?: string;
-    thumbnail?: string;
-    description?: string;
-    body?: string;
-    series_id?: number;
-    tag_ids?: string;
-}
-
-export interface ArticleDelete {
-    id: number;
-}
-
