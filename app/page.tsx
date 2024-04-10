@@ -54,9 +54,7 @@ const CuttentEvent: React.FC<{ id: number, thumbnaile: string }> = ({ id, thumbn
     <div className="bg-secondary-400 p-8 md:p-14 text-center flex justify-center items-center">
       <div className="animate-shake-vertical">
         <Link href={`event?id=${id}`} legacyBehavior>
-          <div className='hover:animate-pulse'>
-            <Image src={thumbnaile} alt="Image" sizes="(max-width: 1000px) 100vw" className="w-full" width={600} height={600} />
-          </div>
+            <Image src={thumbnaile}  alt="Image" sizes="(max-width: 1000px) 100vw" className="w-full hover:animate-pulse" width={600} height={600} />
         </Link>
       </div>
     </div>
@@ -66,26 +64,26 @@ const CuttentEvent: React.FC<{ id: number, thumbnaile: string }> = ({ id, thumbn
 
 const Explanation: React.FC = () => {
   return (
-    <div className="text-primary-700 text-center m-10">
-      <div className="my-10">
+    <div className="text-primary-700 text-center flex flex-col items-center my-10">
+      <div className="my-5">
         <h1 className="text-2xl md:text-4xl font-bold underline my-4 decoration-1 underline-offset-8">
           工学院ハッカソンとは？
         </h1>
-        <p className="text-sm md:text-lg m-4">工学院ハッカソンとは</p>
-        <p className="text-sm md:text-lg m-4">工学院大学の学生を対象とした</p>
-        <p className="text-sm md:text-lg m-4">ものづくりイベントです．</p>
-        <p className="text-base md:text-xl font-bold m-2">ワクワクを生み出すのだ！</p>
+        <p className="text-lg md:text-xl m-4">工学院ハッカソンとは</p>
+        <p className="text-lg md:text-xl m-4">工学院大学の学生を対象とした</p>
+        <p className="text-lg md:text-xlg m-4">ものづくりイベントです．</p>
+        <p className="text-lg md:text-2xl font-bold m-2">ワクワクを生み出すのだ！</p>
       </div>
-      <div className="my-10">
+      <div className="my-5">
         <h1 className="text-2xl md:text-4xl font-bold underline m-2 decoration-1 underline-offset-8">
           ハッカソンってなに？
         </h1>
-        <p className="text-sm md:text-lg m-4"><span className="font-bold">ハッカソン</span>とは</p>
-        <p className="text-sm md:text-lg m-4"><span className="font-bold">「ハック」</span>と<span className="font-bold">「マラソン」</span></p>
-        <p className="text-sm md:text-lg m-4">を組み合わせた言葉</p>
+        <p className="text-lg md:text-xl m-4"><span className="font-bold">ハッカソン</span>とは</p>
+        <p className="text-lg md:text-xl m-4"><span className="font-bold">「ハック」</span>と<span className="font-bold">「マラソン」</span></p>
+        <p className="text-lg md:text-xl m-4">を組み合わせた言葉</p>
 
-        <p className="text-sm md:text-lg m-4 mt-8">短期間でプロジェクトを企画・開発し，</p>
-        <p className="text-sm md:text-lg m-4">成果を競い合うイベントです．</p>
+        <p className="text-lg md:text-xl m-4 mt-8">短期間でプロジェクトを企画・開発し，</p>
+        <p className="text-lg md:text-xl m-4">成果を競い合うイベントです．</p>
       </div>
 
       <SimpleButton url="whats-hackathon" text="もっと詳しく！" />

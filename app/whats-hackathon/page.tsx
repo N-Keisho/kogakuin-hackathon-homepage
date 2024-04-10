@@ -1,9 +1,7 @@
 'use client'
-import { useSearchParams } from 'next/navigation';
 import React from 'react';
 import DemoData from '../components/DemoData';
 import EventNewsPage from '../components/EventNewsPage';
-import DefaultErrorPage from 'next/error'
 import { Article } from '@/types/article';
 
 const Page: React.FC = () => {

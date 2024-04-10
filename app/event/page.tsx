@@ -8,7 +8,7 @@ import DefaultErrorPage from 'next/error'
 const Page: React.FC = () => {
 
     const id = useSearchParams().get('id');
-    const Data = DemoData[Number(id) - 1];
+    const Data = DemoData[Number(id)];
 
     let isActivated = false;
     // titleに@@が含まれている場合、isActivatedをtrueにして、@を削除する（開催中のイベント）

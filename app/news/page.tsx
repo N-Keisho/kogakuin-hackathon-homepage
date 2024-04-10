@@ -8,7 +8,7 @@ import DefaultErrorPage from 'next/error'
 const Page: React.FC = () => {
 
     const id = useSearchParams().get('id');
-    const Data = DemoData[Number(id) - 1];
+    const Data = DemoData[Number(id)];
 
     // 識別子に応じて返す内容を変更
     if (Data.title.includes('???')){
