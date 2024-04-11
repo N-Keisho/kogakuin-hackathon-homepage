@@ -18,19 +18,23 @@ const CustomReactMarkdown: React.FC<CustomReactMarkdownProps> = ({ content, clas
                 remarkPlugins={[remarkGfm]}
                 className={className}
                 components={{
-                    h1: ({ children }) => <h1 className='text-2xl md:text-3xl font-bold mt-8 mb-4 p-2 text-primary-700 border-y-2  border-primary-700 border-dashed bg-primary-100'>{children}</h1>,
-                    h2: ({ children }) => <h2 className='text-xl md:text-2xl text-primary-700 font-bold mt-6 mb-3 underline underline-offset-4'>{children}</h2>,
+                    h1: ({ children }) => <h1 className='text-2xl md:text-3xl font-bold mt-10 mb-4 p-1 text-primary-700 border-b-2 border-primary-100 '>
+                        {children}
+                        </h1>,
+                    h2: ({ children }) => <h2 className='text-xl md:text-2xl text-primary-700 font-bold mt-6 mb-3 '>{children}</h2>,
                     h3: ({ children }) => <h3 className='text-lg md:text-xl text-primary-700 font-bold mt-4 mb-2'>{children}</h3>,
                     h4: ({ children }) => <h4 className='text-base md:text-lg text-primary-700 font-bold mt-2 mb-1'>{children}</h4>,
                     // h5: ({ children }) => <h5 className='text-sm md:text-base text-primary-700 font-bold mt-2 mb-1'>{children}</h5>,
                     // h6: ({ children }) => <h6 className='text-sm md:text-base text-primary-700 font-bold mt-2 mb-1'>{children}</h6>,
                     ol: ({ children }) => <ol className='list-decimal list-inside'>{children}</ol>,
                     ul: ({ children }) => <ul className='list-disc list-inside'>{children}</ul>,
-                    li: ({ children }) => <li className='text-base md:text-lg my-2'>{children}</li>,
+                    li: ({ children }) => <li className='text-base md:text-lg my-2 marker:text-secondary-400 marker:font-bold'>{children}</li>,
                     p: ({ children }) => <p className='text-base md:text-lg my-3 leading-9'>{children}</p>,
-                    img: ({ src, alt }) => <Image src={String(src)} alt={String(alt)} className='object-fit w-11/12 max-w-xl' width={300} height={300} />,
-                    blockquote: ({ children }) => <blockquote className='border-l-2 border-primary-700 p-2 my-4 bg-primary-50 rounded-r'>{children}</blockquote>,
-                    code: ({ children }) => <div className='bg-primary-50 border border-primary-700 p-3 my-4 rounded'><code>{children}</code></div>,
+                    img: ({ src, alt }) =><div className='flex flex-col justify-center items-center'> 
+                        <Image src={String(src)} alt={String(alt)} className='object-fit w-11/12 max-w-xl rounded-md' width={200} height={200} />
+                    </div>,
+                    blockquote: ({ children }) => <blockquote className='border-l-4 border-secondary-400 p-2 pl-4 my-4 bg-secondary-50 rounded-r'>{children}</blockquote>,
+                    code: ({ children }) => <div className='bg-primary-900 border border-primary-700 p-3 my-4 rounded text-white'><code>{children}</code></div>,
                     strong: ({ children }) => <strong className='font-bold'>{children}</strong>,
                     em: ({ children }) => <em className='italic'>{children}</em>,
                     a: ({ node, href, ...props }) => {     
