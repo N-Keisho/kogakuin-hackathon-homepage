@@ -1,11 +1,14 @@
 'use client'
 
-import React from 'react';
+import React, { use } from 'react';
 import InfoCard from '../components/InfoCard';
 import DemoDeta from '../components/DemoData';
 import { SingleYellowLines } from '../components/Decoration';
 import { useState } from 'react';
 import { PageButton } from '../components/CustomButton';
+import { getArticles } from '@/libs/article';
+import { useEffect } from 'react';
+import { ArticleHead } from '@/types/article';
 
 
 interface PageProps {
@@ -18,7 +21,20 @@ const Page: React.FC<PageProps> = () => {
     const pageHandler = (index: number) => { setPageIndex(index) };
     const onePageContents = 5;
 
-    const Data = DemoDeta.filter((data) => data.title.slice(0, 3) === '???');
+    // const tmp =  await getArticles();
+    // console.log(tmp);
+
+    const [Data, setData] = useState<ArticleHead[] | null>();
+    useEffect(() => {
+        getArticles().then((data) => {
+            const news = data?.filter((data) => data.title.slice(0, 3) === '???');
+            setData(news);
+            // data?.map((d) => console.log(d));
+        });
+    }, []);
+
+    // const Data = DemoDeta.filter((data) => data.title.slice(0, 3) === '???');
+    const length = Data?.length || 0;
 
     return (
         <div className='p-5 justify-center flex flex-col items-center w-full'>
@@ -28,7 +44,7 @@ const Page: React.FC<PageProps> = () => {
             <SingleYellowLines />
             <div className='w-full flex flex-col items-center'>
                 {
-                    Data.map((data, index) => {
+                    Data?.map((data, index) => {
                         if (index >= pageIndex * onePageContents && index < (pageIndex + 1) * onePageContents)
                             return (
                                 <InfoCard 
@@ -43,7 +59,7 @@ const Page: React.FC<PageProps> = () => {
                     })
                 }
             </div>
-            <PageButton numOfDatas={Data.length} onePageContents={5} pageIndex={pageIndex} pageHandler={pageHandler} />
+            <PageButton numOfDatas={length} onePageContents={5} pageIndex={pageIndex} pageHandler={pageHandler} />
         </div>
     );
 };

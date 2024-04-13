@@ -41,7 +41,9 @@ const Question:React.FC<{ question:string, answer:string }> = ({ question, answe
                 <a className='text-primary-700 font-bold text-xl md:text-2xl'>Q</a>
                 <a className='font-bold pl-2 text-lg md:text-xl'>{question}</a>
             </div>
-            <a className='pl-6 my-4 text-base md:text-lg'>{answer}</a>
+            <div className='pl-6'>
+            <a className=' my-4 text-base md:text-lg'>{answer}</a>
+            </div>
             <div className='border-b border-black h-0 border-dashed mt-3'></div>
         </div>
     );

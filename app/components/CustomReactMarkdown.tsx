@@ -28,7 +28,7 @@ const CustomReactMarkdown: React.FC<CustomReactMarkdownProps> = ({ content, clas
                     // h6: ({ children }) => <h6 className='text-sm md:text-base text-primary-700 font-bold mt-2 mb-1'>{children}</h6>,
                     ol: ({ children }) => <ol className='list-decimal list-inside'>{children}</ol>,
                     ul: ({ children }) => <ul className='list-disc list-inside'>{children}</ul>,
-                    li: ({ children }) => <li className='text-base md:text-lg my-2 marker:text-secondary-400 marker:font-bold'>{children}</li>,
+                    li: ({ children }) => <li className='text-base md:text-lg my-2 marker:font-bold'>{children}</li>,
                     p: ({ children }) => <p className='text-base md:text-lg my-3 leading-9'>{children}</p>,
                     img: ({ src, alt }) =><div className='flex flex-col justify-center items-center'> 
                         <Image src={String(src)} alt={String(alt)} className='object-fit w-11/12 max-w-xl rounded-md' width={200} height={200} />

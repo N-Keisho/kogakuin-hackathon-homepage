@@ -1,8 +1,10 @@
+'use server'
+
 import { Article, ArticleHead } from "@/types/article";
 
-export async function getArticles(groupName: string): Promise<ArticleHead[] | null> {
+export async function getArticles(): Promise<ArticleHead[] | null> {
     try {
-        const response = await fetch(process.env.CMS_URL + groupName + "/article");
+        const response = await fetch(String(process.env.CMS_URL) + String(process.env.GROUP_NAME) + "/article");
         const json: ArticleHead[] = await response.json();
         return json;
     } catch (error) {
@@ -11,9 +13,9 @@ export async function getArticles(groupName: string): Promise<ArticleHead[] | nu
     }
 }
 
-export async function getArticle(groupName: string, articleID: string): Promise<Article | null> {
+export async function getArticle(articleID: string): Promise<Article | null> {
     try {
-        const response = await fetch(process.env.CMS_URL + groupName + "/article/" + articleID);
+        const response = await fetch(String(process.env.CMS_URL) + String(process.env.GROUP_NAME) + "/article/" + articleID);
         const json: Article = await response.json();
         return json;
     } catch (error) {
