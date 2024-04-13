@@ -54,7 +54,7 @@ export const MiniInfoCard: React.FC<{ category: string, id: number, title: strin
 
     return (
         <>
-            <Link href={`${category}?id=${id}`} className='' legacyBehavior>
+            <Link href={`${category}/${id}`} className='' legacyBehavior>
                 <div className='w-40 md:w-48 hover:animate-pulse'>
                     <Image src={thumbnaile} alt="Image" sizes="(max-width: 1000px) 100vw" className="w-full" width={300} height={300} />
                     <div className='w-full'>

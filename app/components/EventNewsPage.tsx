@@ -1,10 +1,14 @@
 import Image from 'next/image';
 import CustomReactMarkdown from '../components/CustomReactMarkdown';
 import { Article } from '@/types/article';
+import DefaultErrorPage from 'next/error';
 
-const EventNewsPage: React.FC<{ Data: Article, Badge?: boolean, isActivated?: boolean }> = ({ Data, Badge = false, isActivated = false }) => {
+const EventNewsPage: React.FC<{ Data: Article | null, Badge?: boolean, isActivated?: boolean }> = ({ Data, Badge = false, isActivated = false }) => {
 
-    let title = Data.title;
+    if (!Data) return <DefaultErrorPage statusCode={404} />;
+
+
+    let title = Data?.title;
 
     // titleの識別子の削除
     if (Data.title.includes('!!!')) title = title.replace('!!!', '');

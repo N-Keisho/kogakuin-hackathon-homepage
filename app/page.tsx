@@ -3,6 +3,7 @@ import SimpleButton from "./components/CustomButton";
 import { MiniInfoCard } from "./components/InfoCard";
 import DemoData from "./components/DemoData";
 import Link from "next/link";
+import { Article } from "@/types/article";
 
 export default function Home() {
 
@@ -17,33 +18,7 @@ export default function Home() {
     <>
       <CuttentEvent id={CurrentEvent.id} thumbnaile={CurrentEvent.thumbnail} />
       <Explanation />
-      {/* <div className="py-2"></div> */}
-
-      <div className="my-32 md:m-24 flex justify-center items-center">
-        <div className={`absolute bg-primary-200 w-full opacity-50 ${NewsData.length > 3 ? 'py-72' : 'py-44'}`} style={{ clipPath: "polygon(0% 100%, 0% 15%, 100% 0%, 100% 85%)" }}></div>
-        <div className="text-center relative -top-3">
-          <h1 className="text-primary-700 text-2xl md:text-4xl font-bold underline m-2 decoration-1 underline-offset-8">
-            最新情報
-          </h1>
-          <p className="text-sm md:text-lg mt-2 mb-3">最新情報はこちら！</p>
-          <div className="w-full">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full justify-center items-center">
-              {
-                NewsData.map((data, index) => {
-                  if (index > 5) return;
-                  const titile = data.title.replace('???', '');
-                  return (
-                    <MiniInfoCard key={index} category="news" id={data.id} title={titile} thumbnaile={data.thumbnail} time={data.created_at} />
-                  )
-                })
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="py-4">
-
-      </div>
+      <News NewsData={NewsData} />
     </>
   );
 }
@@ -54,7 +29,7 @@ const CuttentEvent: React.FC<{ id: number, thumbnaile: string }> = ({ id, thumbn
     <div className="bg-secondary-400 p-8 md:p-14 text-center flex justify-center items-center">
       <div className="animate-shake-vertical">
         <Link href={`event/${id}`} legacyBehavior>
-            <Image src={thumbnaile}  alt="Image" sizes="(max-width: 1000px) 100vw" className="w-full hover:animate-pulse" width={600} height={600} />
+          <Image src={thumbnaile} alt="Image" sizes="(max-width: 1000px) 100vw" className="w-full hover:animate-pulse" width={600} height={600} />
         </Link>
       </div>
     </div>
@@ -89,5 +64,37 @@ const Explanation: React.FC = () => {
       <SimpleButton url="whats-hackathon" text="もっと詳しく！" />
     </div>
 
+  )
+}
+
+const News: React.FC<{NewsData: Article[]}> = ({NewsData}) => {
+  return (
+    <>
+      <div className="my-32 md:m-24 flex justify-center items-center">
+        <div className={`absolute bg-primary-200 w-full opacity-50 ${NewsData.length > 3 ? 'py-72' : 'py-44'}`} style={{ clipPath: "polygon(0% 100%, 0% 15%, 100% 0%, 100% 85%)" }}></div>
+        <div className="text-center relative -top-3">
+          <h1 className="text-primary-700 text-2xl md:text-4xl font-bold underline m-2 decoration-1 underline-offset-8">
+            最新情報
+          </h1>
+          <p className="text-sm md:text-lg mt-2 mb-3">最新情報はこちら！</p>
+          <div className="w-full">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full justify-center items-center">
+              {
+                NewsData.map((data, index) => {
+                  if (index > 5) return;
+                  const titile = data.title.replace('???', '');
+                  return (
+                    <MiniInfoCard key={index} category="news" id={data.id} title={titile} thumbnaile={data.thumbnail} time={data.created_at} />
+                  )
+                })
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="py-4">
+
+      </div>
+    </>
   )
 }
