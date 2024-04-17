@@ -1,30 +1,52 @@
+'use client';
+
 import Image from "next/image";
 import SimpleButton from "./components/CustomButton";
 import { MiniInfoCard } from "./components/InfoCard";
 import DemoData from "./components/DemoData";
 import Link from "next/link";
 import { Article } from "@/types/article";
+import { getArticles } from "@/libs/article";
+import { ArticleHead } from "@/types/article";
+import { useEffect, useState } from "react";
+
 
 export default function Home() {
 
+  // const [Data, setData] = useState<ArticleHead[] | null>([]);
+  // useEffect(() => {
+  //   getArticles().then((data) => {
+  //     setData(data);
+  //   });
+  // }, []);
+  const Data = await getArticles();
 
-  const CurrentEvent = DemoData.filter((data) => data.title.includes('!!!'))[0];
-  const NewsData = DemoData.filter((data) => data.title.includes('???'));
-
-
+  const CurrentEvent = Data?.filter((data) => data.title.includes('!!!'))[0];
+  const NewsData = Data ? Data?.map((_, i, a) => a[a.length - i - 1]) : null;
 
 
   return (
     <>
-      <CuttentEvent id={CurrentEvent.id} thumbnaile={CurrentEvent.thumbnail} />
+      <CuttentEvent id={CurrentEvent?.id} thumbnaile={CurrentEvent?.thumbnail} />
       <Explanation />
       <News NewsData={NewsData} />
+      <div className="flex flex-col items-center">
+        <div className="bg-secondary-400 w-11/12 max-w-4xl m-10 md:m-10  p-4 md:p-8 rounded-lg">
+          <div className="text-center text-primary-700">
+            <h1 className="text-2xl md:text-4xl font-bold underline m-2 decoration-1 underline-offset-8">
+              お問い合わせ
+            </h1>
+            <p className="text-lg md:text-3xl mt-4 font-bold">hackathon.kogakuin@gmail.com</p>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
 
 
-const CuttentEvent: React.FC<{ id: number, thumbnaile: string }> = ({ id, thumbnaile }) => {
+const CuttentEvent: React.FC<{ id: number | undefined, thumbnaile: string | undefined }> = ({ id, thumbnaile }) => {
+  if (!id || !thumbnaile) return <></>;
   return (
     <div className="bg-secondary-400 p-8 md:p-14 text-center flex justify-center items-center">
       <div className="animate-shake-vertical">
@@ -67,11 +89,14 @@ const Explanation: React.FC = () => {
   )
 }
 
-const News: React.FC<{NewsData: Article[]}> = ({NewsData}) => {
+const News: React.FC<{ NewsData: ArticleHead[] | null }> = ({ NewsData }) => {
+
+  if (!NewsData) return <></>;
+
   return (
     <>
-      <div className="my-32 md:m-24 flex justify-center items-center">
-        <div className={`absolute bg-primary-200 w-full opacity-50 ${NewsData.length > 3 ? 'py-72' : 'py-44'}`} style={{ clipPath: "polygon(0% 100%, 0% 15%, 100% 0%, 100% 85%)" }}></div>
+      <div className="mt-24 mb-10 md:m-24 flex justify-center items-center">
+        <div className={`absolute bg-primary-100 w-full opacity-50 ${NewsData.length > 3 ? 'py-72' : 'py-44'}`} style={{ clipPath: "polygon(0% 100%, 0% 15%, 100% 0%, 100% 85%)" }}></div>
         <div className="text-center relative -top-3">
           <h1 className="text-primary-700 text-2xl md:text-4xl font-bold underline m-2 decoration-1 underline-offset-8">
             最新情報
@@ -82,18 +107,14 @@ const News: React.FC<{NewsData: Article[]}> = ({NewsData}) => {
               {
                 NewsData.map((data, index) => {
                   if (index > 5) return;
-                  const titile = data.title.replace('???', '');
                   return (
-                    <MiniInfoCard key={index} category="news" id={data.id} title={titile} thumbnaile={data.thumbnail} time={data.created_at} />
+                    <MiniInfoCard key={index} category="news" id={data.id} title={data.title} thumbnaile={data.thumbnail} time={data.created_at} />
                   )
                 })
               }
             </div>
           </div>
         </div>
-      </div>
-      <div className="py-4">
-
       </div>
     </>
   )

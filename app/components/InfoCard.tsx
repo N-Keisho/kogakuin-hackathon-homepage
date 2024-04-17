@@ -28,6 +28,10 @@ const InfoCard: React.FC<InfoCardProps> = ({ category, id, title, description, t
     if (title.length > 30) title = title.slice(0, 30) + '...';
     if (description.length > 55) description = description.slice(0, 55) + '...';
 
+    if (thumbnaile === "") thumbnaile = "img/noimage.png";
+
+    const _time = time.slice(0, 10);
+
     return (
         <>
             <Link href={`${category}/${id}`} legacyBehavior>
@@ -38,7 +42,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ category, id, title, description, t
                     <div className="p-4">
                         <a className="text-base md:text-lg font-bold text-black mb-2" >{title}</a>
                         <p className="text-xs md:text-sm text-gray-600 my-1">{description}</p>
-                        <p className="text-black opacity-60 text-right text-xs absolute right-3 bottom-1 ">{time}</p>
+                        <p className="text-black opacity-60 text-right text-xs absolute right-3 bottom-1 ">{_time}</p>
                     </div>
                     <StatusBadge isActivated={isActivated} category={category} />
                 </div>
@@ -51,6 +55,20 @@ export default InfoCard;
 
 
 export const MiniInfoCard: React.FC<{ category: string, id: number, title: string, thumbnaile: string, time: string }> = ({ category, id, title, thumbnaile, time }) => {
+
+    
+    if (thumbnaile === "") thumbnaile = "img/noimage.png";
+
+    // titleの識別子の削除
+    if (title.includes('!!!')) title = title.replace('!!!', '');
+    if (title.includes('???')) title = title.replace('???', '');
+
+    // titleに@@が含まれている場合@を削除する（開催中のイベント）
+    if (title.includes('@@')) {
+        title = title.replace('@@', '');
+    }
+
+    if (title.length > 9) title = title.slice(0, 9) + '...';
 
     return (
         <>

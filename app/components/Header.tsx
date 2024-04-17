@@ -27,7 +27,7 @@ const Header: React.FC = () => {
             <div className="">
                 <nav className="container mx-auto flex items-center justify-between">
                     <Link href="/" legacyBehavior>
-                        <Image src="/img/logo.svg" alt="Kogakuin Hackathon" width={100} height={40} className="ml-3"/>
+                        <Image src="/img/logo.svg" alt="Kogakuin Hackathon" width={150} height={100} className="ml-3"/>
                     </Link>
                     {/* 以下はスマホだと隠れる */}
                     <NavBar pathName={pathName} />
@@ -67,7 +67,7 @@ const SideBar: React.FC<{ pathName: string, open: boolean, toggleHamburger: (eve
             <div className="bg-secondary-400 h-full text-primary-700">
                 <div className="bg-primary-700 w-full p-3">
                     <Link href="/" legacyBehavior>
-                        <Image src="/img/logo.svg" alt="Kogakuin Hackathon" width={100} height={40} className="m-auto" />
+                        <Image src="/img/logo.svg" alt="Kogakuin Hackathon" width={150} height={40} className="m-auto" />
                     </Link>
                 </div>
                 <ul className="flex flex-col space-y-3 p-3">

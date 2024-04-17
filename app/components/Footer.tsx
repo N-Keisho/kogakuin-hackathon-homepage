@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row mx-auto p-5 justify-center items-center">
                 <div className="flex-1 mt-2 mb-4 ml-4">
                     <Link href="/" legacyBehavior>
-                        <Image src="/img/logo.svg" alt="Kogakuin Hackathon" width={100} height={40} />
+                        <Image src="/img/logo.svg" alt="Kogakuin Hackathon" width={150} height={40} />
                     </Link>
                 </div>
                 <div className="text-center flex-auto text-xs mb-4 md:m-0">

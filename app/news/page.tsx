@@ -21,15 +21,12 @@ const Page: React.FC<PageProps> = () => {
     const pageHandler = (index: number) => { setPageIndex(index) };
     const onePageContents = 5;
 
-    // const tmp =  await getArticles();
-    // console.log(tmp);
-
     const [Data, setData] = useState<ArticleHead[] | null>();
     useEffect(() => {
         getArticles().then((data) => {
             const news = data?.filter((data) => data.title.slice(0, 3) === '???');
-            setData(news);
-            // data?.map((d) => console.log(d));
+            const news_reverse = news?.map((_, i, a) => a[a.length - i - 1]);
+            setData(news_reverse);
         });
     }, []);
 
@@ -41,7 +38,7 @@ const Page: React.FC<PageProps> = () => {
             <h1 className="text-2xl md:text-4xl text-primary-700 font-bold underline mt-4 mb-4 decoration-1 underline-offset-8 text-center ">
                 ニュース
             </h1>
-            <SingleYellowLines />
+            {/* <SingleYellowLines /> */}
             <div className='w-full flex flex-col items-center'>
                 {
                     Data?.map((data, index) => {

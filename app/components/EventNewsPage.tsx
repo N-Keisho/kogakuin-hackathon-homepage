@@ -24,7 +24,7 @@ const EventNewsPage: React.FC<{ Data: Article | null, Badge?: boolean, isActivat
                         <Image src={Data.thumbnail} alt="Thumbnail" className="object-fit w-full" width={600} height={600} />
                     </div>
                     <div className='bg-secondary-400 mt-5 mb-3 py-1 md:py-2 px-3 md:px-4 w-11/12 max-w-3xl'>
-                        <a className='text-black text-4xl md:text-5xl font-bold'>{title}</a>
+                        <a className='text-black text-2xl md:text-3xl font-bold'>{title}</a>
                     </div>
                     <div className='w-11/12 max-w-3xl'>
                         <CustomReactMarkdown content={Data.body} />
