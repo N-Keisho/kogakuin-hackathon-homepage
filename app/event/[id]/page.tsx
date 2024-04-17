@@ -5,7 +5,7 @@ import DemoData from '../../components/DemoData';
 import EventNewsPage from '../../components/EventNewsPage';
 import DefaultErrorPage from 'next/error'
 import { useState, useEffect } from 'react';
-import { getArticle } from '@/libs/article';
+import { getArticles, getArticle } from '@/libs/article';
 import { Article } from '@/types/article';
 
 const defalt : Article = {
@@ -23,7 +23,24 @@ const defalt : Article = {
     series_id : 0,
 };
 
-const Page: React.FC = () => {
+// export async function generateStaticParams() {
+//     const articles = await getArticles();
+//     if (!articles) {
+//         return [];
+//     }
+//     return articles.map((article) => ({
+//         params: {
+//             id: String(article.id),
+//         },
+//     }));
+
+// }
+
+
+// export default async function Page({ params }: { params: { id: string } }) {
+export default function Page() {
+
+    // const Data = await getArticle(params.id);
 
     const id = useParams().id;
     const [Data, setData] = useState<Article | null>(defalt);
@@ -55,5 +72,3 @@ const Page: React.FC = () => {
         </>
     )
 };
-
-export default Page;

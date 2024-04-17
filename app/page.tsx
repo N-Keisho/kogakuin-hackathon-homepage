@@ -13,13 +13,13 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
 
-  // const [Data, setData] = useState<ArticleHead[] | null>([]);
-  // useEffect(() => {
-  //   getArticles().then((data) => {
-  //     setData(data);
-  //   });
-  // }, []);
-  const Data = await getArticles();
+  const [Data, setData] = useState<ArticleHead[] | null>([]);
+  useEffect(() => {
+    getArticles().then((data) => {
+      setData(data);
+    });
+  }, []);
+  // const Data = await getArticles();
 
   const CurrentEvent = Data?.filter((data) => data.title.includes('!!!'))[0];
   const NewsData = Data ? Data?.map((_, i, a) => a[a.length - i - 1]) : null;
