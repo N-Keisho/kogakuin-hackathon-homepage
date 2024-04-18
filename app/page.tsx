@@ -47,7 +47,7 @@ const CuttentEvent: React.FC<{ id: number | undefined, thumbnaile: string | unde
     <div className="bg-secondary-400 p-8 md:p-14 text-center flex justify-center items-center">
       <div className="animate-shake-vertical">
         <Link href={`event/${id}`} legacyBehavior>
-          <Image src={thumbnaile} alt="Image" sizes="(max-width: 1000px) 100vw" className="w-full hover:animate-pulse" width={600} height={600} />
+          <Image src={thumbnaile} alt="Image" sizes="(max-width: 900px) 90vw" className="w-full hover:animate-pulse" width={600} height={600} />
         </Link>
       </div>
     </div>

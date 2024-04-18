@@ -68,7 +68,7 @@ export default async function Page() {
 
         return (
             <>
-                <EventNewsPage Data={Data} isActivated={isActivated}/>
+                <EventNewsPage Data={Data} isActivated={isActivated} Badge={true}/>
             </>
         );
     }
