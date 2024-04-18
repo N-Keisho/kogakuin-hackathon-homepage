@@ -1,7 +1,4 @@
 // 質問項目
-
-import { Category } from "@mui/icons-material";
-
 const questions = [
     {
         category: '全般の質問',

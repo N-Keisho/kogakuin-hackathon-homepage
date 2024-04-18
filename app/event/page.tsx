@@ -9,6 +9,7 @@ import { PageButton } from '../components/CustomButton';
 import { getArticles } from '@/libs/article';
 import { useEffect } from 'react';
 import { ArticleHead } from '@/types/article';
+import Loading from '@/app/components/Loding';
 
 interface PageProps {
     // Define the props for your component here
@@ -21,7 +22,6 @@ const Page: React.FC<PageProps> = () => {
     const onePageContents = 5;
 
 
-    // const Data = DemoData.filter((data) => data.title.slice(0, 3) === '!!!');
     const [Data, setData] = useState<ArticleHead[] | null>();
     useEffect(() => {
         getArticles().then((data) => {
@@ -30,6 +30,12 @@ const Page: React.FC<PageProps> = () => {
             setData(event_reverse);
         });
     }, []);
+
+    if (!Data) {
+        return (
+            <Loading />
+        )
+    }
 
     const length = Data?.length || 0;
 

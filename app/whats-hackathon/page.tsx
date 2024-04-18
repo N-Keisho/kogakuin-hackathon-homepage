@@ -1,6 +1,5 @@
 'use client'
 import React from 'react';
-import DemoData from '../components/DemoData';
 import EventNewsPage from '../components/EventNewsPage';
 import { Article } from '@/types/article';
 

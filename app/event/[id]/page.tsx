@@ -1,12 +1,12 @@
-'use client'
+'use client';
 import { useParams} from 'next/navigation';
 import React from 'react';
-import DemoData from '../../components/DemoData';
 import EventNewsPage from '../../components/EventNewsPage';
 import DefaultErrorPage from 'next/error'
 import { useState, useEffect } from 'react';
 import { getArticles, getArticle } from '@/libs/article';
 import { Article } from '@/types/article';
+import Loading from '@/app/components/Loding';
 
 const defalt : Article = {
     id: 0,
@@ -38,7 +38,7 @@ const defalt : Article = {
 
 
 // export default async function Page({ params }: { params: { id: string } }) {
-export default function Page() {
+export default async function Page() {
 
     // const Data = await getArticle(params.id);
 
@@ -49,6 +49,13 @@ export default function Page() {
             setData(data);
         });
     }, []);
+    
+
+    if (Data === defalt) {
+        return (
+            <Loading />
+        )
+    }
 
     // 識別子に応じて返す内容を変更
     if (String(Data?.title).includes('!!!')){

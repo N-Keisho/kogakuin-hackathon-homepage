@@ -2,13 +2,12 @@
 
 import React, { use } from 'react';
 import InfoCard from '../components/InfoCard';
-import DemoDeta from '../components/DemoData';
-import { SingleYellowLines } from '../components/Decoration';
 import { useState } from 'react';
 import { PageButton } from '../components/CustomButton';
 import { getArticles } from '@/libs/article';
 import { useEffect } from 'react';
 import { ArticleHead } from '@/types/article';
+import Loading from '@/app/components/Loding';
 
 
 interface PageProps {
@@ -30,7 +29,13 @@ const Page: React.FC<PageProps> = () => {
         });
     }, []);
 
-    // const Data = DemoDeta.filter((data) => data.title.slice(0, 3) === '???');
+    if (!Data) {
+        return (
+            <Loading />
+        )
+    }
+
+
     const length = Data?.length || 0;
 
     return (

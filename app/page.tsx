@@ -3,12 +3,11 @@
 import Image from "next/image";
 import SimpleButton from "./components/CustomButton";
 import { MiniInfoCard } from "./components/InfoCard";
-import DemoData from "./components/DemoData";
 import Link from "next/link";
-import { Article } from "@/types/article";
 import { getArticles } from "@/libs/article";
 import { ArticleHead } from "@/types/article";
 import { useEffect, useState } from "react";
+import Loading from "./components/Loding";
 
 
 export default function Home() {
@@ -21,6 +20,12 @@ export default function Home() {
   }, []);
   // const Data = await getArticles();
 
+  if (Data?.length === 0) {
+    return (
+      <Loading />
+    )
+  }
+
   const CurrentEvent = Data?.filter((data) => data.title.includes('!!!'))[0];
   const NewsData = Data ? Data?.map((_, i, a) => a[a.length - i - 1]) : null;
 
@@ -30,16 +35,7 @@ export default function Home() {
       <CuttentEvent id={CurrentEvent?.id} thumbnaile={CurrentEvent?.thumbnail} />
       <Explanation />
       <News NewsData={NewsData} />
-      <div className="flex flex-col items-center">
-        <div className="bg-secondary-400 w-11/12 max-w-4xl m-10 md:m-10  p-4 md:p-8 rounded-lg">
-          <div className="text-center text-primary-700">
-            <h1 className="text-2xl md:text-4xl font-bold underline m-2 decoration-1 underline-offset-8">
-              お問い合わせ
-            </h1>
-            <p className="text-lg md:text-3xl mt-4 font-bold">hackathon.kogakuin@gmail.com</p>
-          </div>
-        </div>
-      </div>
+      <Contact />      
     </>
   );
 }
@@ -117,5 +113,20 @@ const News: React.FC<{ NewsData: ArticleHead[] | null }> = ({ NewsData }) => {
         </div>
       </div>
     </>
+  )
+}
+
+const Contact = () => {
+  return (
+    <div className="flex flex-col items-center">
+        <div className="bg-secondary-400 w-11/12 max-w-4xl m-10 md:m-10  p-4 md:p-8 rounded-lg">
+          <div className="text-center text-primary-700">
+            <h1 className="text-2xl md:text-4xl font-bold underline m-2 decoration-1 underline-offset-8">
+              お問い合わせ
+            </h1>
+            <p className="text-lg md:text-3xl mt-4 font-bold">hackathon.kogakuin@gmail.com</p>
+          </div>
+        </div>
+      </div>
   )
 }
