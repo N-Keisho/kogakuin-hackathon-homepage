@@ -17,16 +17,16 @@ const EventNewsPage: React.FC<{ Data: Article | null, Badge?: boolean, isActivat
 
     return (
         <>
-            <div className="flex flex-col justify-center items-center p-8 md:p-14">
+            <div className="flex flex-col justify-center items-center py-4 md:p-14">
                 <div className='bg-white w-11/12 max-w-4xl flex flex-col justify-center items-center px-5 py-10 rounded-lg'>
-                    <div className='w-11/12 max-w-3xl'>
+                    <div className='max-w-3xl'>
                         {Badge && <StatusBadge isActivated={isActivated} category="event" />}
                         <Image src={Data.thumbnail} alt="Thumbnail" className="object-fit w-full" width={600} height={600} />
                     </div>
-                    <div className='bg-secondary-400 mt-5 mb-3 py-1 md:py-2 px-3 md:px-4 w-11/12 max-w-3xl'>
+                    <div className='bg-secondary-400 mt-5 mb-3 py-1 md:py-2 px-3 md:px-4 w-full max-w-3xl'>
                         <a className='text-black text-2xl md:text-3xl font-bold'>{title}</a>
                     </div>
-                    <div className='w-11/12 max-w-3xl'>
+                    <div className='max-w-3xl'>
                         <CustomReactMarkdown content={Data.body} />
                     </div>
                 </div>
