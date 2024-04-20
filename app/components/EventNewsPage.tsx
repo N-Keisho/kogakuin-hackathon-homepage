@@ -15,13 +15,18 @@ const EventNewsPage: React.FC<{ Data: Article | null, Badge?: boolean, isActivat
     if (Data.title.includes('???')) title = title.replace('???', '');
     if (Data.title.includes('@@')) title = title.replace('@@', '');
 
+    const _time = Data.created_at.slice(0, 10);
+
     return (
         <>
             <div className="flex flex-col justify-center items-center py-4 md:p-14">
-                <div className='bg-white w-11/12 max-w-4xl flex flex-col justify-center items-center px-5 py-10 rounded-lg'>
+                <div className='bg-white w-11/12 max-w-4xl flex flex-col justify-center items-center px-4 py-0 md:py-4 rounded-lg'>
                     <div className='w-full max-w-3xl'>
                         {Badge && <StatusBadge isActivated={isActivated} category="event" />}
                         <Image src={Data.thumbnail} alt="Thumbnail" className="object-fit w-full" width={600} height={600} />
+                    </div>
+                    <div className='w-full max-w-3xl mb-0'>
+                        <p className="text-black opacity-60 text-right text-xs md:text-sm mb-0 mt-1">🕒{_time}</p>
                     </div>
                     <div className='bg-secondary-400 mt-5 mb-3 py-1 md:py-2 px-3 md:px-4 w-full max-w-3xl'>
                         <a className='text-black text-2xl md:text-3xl font-bold'>{title}</a>

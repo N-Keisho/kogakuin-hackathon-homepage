@@ -19,10 +19,10 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-1 flex-col text-center justify-center">
                     <div>
-                        <Link href="https://twitter.com/">
+                        <Link href="https://twitter.com/KogHack">
                             <XIcon className="mx-2" />
                         </Link>
-                        <Link href="https://www.youtube.com/">
+                        <Link href="https://www.youtube.com/@KogakuinHackathon/">
                             <YouTubeIcon className="mx-2" />
                         </Link>
                     </div>
