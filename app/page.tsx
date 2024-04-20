@@ -57,8 +57,8 @@ const CuttentEvent: React.FC<{ id: number | undefined, thumbnaile: string | unde
 
 const Explanation: React.FC = () => {
   return (
-    <div className="text-primary-700 text-center flex flex-col items-center my-10">
-      <div className="my-5">
+    <div className="text-primary-700 text-center flex flex-col items-center mt-4 md:mt-10 mb-10">
+      <div className="my-4 md:my-5">
         <h1 className="text-2xl md:text-4xl font-bold underline my-4 decoration-1 underline-offset-8">
           工学院ハッカソンとは？
         </h1>
@@ -67,7 +67,7 @@ const Explanation: React.FC = () => {
         <p className="text-lg md:text-xlg m-4">ものづくりイベントです．</p>
         <p className="text-lg md:text-2xl font-bold m-2">ワクワクを生み出すのだ！</p>
       </div>
-      <div className="my-5">
+      <div className="my-4 md:my-5">
         <h1 className="text-2xl md:text-4xl font-bold underline m-2 decoration-1 underline-offset-8">
           ハッカソンってなに？
         </h1>
@@ -124,7 +124,7 @@ const Contact = () => {
             <h1 className="text-2xl md:text-4xl font-bold underline m-2 decoration-1 underline-offset-8">
               お問い合わせ
             </h1>
-            <p className="text-lg md:text-3xl mt-4 font-bold">hackathon.kogakuin@gmail.com</p>
+            <p className="text-lg md:text-3xl mt-4">hackathon.kogakuin@gmail.com</p>
           </div>
         </div>
       </div>
