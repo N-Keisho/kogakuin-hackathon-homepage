@@ -35,10 +35,6 @@ const questions = [
                 question: '参加するにはどうしたらよいですか？',
                 answer: '各イベントの参加申し込みフォームからお申し込みください．'
             },
-            {
-                question: '問い合わせ先は？',
-                answer: 'hackathon.kogakuin@gmail.com までお問い合わせください．'
-            }
         ]
     },
     {

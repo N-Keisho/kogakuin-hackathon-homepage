@@ -30,9 +30,9 @@ const CustomReactMarkdown: React.FC<CustomReactMarkdownProps> = ({ content, clas
                     ul: ({ children }) => <ul className='list-disc list-inside'>{children}</ul>,
                     li: ({ children }) => <li className='text-base md:text-lg my-2 marker:font-bold'>{children}</li>,
                     p: ({ children }) => <p className='text-base md:text-lg my-3 leading-9'>{children}</p>,
-                    img: ({ src, alt }) =><div className='flex flex-col justify-center items-center'> 
+                    img: ({ src, alt, title }) =><div className='flex flex-col justify-center items-center'> 
                         <Image src={String(src)} alt={String(alt)} className='object-fit w-11/12 max-w-xl rounded-md mt-4 mb-2' width={800} height={800} />
-                        <p className='text-sm md:text-base text-gray-600'>{alt}</p>
+                        <p className='text-sm md:text-base text-gray-600'>{title}</p>
                     </div>,
                     blockquote: ({ children }) => <blockquote className='border-l-4 border-secondary-400 p-2 pl-4 my-4 bg-secondary-50 rounded-r'>{children}</blockquote>,
                     code: ({ children }) => <div className='bg-primary-900 border border-primary-700 p-3 my-4 rounded text-white'><code>{children}</code></div>,

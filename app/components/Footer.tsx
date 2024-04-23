@@ -17,7 +17,7 @@ const Footer = () => {
                     <p>IT系サークル KogCoder が主催するイベントです．</p>
                     <p className='mt-2'>© 2024 KogCoder. All rights reserved.</p>
                 </div>
-                <div className="flex flex-1 flex-col text-center justify-center">
+                <div className="flex flex-1 flex-col text-center justify-center items-center">
                     <div>
                         <Link href="https://twitter.com/KogHack">
                             <XIcon className="mx-2" />
@@ -26,7 +26,8 @@ const Footer = () => {
                             <YouTubeIcon className="mx-2" />
                         </Link>
                     </div>
-                    <p className="text-xs pt-2">hackathon.kogakuin@gmail.com</p>
+                    {/* <p className="text-xs pt-2">hackathon.kogakuin@gmail.com</p> */}
+                    <Image src="/img/mail_w.svg" alt="hackathon.kogcoder at gmail.com" className='pt-2' width={200} height={100} />
                 </div>
             </div>
         </footer>

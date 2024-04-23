@@ -119,12 +119,13 @@ const News: React.FC<{ NewsData: ArticleHead[] | null }> = ({ NewsData }) => {
 const Contact = () => {
   return (
     <div className="flex flex-col items-center">
-        <div className="bg-secondary-400 w-11/12 max-w-4xl m-10 md:m-10  p-4 md:p-8 rounded-lg">
-          <div className="text-center text-primary-700">
+        <div className="bg-secondary-400 w-11/12 max-w-lg m-10 md:m-10  p-4 md:p-8 rounded-lg">
+          <div className="text-primary-700 text-center flex flex-col items-center">
             <h1 className="text-2xl md:text-4xl font-bold underline m-2 decoration-1 underline-offset-8">
               お問い合わせ
             </h1>
-            <p className="text-lg md:text-3xl mt-4">hackathon.kogakuin@gmail.com</p>
+            {/* <p className="text-lg md:text-3xl mt-4">hackathon.kogakuin@gmail.com</p> */}
+            <Image src="/img/mail_b.svg" alt="hackathon.kogcoder at gmail.com" className="mt-2" width={280} height={200} />
           </div>
         </div>
       </div>

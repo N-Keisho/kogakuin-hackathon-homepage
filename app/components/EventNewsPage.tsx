@@ -20,7 +20,7 @@ const EventNewsPage: React.FC<{ Data: Article | null, Badge?: boolean, isActivat
     return (
         <>
             <div className="flex flex-col justify-center items-center py-4 md:p-14">
-                <div className='bg-white w-11/12 max-w-4xl flex flex-col justify-center items-center px-4 py-0 md:py-4 rounded-lg'>
+                <div className='bg-white w-11/12 max-w-4xl flex flex-col justify-center items-center px-4 pt-4 pb-2 md:pb-4 md:pt-12 rounded-lg'>
                     <div className='w-full max-w-3xl'>
                         {Badge && <StatusBadge isActivated={isActivated} category="event" />}
                         <Image src={Data.thumbnail} alt="Thumbnail" className="object-fit w-full" width={600} height={600} />
