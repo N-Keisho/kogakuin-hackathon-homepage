@@ -1,5 +1,5 @@
 import React from 'react';
-import EventNewsPage from '../../components/EventNewsPage';
+import ArticlePage from '../../components/ArticlePage';
 import { getArticle, getArticles } from '@/libs/article';
 
 export async function generateStaticParams(){
@@ -27,7 +27,7 @@ export default async function Page ({params} : {params : {slug : string}}){
 
     return (
         <>
-            <EventNewsPage Data={Article} isActivated={false} Badge={true} />
+            <ArticlePage Article={Article} />
         </>
     );
 };

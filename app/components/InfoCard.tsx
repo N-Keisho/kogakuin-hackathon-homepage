@@ -86,6 +86,7 @@ export const MiniInfoCard: React.FC<{ category: string, id: number, title: strin
 
 export const TopInfoCard: React.FC<{ id: number, thumbnaile: string }> = ({ id, thumbnaile }) => {
 
+    if (thumbnaile === "") thumbnaile = "/img/noimage.png";
     return (
         <>
             <Link href={`event?id=${id}`} legacyBehavior>

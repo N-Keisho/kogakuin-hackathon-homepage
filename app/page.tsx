@@ -6,9 +6,7 @@ import { getArticles } from "@/libs/article";
 import { ArticleHead } from "@/types/article";
 import Loading from "./components/Loding";
 
-
 export default async function Home() {
-
   
   const Data = await getArticles();
 
@@ -17,7 +15,6 @@ export default async function Home() {
       <Loading />
     )
   }
-
 
   const CurrentEvent = Data?.filter((data) => data.title.includes('!!!'))[0];
   const NewsData = Data ? Data?.map((_, i, a) => a[a.length - i - 1]) : null;
