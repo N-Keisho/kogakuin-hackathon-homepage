@@ -14,7 +14,7 @@ interface PageProps {
     // Define the props for your component here
 }
 
-const Page: React.FC<PageProps> = () => {
+const Page: React.FC<PageProps> = async () => {
 
     const [pageIndex, setPageIndex] = useState(0);
     const pageHandler = (index: number) => { setPageIndex(index) };
@@ -28,6 +28,8 @@ const Page: React.FC<PageProps> = () => {
             setData(news_reverse);
         });
     }, []);
+    // const rowData = await getArticles();
+    // const Data = rowData?.filter((data) => data.title.slice(0, 3) === '???').map((_, i, a) => a[a.length - i - 1]);
 
     if (!Data) {
         return (

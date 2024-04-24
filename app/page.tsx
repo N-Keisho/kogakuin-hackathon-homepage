@@ -1,4 +1,5 @@
-'use client';
+// 'use client';
+// 'use server';
 
 import Image from "next/image";
 import SimpleButton from "./components/CustomButton";
@@ -10,21 +11,24 @@ import { useEffect, useState } from "react";
 import Loading from "./components/Loding";
 
 
-export default function Home() {
+export default async function Home() {
 
-  const [Data, setData] = useState<ArticleHead[] | null>([]);
-  useEffect(() => {
-    getArticles().then((data) => {
-      setData(data);
-    });
-  }, []);
-  // const Data = await getArticles();
+  // const [Data, setData] = useState<ArticleHead[] | null>([]);
+  // useEffect(() => {
+  //   getArticles().then((data) => {
+  //     setData(data);
+  //   });
+  // }, []);
+  
+  const Data = await getArticles();
 
   if (Data?.length === 0) {
     return (
       <Loading />
     )
   }
+
+  // console.log(Data);
 
   const CurrentEvent = Data?.filter((data) => data.title.includes('!!!'))[0];
   const NewsData = Data ? Data?.map((_, i, a) => a[a.length - i - 1]) : null;

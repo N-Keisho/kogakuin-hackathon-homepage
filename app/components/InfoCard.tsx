@@ -28,7 +28,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ category, id, title, description, t
     if (title.length > 30) title = title.slice(0, 30) + '...';
     if (description.length > 55) description = description.slice(0, 55) + '...';
 
-    if (thumbnaile === "") thumbnaile = "img/noimage.png";
+    if (thumbnaile === "") thumbnaile = "/img/noimage.png";
 
     const _time = time.slice(0, 10);
 
@@ -57,7 +57,7 @@ export default InfoCard;
 export const MiniInfoCard: React.FC<{ category: string, id: number, title: string, thumbnaile: string, time: string }> = ({ category, id, title, thumbnaile, time }) => {
 
     
-    if (thumbnaile === "") thumbnaile = "img/noimage.png";
+    if (thumbnaile === "") thumbnaile = "/img/noimage.png";
 
     // titleの識別子の削除
     if (title.includes('!!!')) title = title.replace('!!!', '');
