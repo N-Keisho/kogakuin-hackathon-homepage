@@ -34,7 +34,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ category, id, title, description, t
 
     return (
         <>
-            <Link href={`${category}/${id}`} legacyBehavior>
+            <Link href={`${category}/article/${id}`} legacyBehavior>
                 <div className="flex flex-col md:flex-row w-11/12 max-w-2xl h-48 md:h-36 m-2 relative bg-white border border-gray-300 hover:animate-pulse">
                     <div className="md:flex-shrink-0 w-full md:w-1/3 h-32 md:h-auto relative">
                         <Image src={thumbnaile} alt="Image" fill style={{ objectFit: 'cover' }} className="object-fit" sizes="(max-width: 1000px) 100vw" />

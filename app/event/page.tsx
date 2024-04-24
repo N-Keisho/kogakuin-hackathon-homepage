@@ -43,7 +43,7 @@ const Page: React.FC<PageProps> = () => {
             <h1 className="text-2xl md:text-4xl text-primary-700 font-bold underline mt-0 md:mt-4 mb-4 decoration-1 underline-offset-8 text-center ">
                 イベント
             </h1>
-            {/* <SingleYellowLines /> */}
+            <SingleYellowLines />
             <div className='w-full flex flex-col items-center'>
                 {
                     Data?.map((data, index) => {

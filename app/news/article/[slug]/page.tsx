@@ -1,5 +1,5 @@
 import React from 'react';
-import ArticlePage from '../../components/ArticlePage';
+import ArticlePage from '../../../components/ArticlePage';
 import { getArticle, getArticles } from '@/libs/article';
 
 export async function generateStaticParams(){
@@ -17,6 +17,8 @@ export async function generateStaticParams(){
         slug: article.id.toString()
     }));;
 }
+
+export const dynamicParams = false
 
 export default async function Page ({params} : {params : {slug : string}}){
 
