@@ -18,7 +18,7 @@ export async function generateStaticParams(){
     }));;
 }
 
-export const dynamicParams = false
+export const dynamicParams = false;
 
 export default async function Page ({params} : {params : {slug : string}}){
 

@@ -34,7 +34,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ category, id, title, description, t
 
     return (
         <>
-            <Link href={`${category}/article/${id}`} legacyBehavior>
+            <Link href={`/${category}/article/${id}`} legacyBehavior>
                 <div className="flex flex-col md:flex-row w-11/12 max-w-2xl h-48 md:h-36 m-2 relative bg-white border border-gray-300 hover:animate-pulse">
                     <div className="md:flex-shrink-0 w-full md:w-1/3 h-32 md:h-auto relative">
                         <Image src={thumbnaile} alt="Image" fill style={{ objectFit: 'cover' }} className="object-fit" sizes="(max-width: 1000px) 100vw" />
@@ -54,14 +54,19 @@ const InfoCard: React.FC<InfoCardProps> = ({ category, id, title, description, t
 export default InfoCard;
 
 
-export const MiniInfoCard: React.FC<{ category: string, id: number, title: string, thumbnaile: string, time: string }> = ({ category, id, title, thumbnaile, time }) => {
+export const MiniInfoCard: React.FC<{ id: number, title: string, thumbnaile: string, time: string }> = ({ id, title, thumbnaile, time }) => {
 
-    
+
     if (thumbnaile === "") thumbnaile = "/img/noimage.png";
+
+    let category = "event";
 
     // titleの識別子の削除
     if (title.includes('!!!')) title = title.replace('!!!', '');
-    if (title.includes('???')) title = title.replace('???', '');
+    if (title.includes('???')) {
+        title = title.replace('???', '');
+        category = "news";
+    }
 
     // titleに@@が含まれている場合@を削除する（開催中のイベント）
     if (title.includes('@@')) {
@@ -72,7 +77,7 @@ export const MiniInfoCard: React.FC<{ category: string, id: number, title: strin
 
     return (
         <>
-            <Link href={`${category}/${id}`} className='' legacyBehavior>
+            <Link href={`/${category}/article/${id}`} className='' legacyBehavior>
                 <div className='w-40 md:w-48 hover:animate-pulse'>
                     <Image src={thumbnaile} alt="Image" sizes="(max-width: 1000px) 100vw" className="w-full" width={300} height={300} />
                     <div className='w-full'>
@@ -89,10 +94,8 @@ export const TopInfoCard: React.FC<{ id: number, thumbnaile: string }> = ({ id, 
     if (thumbnaile === "") thumbnaile = "/img/noimage.png";
     return (
         <>
-            <Link href={`event?id=${id}`} legacyBehavior>
-                <div className='w-40 md:w-48 hover:animate-pulse'>
-                    <Image src={thumbnaile} alt="Image" sizes="(max-width: 1000px) 100vw" className="w-full" width={300} height={300} />
-                </div>
+            <Link href={`/event/article/${id}`} legacyBehavior>
+                <Image src={thumbnaile} alt="Image" sizes="(max-width: 900px) 90vw" className="w-full hover:animate-pulse" width={600} height={600} />
             </Link>
         </>
     )

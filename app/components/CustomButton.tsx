@@ -3,7 +3,6 @@ import Link from 'next/link';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
-
 // 単純なボタン
 const SimpleButton: React.FC<{ url: string, text: string, }> = ({ url, text }) => {
   return (
@@ -18,14 +17,15 @@ export default SimpleButton;
 
 
 // ページ送りボタン
-export const PageButton: React.FC<{ numOfDatas: number, onePageContents:number, pageIndex: number, pageHandler: (event: any) => void }> = ({ numOfDatas, onePageContents, pageIndex, pageHandler }) => {
+export const PageButton: React.FC<{ numOfDatas: number, onePageContents:number, pageIndex: number, category: string}> = ({ numOfDatas, onePageContents, pageIndex, category}) => {
   let lowSkiped = false;
   let highSkiped = false;
+
   return (
-    <div >
-      <button className={`m-2 h-7 w-7 text-white bg-primary-700 hover:bg-primary-400 ${pageIndex == 0 ? "hidden" : ""}`} onClick={() => pageHandler(pageIndex - 1)}>
+    <div className='text-center'>
+      <Link href={`/${category}/${pageIndex-1}`} className={`block pt-0.5 m-2 h-7 w-7 text-white bg-primary-700 hover:bg-primary-400 ${pageIndex == 0 ? "hidden" : ""}`}>
         <KeyboardArrowLeftIcon />
-      </button>
+      </Link>
       {
         Array.from({ length: Math.ceil(numOfDatas / onePageContents) }, (_, i) => i).map((i) => {
           if ((i < pageIndex - 1 || i > pageIndex + 1) && i != 0 && i != (Math.ceil(numOfDatas / onePageContents) - 1)){
@@ -49,15 +49,15 @@ export const PageButton: React.FC<{ numOfDatas: number, onePageContents:number, 
             return null;
           };
           return (
-            <button key={i} className={`m-1 h-7 w-7 text-white bg-primary-700  ${pageIndex == i ? "bg-secondary-400 text-primary-700" : "hover:bg-primary-400"}`} onClick={() => pageHandler(i)} >
+            <Link key={i} href={`/${category}/${i+1}`} className={`block m-1 pt-0.5 h-7 w-7 text-white bg-primary-700  ${pageIndex == i ? "bg-secondary-400 text-primary-700" : "hover:bg-primary-400"}`} >
               {i + 1}
-            </button>
+            </Link>
           )
         })
       }
-      <button className={`m-2 h-7 w-7 text-white bg-primary-700 hover:bg-primary-400 ${pageIndex == Math.ceil(numOfDatas / onePageContents) - 1 ? "hidden" : ""}`} onClick={() => pageHandler(pageIndex + 1)}>
+      <Link href={`/${category}/${pageIndex+1}`} className={`block pt-0.5 m-2 h-7 w-7 text-white bg-primary-700 hover:bg-primary-400 ${pageIndex == Math.ceil(numOfDatas / onePageContents) - 1 ? "hidden" : ""}`} >
         <KeyboardArrowRightIcon />
-      </button>
+      </Link>
     </div>
   )
 }

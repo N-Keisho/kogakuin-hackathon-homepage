@@ -8,6 +8,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Drawer } from "@mui/material";
 import ThreeYellowLines from "./Decoration";
 
+const whats_hackathon = "/whats-hackathon";
+const event = "/event/1";
+const news = "/news/1";
+const faq = "/faq";
+
 // ヘッダー
 const Header: React.FC = () => {
 
@@ -72,23 +77,23 @@ const SideBar: React.FC<{ pathName: string, open: boolean, toggleHamburger: (eve
                 </div>
                 <ul className="flex flex-col space-y-3 p-3">
                     <li>
-                        <Link href="/whats-hackathon" legacyBehavior>
-                            <a className={`hover:text-primary-500 underline-offset-4 font-bold ${pathName === '/whats-hackathon' ? "underline" : ""}`}>What's Hachathon</a>
+                        <Link href={whats_hackathon} legacyBehavior>
+                            <a className={`hover:text-primary-500 underline-offset-4 font-bold ${pathName === whats_hackathon ? "underline" : ""}`}>What's Hachathon</a>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/event" legacyBehavior>
-                            <a className={`hover:text-primary-500 underline-offset-4 font-bold ${pathName === '/events' ? "underline" : ""}`}>Events</a>
+                        <Link href={event} legacyBehavior>
+                            <a className={`hover:text-primary-500 underline-offset-4 font-bold ${pathName.includes("event") ? "underline" : ""}`}>Events</a>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/news" legacyBehavior>
-                            <a className={`hover:text-primary-500 underline-offset-4 font-bold ${pathName === '/news' ? "underline" : ""}`}>News</a>
+                        <Link href={news} legacyBehavior>
+                            <a className={`hover:text-primary-500 underline-offset-4 font-bold ${pathName.includes("news") ? "underline" : ""}`}>News</a>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/faq" legacyBehavior>
-                            <a className={`hover:text-primary-500 underline-offset-4 font-bold ${pathName === '/faq' ? "underline" : ""}`}>FAQ</a>
+                        <Link href={faq} legacyBehavior>
+                            <a className={`hover:text-primary-500 underline-offset-4 font-bold ${pathName === faq ? "underline" : ""}`}>FAQ</a>
                         </Link>
                     </li>
                 </ul>
@@ -104,32 +109,32 @@ const NavBar: React.FC<{ pathName: string }> = ({ pathName }) => {
         <div className={`hidden md:flex `}>
             <ul className="flex space-x-3">
                 <li>
-                    <Link href="/whats-hackathon" legacyBehavior>
-                        <a className={`hover:text-secondary-200 underline-offset-4 font-bold ${pathName === '/whats-hackathon' ? "underline" : ""}`}>What's Hachathon</a>
+                    <Link href={whats_hackathon} legacyBehavior>
+                        <a className={`hover:text-secondary-200 underline-offset-4 font-bold ${pathName === whats_hackathon ? "underline" : ""}`}>What's Hachathon</a>
                     </Link>
                 </li>
                 <li className="opacity-75">
                     |
                 </li>
                 <li>
-                    <Link href="/event" legacyBehavior>
-                        <a className={`hover:text-secondary-200 underline-offset-4 font-bold ${pathName === '/events' ? "underline" : ""}`}>Events</a>
+                    <Link href={event} legacyBehavior>
+                        <a className={`hover:text-secondary-200 underline-offset-4 font-bold ${pathName.includes("event") ? "underline" : ""}`}>Events</a>
                     </Link>
                 </li>
                 <li className="opacity-75">
                     |
                 </li>
                 <li>
-                    <Link href="/news" legacyBehavior>
-                        <a className={`hover:text-secondary-200 underline-offset-4 font-bold ${pathName === '/news' ? "underline" : ""}`}>News</a>
+                    <Link href={news} legacyBehavior>
+                        <a className={`hover:text-secondary-200 underline-offset-4 font-bold ${pathName.includes("news") ? "underline" : ""}`}>News</a>
                     </Link>
                 </li>
                 <li className="opacity-75">
                     |
                 </li>
                 <li>
-                    <Link href="/faq" legacyBehavior>
-                        <a className={`hover:text-secondary-200 underline-offset-4 font-bold ${pathName === '/faq' ? "underline" : ""}`}>FAQ</a>
+                    <Link href={faq} legacyBehavior>
+                        <a className={`hover:text-secondary-200 underline-offset-4 font-bold ${pathName === faq ? "underline" : ""}`}>FAQ</a>
                     </Link>
                 </li>
             </ul>
