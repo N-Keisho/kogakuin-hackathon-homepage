@@ -1,24 +1,14 @@
-// 'use client';
-// 'use server';
-
 import Image from "next/image";
 import SimpleButton from "./components/CustomButton";
 import { MiniInfoCard } from "./components/InfoCard";
 import Link from "next/link";
 import { getArticles } from "@/libs/article";
 import { ArticleHead } from "@/types/article";
-import { useEffect, useState } from "react";
 import Loading from "./components/Loding";
 
 
 export default async function Home() {
 
-  // const [Data, setData] = useState<ArticleHead[] | null>([]);
-  // useEffect(() => {
-  //   getArticles().then((data) => {
-  //     setData(data);
-  //   });
-  // }, []);
   
   const Data = await getArticles();
 
@@ -28,7 +18,6 @@ export default async function Home() {
     )
   }
 
-  // console.log(Data);
 
   const CurrentEvent = Data?.filter((data) => data.title.includes('!!!'))[0];
   const NewsData = Data ? Data?.map((_, i, a) => a[a.length - i - 1]) : null;

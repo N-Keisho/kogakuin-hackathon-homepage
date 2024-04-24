@@ -1,6 +1,6 @@
 'use client'
 
-import React, { use } from 'react';
+import React from 'react';
 import InfoCard from '../components/InfoCard';
 import { useState } from 'react';
 import { PageButton } from '../components/CustomButton';
