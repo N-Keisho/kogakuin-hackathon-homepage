@@ -1,24 +1,14 @@
-'use client';
-
 import Image from "next/image";
 import SimpleButton from "./components/CustomButton";
-import { MiniInfoCard } from "./components/InfoCard";
+import { MiniInfoCard, TopInfoCard } from "./components/InfoCard";
 import Link from "next/link";
 import { getArticles } from "@/libs/article";
 import { ArticleHead } from "@/types/article";
-import { useEffect, useState } from "react";
 import Loading from "./components/Loding";
 
-
-export default function Home() {
-
-  const [Data, setData] = useState<ArticleHead[] | null>([]);
-  useEffect(() => {
-    getArticles().then((data) => {
-      setData(data);
-    });
-  }, []);
-  // const Data = await getArticles();
+export default async function Home() {
+  
+  const Data = await getArticles();
 
   if (Data?.length === 0) {
     return (
@@ -46,10 +36,9 @@ const CuttentEvent: React.FC<{ id: number | undefined, thumbnaile: string | unde
   return (
     <div className="bg-secondary-400 p-8 md:p-14 text-center flex justify-center items-center">
       <div className="animate-shake-vertical">
-        <Link href={`event/${id}`} legacyBehavior>
-          <Image src={thumbnaile} alt="Image" sizes="(max-width: 900px) 90vw" className="w-full hover:animate-pulse" width={600} height={600} />
-        </Link>
+        <TopInfoCard id={id} thumbnaile={thumbnaile} />
       </div>
+      
     </div>
   )
 }
@@ -104,7 +93,7 @@ const News: React.FC<{ NewsData: ArticleHead[] | null }> = ({ NewsData }) => {
                 NewsData.map((data, index) => {
                   if (index > 5) return;
                   return (
-                    <MiniInfoCard key={index} category="news" id={data.id} title={data.title} thumbnaile={data.thumbnail} time={data.created_at} />
+                    <MiniInfoCard key={index} id={data.id} title={data.title} thumbnaile={data.thumbnail} time={data.created_at} />
                   )
                 })
               }
