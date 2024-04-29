@@ -26,6 +26,15 @@ export const metadata = {
     locale: "ja_JP",
     type: "website",
   },
+  images: [
+    {
+      url: "https://imgur.com/MiDhf5X",
+      width: 1200,
+      height: 630,
+      alt: siteName,
+    },
+  ]
+  ,
   twitter: {
     handle: "@KogHack",
     site: "@KogHack",
@@ -33,6 +42,10 @@ export const metadata = {
     title: siteName,
     description,
     creator: "@KEISHO966",
+    image: {
+      url: `https://imgur.com/MiDhf5X`,
+      alt: siteName,
+    },
   },
   alternates:{
     canonical: url,
