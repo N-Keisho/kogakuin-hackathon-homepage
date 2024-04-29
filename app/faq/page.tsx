@@ -1,5 +1,10 @@
 import React from 'react';
 import questions from './questions';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "よくあるご質問",
+}
 
 const Page = () => {
     return (

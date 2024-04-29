@@ -3,6 +3,11 @@ import InfoCard from '../../components/InfoCard';
 import { SingleYellowLines } from '../../components/Decoration';
 import { PageButton } from '../../components/CustomButton';
 import { getArticles } from '@/libs/article';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "ニュース",
+}
 
 const onePageContents = 5;
 

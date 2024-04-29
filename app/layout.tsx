@@ -13,9 +13,15 @@ const description = "工学院ハッカソンは工学院大学の学生チャ�
 const url = "https://hackathon.kogcoder.com";
 
 export const metadata = {
+  metadataBase: {
+    title: siteName,
+    description,
+    url,
+    siteName,
+  },
   title: {
     default:siteName,
-    template: (title: string) => `${title} | ${siteName}`,
+    template: '%s - 工学院ハッカソン',
   },
   description: description,
   openGraph: {
@@ -25,16 +31,15 @@ export const metadata = {
     siteName,
     locale: "ja_JP",
     type: "website",
+    images: [
+      {
+        url: `${url}/img/ogp.png`,
+        width: 1200,
+        height: 630,
+        alt: siteName,
+      },
+    ],
   },
-  images: [
-    {
-      url: "https://imgur.com/MiDhf5X",
-      width: 1200,
-      height: 630,
-      alt: siteName,
-    },
-  ]
-  ,
   twitter: {
     handle: "@KogHack",
     site: "@KogHack",
@@ -43,7 +48,7 @@ export const metadata = {
     description,
     creator: "@KEISHO966",
     image: {
-      url: `https://imgur.com/MiDhf5X`,
+      url: `${url}/img/ogp.png`,
       alt: siteName,
     },
   },
