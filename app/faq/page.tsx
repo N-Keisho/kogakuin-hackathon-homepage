@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: "よくあるご質問",
+    description: "工学院ハッカソンに関するよくあるご質問をまとめました．",
 }
 
 const Page = () => {

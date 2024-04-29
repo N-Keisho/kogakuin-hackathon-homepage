@@ -7,6 +7,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: "イベント",
+    description: "工学院ハッカソンのイベント情報を掲載しています．"
 }
 
 const onePageContents = 5;
