@@ -7,14 +7,21 @@ import { Metadata } from 'next';
 
 const title = "ニュース";
 const description = "工学院ハッカソンのニュース情報を掲載しています．";
+const image = "/img/ogp_news.png";
 export const metadata: Metadata = {
     title: title,
     description: description,
     openGraph: {
         title: title,
         description: description,
+        images: [image],
+    },
+    twitter: {
+        title: title,
+        description: description,
+        images: [image],
     }
-}
+};
 
 const onePageContents = 5;
 

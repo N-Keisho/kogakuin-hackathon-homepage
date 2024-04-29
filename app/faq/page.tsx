@@ -4,12 +4,19 @@ import { Metadata } from 'next';
 
 const title = "よくあるご質問";
 const description = "工学院ハッカソンに関するよくあるご質問をまとめました．";
+const image = "/img/ogp_faq.png";
 export const metadata: Metadata = {
     title: title,
     description: description,
     openGraph: {
         title: title,
         description: description,
+        images: [image],
+    },
+    twitter: {
+        title: title,
+        description: description,
+        images: [image],
     }
 };
 

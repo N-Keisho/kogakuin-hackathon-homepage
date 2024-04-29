@@ -29,6 +29,11 @@ export async function generateMetadata(
         description: Article.description,
         images: [Article.thumbnail],
       },
+      twitter: {
+        title: title,
+        description: Article.description,
+        images: [Article.thumbnail],
+      }
     }
   }
 

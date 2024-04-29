@@ -5,12 +5,19 @@ import { Metadata } from 'next';
 
 const title = "ハッカソンとは？";
 const description = "ハッカソンという言葉を聞いたことのない人向けに解説します．";
+const image = "/img/ogp_whats_hackathon.png";
 export const metadata: Metadata = {
     title: title,
     description: description,
     openGraph: {
         title: title,
         description: description,
+        images: [image],
+    },
+    twitter: {
+        title: title,
+        description: description,
+        images: [image],
     }
 };
 

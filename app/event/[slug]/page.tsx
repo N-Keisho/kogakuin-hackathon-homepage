@@ -7,12 +7,19 @@ import { Metadata } from 'next';
 
 const title = "イベント";
 const description = "工学院ハッカソンのイベント情報を掲載しています．";
+const image = "/img/ogp_event.png";
 export const metadata: Metadata = {
     title: title,
     description: description,
     openGraph: {
         title: title,
         description: description,
+        images: [image],
+    },
+    twitter: {
+        title: title,
+        description: description,
+        images: [image],
     }
 }
 

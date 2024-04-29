@@ -19,7 +19,6 @@ export default async function Home() {
   const CurrentEvent = Data?.filter((data) => data.title.includes('!!!'))[0];
   const NewsData = Data ? Data?.map((_, i, a) => a[a.length - i - 1]) : null;
 
-
   return (
     <>
       <CuttentEvent id={CurrentEvent?.id} thumbnaile={CurrentEvent?.thumbnail} />

@@ -31,7 +31,6 @@ export const metadata = {
     },
     description: {
       default: description,
-      template: '%s',
     },
     url,
     siteName,
@@ -51,7 +50,10 @@ export const metadata = {
     handle: "@KogHack",
     site: "@KogHack",
     cardType: "summary_large_image",
-    title: siteName,
+    title: {
+      default:siteName,
+      template: '%s - 工学院ハッカソン',
+    },
     description,
     creator: "@KEISHO966",
     image: {
