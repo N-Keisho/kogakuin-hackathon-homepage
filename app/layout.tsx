@@ -25,12 +25,19 @@ export const metadata = {
   },
   description: description,
   openGraph: {
-    title: siteName,
-    description,
+    title: {
+      default:siteName,
+      template: '%s - 工学院ハッカソン',
+    },
+    description: {
+      default: description,
+      template: '%s',
+    },
     url,
     siteName,
     locale: "ja_JP",
     type: "website",
+    cardtype: "summary_large_image",
     images: [
       {
         url: `${url}/img/ogp.png`,

@@ -5,9 +5,15 @@ import { PageButton } from '../../components/CustomButton';
 import { getArticles } from '@/libs/article';
 import { Metadata } from 'next';
 
+const title = "ニュース";
+const description = "工学院ハッカソンのニュース情報を掲載しています．";
 export const metadata: Metadata = {
-    title: "ニュース",
-    description: "工学院ハッカソンのニュース情報を掲載しています．"
+    title: title,
+    description: description,
+    openGraph: {
+        title: title,
+        description: description,
+    }
 }
 
 const onePageContents = 5;

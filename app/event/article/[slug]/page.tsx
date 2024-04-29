@@ -25,6 +25,8 @@ export async function generateMetadata(
       title: title,
       description: Article.description,
       openGraph: {
+        title: title,
+        description: Article.description,
         images: [Article.thumbnail],
       },
     }

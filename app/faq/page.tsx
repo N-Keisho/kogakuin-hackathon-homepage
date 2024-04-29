@@ -2,10 +2,16 @@ import React from 'react';
 import questions from './questions';
 import { Metadata } from 'next';
 
+const title = "よくあるご質問";
+const description = "工学院ハッカソンに関するよくあるご質問をまとめました．";
 export const metadata: Metadata = {
-    title: "よくあるご質問",
-    description: "工学院ハッカソンに関するよくあるご質問をまとめました．",
-}
+    title: title,
+    description: description,
+    openGraph: {
+        title: title,
+        description: description,
+    }
+};
 
 const Page = () => {
     return (
