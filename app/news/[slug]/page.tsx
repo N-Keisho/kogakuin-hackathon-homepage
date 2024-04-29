@@ -4,6 +4,7 @@ import { SingleYellowLines } from '../../components/Decoration';
 import { PageButton } from '../../components/CustomButton';
 import { getArticles } from '@/libs/article';
 import { Metadata } from 'next';
+import { url } from '@/app/layout';
 
 const title = "ニュース";
 const description = "工学院ハッカソンのニュース情報を掲載しています．";
@@ -14,12 +15,12 @@ export const metadata: Metadata = {
     openGraph: {
         title: title,
         description: description,
-        images: [image],
+        images: [`${url}${image}`],
     },
     twitter: {
         title: title,
         description: description,
-        images: [image],
+        images: [`${url}${image}`],
     }
 };
 

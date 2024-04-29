@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 const siteName = "工学院ハッカソン";
 const description = "工学院ハッカソンは工学院大学の学生チャレンジ奨励金を活用し，IT系サークル KogCoder が主催するイベントです．";
-const url = "https://hackathon.kogcoder.com";
+export const url = "https://hackathon.kogcoder.com";
 
 export const metadata = {
   metadataBase: {

@@ -2,6 +2,7 @@ import React from "react";
 import ArticlePage from "../../../components/ArticlePage";
 import { getArticle, getArticles } from "@/libs/article";
 import { Metadata } from "next";
+import { url } from "@/app/layout";
 
 export async function generateMetadata({
   params,
@@ -14,7 +15,7 @@ export async function generateMetadata({
       title: "ページが見つかりません",
       description: "ページが見つかりません",
       openGraph: {
-        images: ["/img/noimage.png"],
+        images: [`${url}/img/noimage.png`],
       },
     };
   }
