@@ -1,5 +1,5 @@
 import React from 'react';
-import ArticlePage from '../components/ui/Article/ArticlePage';
+import ArticlePage from '../components/ui/article/ArticlePage';
 import { getArticle } from '@/libs/article';
 import { Metadata } from 'next';
 import { url } from '@/app/layout';
