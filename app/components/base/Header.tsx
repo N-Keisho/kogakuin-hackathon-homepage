@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { usePathname } from "next/navigation";
 import MenuIcon from '@mui/icons-material/Menu';
 import { Drawer } from "@mui/material";
-import ThreeYellowLines from "./Decoration";
+import ThreeYellowLines from "../ui/decoration/ThreeYellowLines";
 
 const whats_hackathon = "/whats-hackathon";
 const event = "/event/1";
@@ -32,7 +32,7 @@ const Header: React.FC = () => {
             <div className="">
                 <nav className="container mx-auto flex items-center justify-between">
                     <Link href="/" legacyBehavior>
-                        <Image src="/img/logo.svg" alt="Kogakuin Hackathon" width={150} height={100} className="ml-3"/>
+                        <Image src="/img/logo/logo.svg" alt="Kogakuin Hackathon" width={150} height={100} className="ml-3"/>
                     </Link>
                     {/* 以下はスマホだと隠れる */}
                     <NavBar pathName={pathName} />
@@ -72,7 +72,7 @@ const SideBar: React.FC<{ pathName: string, open: boolean, toggleHamburger: (eve
             <div className="bg-secondary-400 h-full text-primary-700">
                 <div className="bg-primary-700 w-full p-3">
                     <Link href="/" legacyBehavior>
-                        <Image src="/img/logo.svg" alt="Kogakuin Hackathon" width={150} height={40} className="m-auto" />
+                        <Image src="/img/logo/logo.svg" alt="Kogakuin Hackathon" width={150} height={40} className="m-auto" />
                     </Link>
                 </div>
                 <ul className="flex flex-col space-y-3 p-3">

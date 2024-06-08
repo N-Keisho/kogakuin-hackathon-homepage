@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/base/Header";
+import Footer from "./components/base/Footer";
 import { Suspense } from "react";
 import Loading from "./components/Loding";
 import { Analytics } from "@vercel/analytics/react";
@@ -39,7 +39,7 @@ export const metadata = {
     cardtype: "summary_large_image",
     images: [
       {
-        url: `${url}/img/ogp.png`,
+        url: `${url}/img/ogp/ogp.png`,
         width: 1200,
         height: 630,
         alt: siteName,
@@ -57,7 +57,7 @@ export const metadata = {
     description,
     creator: "@KEISHO966",
     image: {
-      url: `${url}/img/ogp.png`,
+      url: `${url}/img/ogp/ogp.png`,
       alt: siteName,
     },
   },

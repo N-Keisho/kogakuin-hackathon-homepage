@@ -1,14 +1,14 @@
 import React from 'react';
-import InfoCard from '../../components/InfoCard';
-import { SingleYellowLines } from '../../components/Decoration';
-import { PageButton } from '../../components/CustomButton';
+import InfoCard from '../../components/ui/infoCard/InfoCard';
+import  SingleYellowLines  from '../../components/ui/decoration/SingleYellowLines';
+import  PageButton  from '../../components/ui/button/PageButton';
 import { getArticles } from '@/libs/article';
 import { Metadata } from 'next';
 import { url } from '@/app/layout';
 
 const title = "イベント";
 const description = "工学院ハッカソンのイベント情報を掲載しています．";
-const image = "/img/ogp_event.png";
+const image = "/img/ogp/ogp_event.png";
 export const metadata: Metadata = {
     title: title,
     description: description,

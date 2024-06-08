@@ -15,7 +15,7 @@ export async function generateMetadata(
             title: "ページが見つかりません",
             description: "ページが見つかりません",
             openGraph: {
-              images: [`${url}/img/noimage.png`],
+              images: [`${url}/img/other/noimage.png`],
             },
         }
     }
