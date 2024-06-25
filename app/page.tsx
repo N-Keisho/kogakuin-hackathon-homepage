@@ -4,7 +4,7 @@ import  MiniInfoCard  from "./components/ui/infoCard/MiniInfoCard";
 import  TopInfoCard  from "./components/ui/infoCard/TopInfoCard";
 import { getArticles } from "@/libs/article";
 import { ArticleHead } from "@/types/article";
-import Loading from "./components/ui/loading/Loading";
+import Loading from "./components/ui/Loading/Loading";
 
 export default async function Home() {
   

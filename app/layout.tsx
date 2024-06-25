@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "./components/base/Header";
 import Footer from "./components/base/Footer";
 import { Suspense } from "react";
-import Loading from "./components/ui/loading/Loading";
+import Loading from "./components/ui/Loading/Loading";
 import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
