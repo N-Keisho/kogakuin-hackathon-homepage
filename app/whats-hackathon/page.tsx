@@ -2,7 +2,7 @@ import React from 'react';
 import ArticlePage from "@/app/components/ui/Article/ArticlePage";
 import { getArticle } from '@/libs/article';
 import { Metadata } from 'next';
-import { url } from '@/app/layout';
+import { siteUrl } from '@/app/layout';
 
 const title = "ハッカソンとは？";
 const description = "ハッカソンという言葉を聞いたことのない人向けに解説します．";
@@ -13,12 +13,12 @@ export const metadata: Metadata = {
     openGraph: {
         title: title,
         description: description,
-        images: [`${url}${image}`],
+        images: [`${siteUrl}${image}`],
     },
     twitter: {
         title: title,
         description: description,
-        images: [`${url}${image}`],
+        images: [`${siteUrl}${image}`],
     }
 };
 

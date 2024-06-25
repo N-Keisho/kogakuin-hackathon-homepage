@@ -1,7 +1,7 @@
 import React from 'react';
 import questions from './questions';
 import { Metadata } from 'next';
-import { url } from '@/app/layout';
+import { siteUrl } from '@/app/layout';
 
 const title = "よくあるご質問";
 const description = "工学院ハッカソンに関するよくあるご質問をまとめました．";
@@ -12,12 +12,12 @@ export const metadata: Metadata = {
     openGraph: {
         title: title,
         description: description,
-        images: [`${url}${image}`],
+        images: [`${siteUrl}${image}`],
     },
     twitter: {
         title: title,
         description: description,
-        images: [`${url}${image}`],
+        images: [`${siteUrl}${image}`],
     }
 };
 
