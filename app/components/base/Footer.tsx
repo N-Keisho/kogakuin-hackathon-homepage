@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row mx-auto p-5 justify-center items-center">
                 <div className="flex-1 mt-2 mb-4 ml-4">
                     <Link href="/" legacyBehavior>
-                        <Image src="/img/logo.svg" alt="Kogakuin Hackathon" width={150} height={40} />
+                        <Image src="/img/logo/logo.svg" alt="Kogakuin Hackathon" width={150} height={40} />
                     </Link>
                 </div>
                 <div className="text-center flex-auto text-xs mb-4 md:m-0">
@@ -27,7 +27,7 @@ const Footer = () => {
                         </Link>
                     </div>
                     {/* <p className="text-xs pt-2">hackathon.kogakuin@gmail.com</p> */}
-                    <Image src="/img/mail_w.svg" alt="hackathon.kogcoder at gmail.com" className='pt-2' width={200} height={100} />
+                    <Image src="/img/mail/mail_w.svg" alt="hackathon.kogcoder at gmail.com" className='pt-2' width={200} height={100} />
                 </div>
             </div>
         </footer>

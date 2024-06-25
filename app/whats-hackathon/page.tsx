@@ -1,12 +1,12 @@
 import React from 'react';
-import ArticlePage from '../components/ArticlePage';
+import ArticlePage from "@/app/components/ui/Article/ArticlePage";
 import { getArticle } from '@/libs/article';
 import { Metadata } from 'next';
-import { url } from '@/app/layout';
 
 const title = "ハッカソンとは？";
 const description = "ハッカソンという言葉を聞いたことのない人向けに解説します．";
-const image = "/img/ogp_whats_hackathon.png";
+const image = "/img/ogp/ogp_whats_hackathon.png";
+const url = "https://hackathon.kogcoder.com";
 export const metadata: Metadata = {
     title: title,
     description: description,

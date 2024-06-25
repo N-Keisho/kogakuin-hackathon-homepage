@@ -1,11 +1,11 @@
 import React from 'react';
 import questions from './questions';
 import { Metadata } from 'next';
-import { url } from '@/app/layout';
 
+const url = "https://hackathon.kogcoder.com";
 const title = "よくあるご質問";
 const description = "工学院ハッカソンに関するよくあるご質問をまとめました．";
-const image = "/img/ogp_faq.png";
+const image = "/img/ogp/ogp_faq.png";
 export const metadata: Metadata = {
     title: title,
     description: description,

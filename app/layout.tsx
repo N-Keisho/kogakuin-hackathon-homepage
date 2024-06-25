@@ -1,16 +1,16 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/base/Header";
+import Footer from "./components/base/Footer";
 import { Suspense } from "react";
-import Loading from "./components/Loding";
+import Loading from "./components/ui/Loading/Loading";
 import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const siteName = "工学院ハッカソン";
 const description = "工学院ハッカソンは工学院大学の学生チャレンジ奨励金を活用し，IT系サークル KogCoder が主催するイベントです．";
-export const url = "https://hackathon.kogcoder.com";
+const url = "https://hackathon.kogcoder.com";
 
 export const metadata = {
   metadataBase: {
@@ -39,7 +39,7 @@ export const metadata = {
     cardtype: "summary_large_image",
     images: [
       {
-        url: `${url}/img/ogp.png`,
+        url: `${url}/img/ogp/ogp.png`,
         width: 1200,
         height: 630,
         alt: siteName,
@@ -57,7 +57,7 @@ export const metadata = {
     description,
     creator: "@KEISHO966",
     image: {
-      url: `${url}/img/ogp.png`,
+      url: `${url}/img/ogp/ogp.png`,
       alt: siteName,
     },
   },

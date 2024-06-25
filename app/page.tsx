@@ -1,10 +1,10 @@
 import Image from "next/image";
-import SimpleButton from "./components/CustomButton";
-import { MiniInfoCard, TopInfoCard } from "./components/InfoCard";
-import Link from "next/link";
+import SimpleButton from "./components/ui/button/SimpleButton";
+import  MiniInfoCard  from "./components/ui/infoCard/MiniInfoCard";
+import  TopInfoCard  from "./components/ui/infoCard/TopInfoCard";
 import { getArticles } from "@/libs/article";
 import { ArticleHead } from "@/types/article";
-import Loading from "./components/Loding";
+import Loading from "./components/ui/Loading/Loading";
 
 export default async function Home() {
   
@@ -113,7 +113,7 @@ const Contact = () => {
               お問い合わせ
             </h1>
             {/* <p className="text-lg md:text-3xl mt-4">hackathon.kogakuin@gmail.com</p> */}
-            <Image src="/img/mail_b.svg" alt="hackathon.kogcoder at gmail.com" className="mt-2" width={280} height={200} />
+            <Image src="/img/mail/mail_b.svg" alt="hackathon.kogcoder at gmail.com" className="mt-2" width={280} height={200} />
           </div>
         </div>
       </div>

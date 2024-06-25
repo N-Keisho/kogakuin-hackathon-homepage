@@ -2,8 +2,7 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import Image from 'next/image'
-import { ClassNames } from '@emotion/react'
-import SimpleButton from './CustomButton'
+import SimpleButton from '../button/SimpleButton'
 
 interface CustomReactMarkdownProps {
     content: string,
