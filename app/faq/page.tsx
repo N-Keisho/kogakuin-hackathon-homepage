@@ -1,8 +1,8 @@
 import React from 'react';
 import questions from './questions';
 import { Metadata } from 'next';
-import { siteUrl } from '@/app/layout';
 
+const url = "https://hackathon.kogcoder.com";
 const title = "よくあるご質問";
 const description = "工学院ハッカソンに関するよくあるご質問をまとめました．";
 const image = "/img/ogp/ogp_faq.png";
@@ -12,12 +12,12 @@ export const metadata: Metadata = {
     openGraph: {
         title: title,
         description: description,
-        images: [`${siteUrl}${image}`],
+        images: [`${url}${image}`],
     },
     twitter: {
         title: title,
         description: description,
-        images: [`${siteUrl}${image}`],
+        images: [`${url}${image}`],
     }
 };
 

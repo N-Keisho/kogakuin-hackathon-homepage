@@ -2,8 +2,8 @@ import React from 'react';
 import ArticlePage from "@/app/components/ui/Article/ArticlePage";
 import { getArticle, getArticles } from '@/libs/article';
 import { Metadata } from 'next'
-import { siteUrl } from '@/app/layout';
 
+const url = "https://hackathon.kogcoder.com";
 export async function generateMetadata(
     { params }: { params: { slug: string } }
   ): Promise<Metadata> {
@@ -15,7 +15,7 @@ export async function generateMetadata(
             title: "ページが見つかりません",
             description: "ページが見つかりません",
             openGraph: {
-              images: [`${siteUrl}/img/other/noimage.png`],
+              images: [`${url}/img/other/noimage.png`],
             },
         }
     }

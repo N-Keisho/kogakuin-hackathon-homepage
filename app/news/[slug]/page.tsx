@@ -4,8 +4,8 @@ import SingleYellowLines from '../../components/ui/decoration/SingleYellowLines'
 import PageButton  from '../../components/ui/button/PageButton';
 import { getArticles } from '@/libs/article';
 import { Metadata } from 'next';
-import { siteUrl } from '@/app/layout';
 
+const url = "https://hackathon.kogcoder.com";
 const title = "ニュース";
 const description = "工学院ハッカソンのニュース情報を掲載しています．";
 const image = "/img/ogp/ogp_news.png";
@@ -15,12 +15,12 @@ export const metadata: Metadata = {
     openGraph: {
         title: title,
         description: description,
-        images: [`${siteUrl}${image}`],
+        images: [`${url}${image}`],
     },
     twitter: {
         title: title,
         description: description,
-        images: [`${siteUrl}${image}`],
+        images: [`${url}${image}`],
     }
 };
 
