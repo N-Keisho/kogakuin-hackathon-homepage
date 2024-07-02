@@ -27,21 +27,18 @@ const Header: React.FC = () => {
     }, [pathName])
 
     return (
-        <header className="bg-primary-700 text-secondary-400 p-5 w-full">
-            <ThreeYellowLines />
-            <div className="">
-                <nav className="container mx-auto flex items-center justify-between">
+        <header className="bg-white text-primary-700 p-5 w-full">
+                <nav className="flex items-center justify-between w-full">
                     <Link href="/" legacyBehavior>
-                        <Image src="/img/logo/logo.svg" alt="Kogakuin Hackathon" width={150} height={100} className="ml-3"/>
+                        <Image src="/img/logo/logo_black.svg" alt="Kogakuin Hackathon" width={150} height={100}/>
                     </Link>
                     {/* 以下はスマホだと隠れる */}
                     <NavBar pathName={pathName} />
                     {/* ハンバーガーメニュー スマホだと表示される*/}
-                    <HumbargerMenu open={open} toggleHamburger={toggleHamburger} />
+                    {/* <HumbargerMenu open={open} toggleHamburger={toggleHamburger} /> */}
                     {/* サイドバー スマホだと表示される*/}
-                    <SideBar pathName={pathName} open={open} toggleHamburger={toggleHamburger} />
+                    {/* <SideBar pathName={pathName} open={open} toggleHamburger={toggleHamburger} /> */}
                 </nav>
-            </div>
         </header>
     );
 };
@@ -110,7 +107,7 @@ const NavBar: React.FC<{ pathName: string }> = ({ pathName }) => {
             <ul className="flex space-x-3">
                 <li>
                     <Link href={whats_hackathon} legacyBehavior>
-                        <a className={`hover:text-secondary-200 underline-offset-4 font-bold ${pathName === whats_hackathon ? "underline" : ""}`}>What's Hachathon</a>
+                        <a className={`hover:text-secondary-200 underline-offset-4 font-bold ${pathName === whats_hackathon ? "underline" : ""}`}>ハッカソンってなに？</a>
                     </Link>
                 </li>
                 <li className="opacity-75">
@@ -118,7 +115,7 @@ const NavBar: React.FC<{ pathName: string }> = ({ pathName }) => {
                 </li>
                 <li>
                     <Link href={event} legacyBehavior>
-                        <a className={`hover:text-secondary-200 underline-offset-4 font-bold ${pathName.includes("event") ? "underline" : ""}`}>Events</a>
+                        <a className={`hover:text-secondary-200 underline-offset-4 font-bold ${pathName.includes("event") ? "underline" : ""}`}>イベント</a>
                     </Link>
                 </li>
                 <li className="opacity-75">
@@ -126,7 +123,7 @@ const NavBar: React.FC<{ pathName: string }> = ({ pathName }) => {
                 </li>
                 <li>
                     <Link href={news} legacyBehavior>
-                        <a className={`hover:text-secondary-200 underline-offset-4 font-bold ${pathName.includes("news") ? "underline" : ""}`}>News</a>
+                        <a className={`hover:text-secondary-200 underline-offset-4 font-bold ${pathName.includes("news") ? "underline" : ""}`}>ニュース</a>
                     </Link>
                 </li>
                 <li className="opacity-75">
