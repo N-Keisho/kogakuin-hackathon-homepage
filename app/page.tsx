@@ -21,10 +21,6 @@ export default async function Home() {
 
   return (
     <>
-      <h1>見出しです</h1>
-      <h2>見出しです</h2>
-      <h3>見出しです</h3>
-      <p>見出しです見出しです見出しです見出しです見出しです見出しです</p>
       <CuttentEvent id={CurrentEvent?.id} thumbnaile={CurrentEvent?.thumbnail} />
       <Explanation />
       <News NewsData={NewsData} />
