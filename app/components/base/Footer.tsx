@@ -47,19 +47,19 @@ const SiteMap = () => {
       <h3>サイトマップ</h3>
       <ul className="list-none">
         <li className="mb-1">
-          <Link href="/">トップ</Link>
+          <Link href="/" className="border-none text-white">トップ</Link>
         </li>
         <li className="mb-1">
-          <Link href="/about">ハッカソンとは</Link>
+          <Link href="/about" className="border-none text-white">ハッカソンとは</Link>
         </li>
         <li className="mb-1">
-          <Link href="/event/1">イベント</Link>
+          <Link href="/event/1" className="border-none text-white">イベント</Link>
         </li>
         <li className="mb-1">
-          <Link href="/news/1">ニュース</Link>
+          <Link href="/news/1" className="border-none text-white">ニュース</Link>
         </li>
         <li className="mb-1">
-          <Link href="/faq">FAQ</Link>
+          <Link href="/faq" className="border-none text-white">FAQ</Link>
         </li>
       </ul>
     </>
@@ -74,7 +74,7 @@ const SNS = () => {
         <li className="mb-1">
           <Link
             href="https://twitter.com/KogHack"
-            className="flex"
+            className="flex border-none text-white"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -85,7 +85,7 @@ const SNS = () => {
         <li className="mb-1">
           <Link
             href="https://www.youtube.com/@KogakuinHackathon/"
-            className="flex"
+            className="flex border-none text-white"
             rel="noopener noreferrer"
             target="_blank"
           >

@@ -61,7 +61,7 @@ const HumbargerMenu: React.FC<{
 }> = ({ open, toggleHamburger }) => {
   return (
     <div className="block md:hidden">
-      <button onClick={toggleHamburger} className="">
+      <button onClick={toggleHamburger} className="border-none">
         <MenuIcon className="text-primary-700" fontSize="large" />
       </button>
     </div>
@@ -91,7 +91,7 @@ const SideBar: React.FC<{
             <Link href={whats_hackathon} legacyBehavior>
               <a
                 className={`hover:text-primary-500 underline-offset-4 font-bold ${
-                  pathName === whats_hackathon ? "underline" : ""
+                  pathName === whats_hackathon ? "underline" : "border-none"
                 }`}
               >
                 ハッカソンってなに？
@@ -102,7 +102,7 @@ const SideBar: React.FC<{
             <Link href={event} legacyBehavior>
               <a
                 className={`hover:text-primary-500 underline-offset-4 font-bold ${
-                  pathName.includes("event") ? "underline" : ""
+                  pathName.includes("event") ? "underline" : "border-none"
                 }`}
               >
                 イベント
@@ -113,7 +113,7 @@ const SideBar: React.FC<{
             <Link href={news} legacyBehavior>
               <a
                 className={`hover:text-primary-500 underline-offset-4 font-bold ${
-                  pathName.includes("news") ? "underline" : ""
+                  pathName.includes("news") ? "underline" : "border-none"
                 }`}
               >
                 ニュース
@@ -124,7 +124,7 @@ const SideBar: React.FC<{
             <Link href={faq} legacyBehavior>
               <a
                 className={`hover:text-primary-500 underline-offset-4 font-bold ${
-                  pathName === faq ? "underline" : ""
+                  pathName === faq ? "underline" : "border-none"
                 }`}
               >
                 FAQ
@@ -146,7 +146,7 @@ const NavBar: React.FC<{ pathName: string }> = ({ pathName }) => {
           <Link href={whats_hackathon} legacyBehavior>
             <a
               className={`hover:text-primary-400 underline-offset-4 font-bold ${
-                pathName === whats_hackathon ? "underline" : ""
+                pathName === whats_hackathon ? "underline" : "border-none"
               }`}
             >
               ハッカソンってなに？
@@ -158,7 +158,7 @@ const NavBar: React.FC<{ pathName: string }> = ({ pathName }) => {
           <Link href={event} legacyBehavior>
             <a
               className={`hover:text-primary-400 underline-offset-4 font-bold ${
-                pathName.includes("event") ? "underline" : ""
+                pathName.includes("event") ? "underline" : "border-none"
               }`}
             >
               イベント
@@ -170,7 +170,7 @@ const NavBar: React.FC<{ pathName: string }> = ({ pathName }) => {
           <Link href={news} legacyBehavior>
             <a
               className={`hover:text-primary-400 underline-offset-4 font-bold ${
-                pathName.includes("news") ? "underline" : ""
+                pathName.includes("news") ? "underline" : "border-none"
               }`}
             >
               ニュース
@@ -182,7 +182,7 @@ const NavBar: React.FC<{ pathName: string }> = ({ pathName }) => {
           <Link href={faq} legacyBehavior>
             <a
               className={`hover:text-primary-400 underline-offset-4 font-bold ${
-                pathName === faq ? "underline" : ""
+                pathName === faq ? "underline" : "border-none"
               }`}
             >
               FAQ
