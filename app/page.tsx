@@ -24,6 +24,7 @@ export default async function Home() {
         id={CurrentEvent?.id}
         thumbnaile={CurrentEvent?.thumbnail}
       />
+      <Logo />
       <Explanation />
       <News NewsData={NewsData} />
       <Contact />
@@ -45,64 +46,82 @@ const CuttentEvent: React.FC<{
   );
 };
 
+const Logo: React.FC = () => {
+  return (
+    <div className="flex flex-col justify-center items-center mt-5">
+      <div className="w-11/12 max-w-2xl flex flex-col justify-center items-center">
+        <h1 className="bg-transparent">レッツ ものづくりチャレンジ！</h1>
+        <Image
+          src="/img/logo/logo_black.svg"
+          alt="工学院ハッカソン"
+          width={300}
+          height={300}
+          sizes="(max-width: 900px) 90vw"
+          className="w-full"
+        />
+      </div>
+    </div>
+  );
+};
+
 const Explanation: React.FC = () => {
   return (
     <div className="flex flex-col mt-4 md:mt-10 mb-10 flex flex-col items-center">
-      <div className="w-full max-w-2xl">
-      <h1>初心者のためのハッカソンです！</h1>
-      <div>
-        <h2>ハッカソンってなに？</h2>
-        <p>
-          ハッカソンとは，テーマに沿ったアイディアを考えて，作って発表する大会です．
-        </p>
-        <p>あなたのアイディアを形にしてみよう！</p>
-      </div>
-      <div>
-        <h2>工学院ハッカソンって？</h2>
-        <p>工学院ハッカソンは，工学院大学の学生のためのハッカソンです！</p>
-        <p>
-          ハッカソンの魅力や，モノづくりの面白さを伝えるために企画された新しいイベントで，ハッカソン初心者の方をターゲットにしています．初心者大歓迎！
-        </p>
-      </div>
-      <div>
-        <h2>スキルや技術力は必要ですか？</h2>
-        <p>
-          必要ありません！プログラムに触れたことがなくても，技術力がなくても大丈夫！
-        </p>
-        <p>
-          本イベントでは，
-          <a
-            href="https://www.figma.com/ja-jp/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Figma
-          </a>
-          というツールを使った試作品の作成を目指します．
-        </p>
-        <p>
-          使い方講習や資料も用意しているので，初めて使う方も安心してご参加いただけます．
-        </p>
-      </div>
-      <div>
-        <h2>賞金が出るって本当ですか？</h2>
-        <p>
-          はい，本当です！工学院ハッカソンは，本学の学生チャレンジ奨励金により予算を獲得しています．
-        </p>
-        <p>この予算から各大会ごとに賞金を授与します．</p>
-        <p>詳しい金額は，各イベントのページをご覧ください．</p>
-      </div>
-      <div>
-        <h2>参加費はかかりますか？</h2>
-        <p>参加費はかかりません！無料でご参加いただけます．</p>
-      </div>
-      <div>
-        <h2>もっと詳細に知りたいです！</h2>
-        <p>
-          ハッカソン・工学院ハッカソンについてもっと知りたい方は，下のボタンから特設ページをご覧ください！
-        </p>
-      </div>
-      <SimpleButton url="about" text="もっと詳しく！" />
+      <div className="w-11/12 max-w-2xl">
+        <h1>初心者のためのハッカソンです！</h1>
+        <div>
+          <h2>ハッカソンってなに？</h2>
+          <p>
+            ハッカソンとは，テーマに沿ったアイディアを考えて，作って発表する大会です．
+          </p>
+          <p>あなたのアイディアを形にしてみよう！</p>
+        </div>
+        <div>
+          <h2>工学院ハッカソンって？</h2>
+          <p>工学院ハッカソンは，工学院大学の学生のためのハッカソンです！</p>
+          <p>
+            ハッカソンの魅力や，モノづくりの面白さを伝えるために企画された新しいイベントで，ハッカソン初心者の方をターゲットにしています．初心者大歓迎！
+          </p>
+        </div>
+        <div>
+          <h2>スキルや技術力は必要ですか？</h2>
+          <p>
+            必要ありません！プログラムに触れたことがなくても，技術力がなくても大丈夫！
+          </p>
+          <p>
+            本イベントでは，
+            <a
+              href="https://www.figma.com/ja-jp/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Figma
+            </a>
+            というツールを使った試作品の作成を目指します．
+          </p>
+          <p>
+            使い方講習や資料も用意しているので，初めて使う方も安心してご参加いただけます．
+          </p>
+        </div>
+        <div>
+          <h2>賞金が出るって本当ですか？</h2>
+          <p>
+            はい，本当です！工学院ハッカソンは，本学の学生チャレンジ奨励金により予算を獲得しています．
+          </p>
+          <p>この予算から各大会ごとに賞金を授与します．</p>
+          <p>詳しい金額は，各イベントのページをご覧ください．</p>
+        </div>
+        <div>
+          <h2>参加費はかかりますか？</h2>
+          <p>参加費はかかりません！無料でご参加いただけます．</p>
+        </div>
+        <div>
+          <h2>もっと詳細に知りたいです！</h2>
+          <p>
+            ハッカソン・工学院ハッカソンについてもっと知りたい方は，下のボタンから特設ページをご覧ください！
+          </p>
+        </div>
+        <SimpleButton url="about" text="もっと詳しく！" />
       </div>
     </div>
   );
