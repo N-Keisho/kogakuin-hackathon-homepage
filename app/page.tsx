@@ -27,6 +27,7 @@ export default async function Home() {
       <Logo />
       <Explanation />
       <Recommendation />
+      <Think />
       <News NewsData={NewsData} />
       <Contact />
     </>
@@ -148,32 +149,47 @@ const Recommendation: React.FC = () => {
             <p>学びを活用してみたい人</p>
           </div>
           <div className="flex flex-col items-center">
-          <div className="h-56 w-56 relative">
-            <Image
-              src="/img/top/suit_woman_color.svg"
-              alt="engineer man"
-              fill
-              sizes="(max-width: 900px) 90vw"
-              style={{ objectFit: "cover" }}
-            />
+            <div className="h-56 w-56 relative">
+              <Image
+                src="/img/top/suit_woman_color.svg"
+                alt="engineer man"
+                fill
+                sizes="(max-width: 900px) 90vw"
+                style={{ objectFit: "cover" }}
+              />
             </div>
             <p>就活に向けて頑張りたい人</p>
             <p>新しいことに挑戦したい人</p>
           </div>
           <div className="flex flex-col items-center">
-          <div className="h-56 w-56 relative">
-            <Image
-              src="/img/top/inpiration_man_color.svg"
-              alt="engineer man"
-              fill
-              sizes="(max-width: 900px) 90vw"
-              style={{ objectFit: "cover" }}
-            />
+            <div className="h-56 w-56 relative">
+              <Image
+                src="/img/top/inpiration_man_color.svg"
+                alt="engineer man"
+                fill
+                sizes="(max-width: 900px) 90vw"
+                style={{ objectFit: "cover" }}
+              />
             </div>
             <p>アイディアを形にしたい人</p>
             <p>ものづくりをしてみたい人</p>
           </div>
         </div>
+      </div>
+    </div>
+  );
+};
+
+const Think: React.FC = () => {
+  return (
+    <div className="flex flex-col mt-4 md:mt-10 mb-10 flex flex-col items-center">
+      <div className="w-11/12 max-w-2xl">
+        <h1>主催者の思い</h1>
+        <h2>ハッカソンの魅力を広めたい！</h2>
+        <p className="mb-5">ハッカソンには様々な魅力があります．技術力や社会人基礎力の向上，モノづくりの楽しさ，未知の技術に出会えるワクワクなど，ハッカソンに参加することで，一度にたくさんの経験を得ることができるのです．</p>
+        <p className="mb-5">しかし一方で，工学院大学内でのハッカソンの知名度は低く，知っていても参加のハードルが高いと感じる人が多いようでした．</p>
+        <p className="mb-5">そこで私たちは，ハッカソンの魅力・モノづくりの楽しさを伝えるために，初心者のための学内向けハッカソンを開催することにしました．</p>
+        <p>参加者の皆様には，ぜひともハッカソンの魅力を知ってもらい，モノづくりを楽しんでいただきたいです！</p>
       </div>
     </div>
   );
