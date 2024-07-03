@@ -29,7 +29,7 @@ export default async function Home() {
       <Recommendation />
       <Think />
       <News NewsData={NewsData} />
-      <Contact />
+      {/* <Contact /> */}
     </>
   );
 }
@@ -186,10 +186,18 @@ const Think: React.FC = () => {
       <div className="w-11/12 max-w-2xl">
         <h1>主催者の思い</h1>
         <h2>ハッカソンの魅力を広めたい！</h2>
-        <p className="mb-5">ハッカソンには様々な魅力があります．技術力や社会人基礎力の向上，モノづくりの楽しさ，未知の技術に出会えるワクワクなど，ハッカソンに参加することで，一度にたくさんの経験を得ることができるのです．</p>
-        <p className="mb-5">しかし一方で，工学院大学内でのハッカソンの知名度は低く，知っていても参加のハードルが高いと感じる人が多いようでした．</p>
-        <p className="mb-5">そこで私たちは，ハッカソンの魅力・モノづくりの楽しさを伝えるために，初心者のための学内向けハッカソンを開催することにしました．</p>
-        <p>参加者の皆様には，ぜひともハッカソンの魅力を知ってもらい，モノづくりを楽しんでいただきたいです！</p>
+        <p className="mb-5">
+          ハッカソンには様々な魅力があります．技術力や社会人基礎力の向上，モノづくりの楽しさ，未知の技術に出会えるワクワクなど，ハッカソンに参加することで，一度にたくさんの経験を得ることができるのです．
+        </p>
+        <p className="mb-5">
+          しかし一方で，工学院大学内でのハッカソンの知名度は低く，知っていても参加のハードルが高いと感じる人が多いようでした．
+        </p>
+        <p className="mb-5">
+          そこで私たちは，ハッカソンの魅力・モノづくりの楽しさを伝えるために，初心者のための学内向けハッカソンを開催することにしました．
+        </p>
+        <p>
+          参加者の皆様には，ぜひともハッカソンの魅力を知ってもらい，モノづくりを楽しんでいただきたいです！
+        </p>
       </div>
     </div>
   );
@@ -199,38 +207,25 @@ const News: React.FC<{ NewsData: ArticleHead[] | null }> = ({ NewsData }) => {
   if (!NewsData) return <></>;
 
   return (
-    <>
-      <div className="mt-24 mb-10 md:m-24 flex justify-center items-center">
-        <div
-          className={`absolute bg-primary-100 w-full opacity-50 ${
-            NewsData.length > 3 ? "py-72" : "py-44"
-          }`}
-          style={{ clipPath: "polygon(0% 100%, 0% 15%, 100% 0%, 100% 85%)" }}
-        ></div>
-        <div className="text-center relative -top-3">
-          <h1 className="text-primary-700 text-2xl md:text-4xl font-bold underline m-2 decoration-1 underline-offset-8">
-            最新情報
-          </h1>
-          <p className="text-sm md:text-lg mt-2 mb-3">最新情報はこちら！</p>
-          <div className="w-full">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full justify-center items-center">
-              {NewsData.map((data, index) => {
-                if (index > 5) return;
-                return (
-                  <MiniInfoCard
-                    key={index}
-                    id={data.id}
-                    title={data.title}
-                    thumbnaile={data.thumbnail}
-                    created_at={data.created_at}
-                  />
-                );
-              })}
-            </div>
-          </div>
+    <div className="flex flex-col mt-4 md:mt-10 pt-5 pb-10 flex flex-col items-center bg-primary-400/25 ">
+      <div className="w-11/12 max-w-2xl">
+        <h1 className="bg-primary-700 text-white">最新情報</h1>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {NewsData.map((data, index) => {
+            if (index > 5) return;
+            return (
+              <MiniInfoCard
+                key={index}
+                id={data.id}
+                title={data.title}
+                thumbnaile={data.thumbnail}
+                created_at={data.created_at}
+              />
+            );
+          })}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
@@ -242,7 +237,6 @@ const Contact = () => {
           <h1 className="text-2xl md:text-4xl font-bold underline m-2 decoration-1 underline-offset-8">
             お問い合わせ
           </h1>
-          {/* <p className="text-lg md:text-3xl mt-4">hackathon.kogakuin@gmail.com</p> */}
           <Image
             src="/img/mail/mail_b.svg"
             alt="hackathon.kogcoder at gmail.com"
