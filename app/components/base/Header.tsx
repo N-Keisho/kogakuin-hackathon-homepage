@@ -8,7 +8,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Drawer } from "@mui/material";
 import ThreeYellowLines from "../ui/decoration/ThreeYellowLines";
 
-const whats_hackathon = "/whats-hackathon";
+const whats_hackathon = "/about";
 const event = "/event/1";
 const news = "/news/1";
 const faq = "/faq";
