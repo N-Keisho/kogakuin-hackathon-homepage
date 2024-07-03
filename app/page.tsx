@@ -222,7 +222,7 @@ const News: React.FC<{ NewsData: ArticleHead[] | null }> = ({ NewsData }) => {
                     id={data.id}
                     title={data.title}
                     thumbnaile={data.thumbnail}
-                    time={data.created_at}
+                    created_at={data.created_at}
                   />
                 );
               })}
