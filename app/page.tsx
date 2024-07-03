@@ -26,6 +26,7 @@ export default async function Home() {
       />
       <Logo />
       <Explanation />
+      <Recommendation />
       <News NewsData={NewsData} />
       <Contact />
     </>
@@ -122,6 +123,57 @@ const Explanation: React.FC = () => {
           </p>
         </div>
         <SimpleButton url="about" text="もっと詳しく！" />
+      </div>
+    </div>
+  );
+};
+
+const Recommendation: React.FC = () => {
+  return (
+    <div className="flex flex-col mt-4 md:mt-10 mb-10 flex flex-col items-center">
+      <div className="w-11/12 max-w-2xl">
+        <h1>こんな方にオススメ！</h1>
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="flex flex-col items-center">
+            <div className="h-56 w-56 relative">
+              <Image
+                src="/img/top/engineer_man_color.svg"
+                alt="engineer man"
+                fill
+                sizes="(max-width: 900px) 90vw"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+            <p>ハッカソンに興味がある人</p>
+            <p>学びを活用してみたい人</p>
+          </div>
+          <div className="flex flex-col items-center">
+          <div className="h-56 w-56 relative">
+            <Image
+              src="/img/top/suit_woman_color.svg"
+              alt="engineer man"
+              fill
+              sizes="(max-width: 900px) 90vw"
+              style={{ objectFit: "cover" }}
+            />
+            </div>
+            <p>就活に向けて頑張りたい人</p>
+            <p>新しいことに挑戦したい人</p>
+          </div>
+          <div className="flex flex-col items-center">
+          <div className="h-56 w-56 relative">
+            <Image
+              src="/img/top/inpiration_man_color.svg"
+              alt="engineer man"
+              fill
+              sizes="(max-width: 900px) 90vw"
+              style={{ objectFit: "cover" }}
+            />
+            </div>
+            <p>アイディアを形にしたい人</p>
+            <p>ものづくりをしてみたい人</p>
+          </div>
+        </div>
       </div>
     </div>
   );
