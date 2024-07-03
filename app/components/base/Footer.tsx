@@ -7,14 +7,14 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="bg-black text-white">
-      <div className="flex flex-col md:flex-row p-5 justify-center">
+      <div className="flex flex-col md:flex-row p-5 mx-5 md:mx-10">
         <div className="flex-1 mb-1 md:m0-0">
           <SiteMap />
         </div>
         <div className="flex-1 mb-1 md:mb-0">
           <SNS />
         </div>
-        <div className="flex-1 flex flex-col justify-center mt-5 md:mt-0">
+        <div className="flex-1 flex flex-col mt-5 md:mt-0">
           <Logos />
         </div>
       </div>
@@ -33,7 +33,7 @@ const Logos = () => {
           alt="Kogakuin Hackathon"
           width={200}
           height={100}
-          className="cursor-pointer hover:opacity-80"
+          className="cursor-pointer hover:opacity-80 mt-3"
         />
       </Link>
       <p className="mt-2">© 2024 KogCoder. All rights reserved.</p>
@@ -79,7 +79,7 @@ const SNS = () => {
             target="_blank"
           >
             <XIcon className="mr-3" />
-            <p>X（旧Twiteer）</p>
+            <p>X (旧Twitter)</p>
           </Link>
         </li>
         <li className="mb-1">
