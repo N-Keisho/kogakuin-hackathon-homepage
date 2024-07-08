@@ -47,7 +47,7 @@ const StatusBadge: React.FC<{ isActivated: boolean, category: string }> = ({ isA
         <div
             className={`${category == "event" ? "" : "hidden"} 
                         ${isActivated ? "bg-secondary-400" : "bg-white"}
-                        text-center font-bold relative top-6 right-2 p-1 rounded-md w-12 md:w-20
+                        text-center font-bold relative top-6 right-2 p-1 rounded-md w-20
                         `}
         >
             {isActivated ? "募集中" : "終了"}
