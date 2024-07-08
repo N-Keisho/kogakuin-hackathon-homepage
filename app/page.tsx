@@ -41,7 +41,6 @@ const CuttentEvent: React.FC<{
   thumbnaile: string | undefined;
 }> = ({ id, thumbnaile }) => {
   if (!id || !thumbnaile) return <></>;
-  console.log(id, thumbnaile);
   return (
     <div className="bg-secondary-400 p-8 md:p-14 text-center flex justify-center items-center">
       <div className="animate-shake-vertical">

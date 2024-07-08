@@ -1,12 +1,12 @@
 ---
-id: 2
-created_at: string;
-title: string;
+id: 5
+created_at: '2024-07-08'
+title: '???string'
 thumbnail: '/img/demo/currentEventDemo.svg'
-description: string;
-user: User;
-series_id: number;
-tags: TagHead[];
+description: 'string;'
+user: 'User;'
+series_id: 'number;'
+tags: 'TagHead[];'
 ---
 Next.js を使って Markdown のブログサイトの構築を一から行なっていきます。
 
