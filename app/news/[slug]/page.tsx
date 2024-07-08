@@ -4,6 +4,7 @@ import SingleYellowLines from '../../components/ui/decoration/SingleYellowLines'
 import PageButton  from '../../components/ui/button/PageButton';
 import { getArticles } from '@/libs/article';
 import { Metadata } from 'next';
+import { getArticlesInServer } from '@/libs/articleInServer';
 
 const url = "https://hackathon.kogcoder.com";
 const title = "ニュース";
@@ -27,7 +28,8 @@ export const metadata: Metadata = {
 const onePageContents = 5;
 
 export async function generateStaticParams() {
-    const allArticles = await getArticles();
+    // const allArticles = await getArticles();
+    const allArticles = await getArticlesInServer();
     if (!allArticles) {
         return [];
     }
@@ -47,7 +49,8 @@ export const dynamicParams = false;
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
-    const allArticles = await getArticles();
+    // const allArticles = await getArticles();
+    const allArticles = await getArticlesInServer();
     if (!allArticles) {
         return { notFound: true }
     }

@@ -12,6 +12,7 @@ const ArticlePage: React.FC<{ Article: Article, Badge?: boolean, isActivated?: b
     if (Article.title.includes('@@')) title = title.replace('@@', '');
 
     const _time = Article.created_at.slice(0, 10);
+    // console.log(Article.thumbnail);
 
     return (
         <>
