@@ -5,8 +5,11 @@ import TopInfoCard from "./components/ui/infoCard/TopInfoCard";
 import { getArticles } from "@/libs/article";
 import { ArticleHead } from "@/types/article";
 import Loading from "./components/ui/Loading/Loading";
+import { getArticleInServer } from "@/libs/articleInServer";
 
 export default async function Home() {
+  // const t = await getArticleInServer('2');
+  // if (!t) return <Loading />;
   const Data = await getArticles();
 
   if (Data?.length === 0) {
