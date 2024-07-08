@@ -12,7 +12,6 @@ const ArticlePage: React.FC<{ Article: Article, Badge?: boolean, isActivated?: b
     if (Article.title.includes('@@')) title = title.replace('@@', '');
 
     const _time = Article.created_at.slice(0, 10);
-    // console.log(Article.thumbnail);
 
     return (
         <>
@@ -46,10 +45,10 @@ const StatusBadge: React.FC<{ isActivated: boolean, category: string }> = ({ isA
         <div
             className={`${category == "event" ? "" : "hidden"} 
                         ${isActivated ? "bg-secondary-400" : "bg-white"}
-                        text-primary-700 text-base md:text-lg text-center font-bold relative top-6 right-2 p-1 rounded-sm w-16 md:w-24 border border-primary-700
+                        text-center font-bold relative top-6 right-2 p-1 rounded-md w-12 md:w-20
                         `}
         >
-            {isActivated ? "開催中" : "終了"}
+            {isActivated ? "募集中" : "終了"}
         </div>
     );
 };
