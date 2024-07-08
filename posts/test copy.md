@@ -2,7 +2,7 @@
 id: 2
 created_at: string;
 title: string;
-thumbnail: string;
+thumbnail: '/img/demo/currentEventDemo.svg'
 description: string;
 user: User;
 series_id: number;

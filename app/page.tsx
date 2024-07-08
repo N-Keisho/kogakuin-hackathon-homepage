@@ -5,12 +5,11 @@ import TopInfoCard from "./components/ui/infoCard/TopInfoCard";
 import { getArticles } from "@/libs/article";
 import { ArticleHead } from "@/types/article";
 import Loading from "./components/ui/Loading/Loading";
-import { getArticleInServer } from "@/libs/articleInServer";
+import { getArticleInServer, getArticlesInServer } from "@/libs/articleInServer";
 
 export default async function Home() {
-  // const t = await getArticleInServer('2');
-  // if (!t) return <Loading />;
-  const Data = await getArticles();
+  // const Data = await getArticles();
+  const Data = await getArticlesInServer();
 
   if (Data?.length === 0) {
     return <Loading />;
@@ -42,6 +41,7 @@ const CuttentEvent: React.FC<{
   thumbnaile: string | undefined;
 }> = ({ id, thumbnaile }) => {
   if (!id || !thumbnaile) return <></>;
+  console.log(id, thumbnaile);
   return (
     <div className="bg-secondary-400 p-8 md:p-14 text-center flex justify-center items-center">
       <div className="animate-shake-vertical">
