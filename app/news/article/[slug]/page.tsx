@@ -31,12 +31,14 @@ export async function generateMetadata(
       openGraph: {
         title: title,
         description: Article.description,
-        images: [Article.thumbnail],
+        // images: [Article.thumbnail],
+        images: [`${url}${Article.thumbnail}`],
       },
       twitter: {
         title: title,
         description: Article.description,
-        images: [Article.thumbnail],
+        // images: [Article.thumbnail],
+        images: [`${url}${Article.thumbnail}`],
       }
     }
   }

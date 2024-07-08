@@ -30,19 +30,21 @@ export async function generateMetadata({
     openGraph: {
       title: title,
       description: Article.description,
-      images: [Article.thumbnail],
+      // images: [Article.thumbnail],
+      images: [`${url}${Article.thumbnail}`],
     },
     twitter: {
       title: title,
       description: Article.description,
-      images: [Article.thumbnail],
+      // images: [Article.thumbnail],
+      images: [`${url}${Article.thumbnail}`],
     },
   };
 }
 
 export async function generateStaticParams() {
   // const allArticles = await getArticles();
-  const allArticles = await getArticlesInServer();
+  const allArticles= await getArticlesInServer();
 
   if (!allArticles) {
     return [];
@@ -64,6 +66,7 @@ export const dynamicParams = false;
 
 export default async function Page({ params }: { params: { slug: string } }) {
   // const Article = await getArticle(params.slug);
+  console.log('slug:', params.slug);
   const Article = await getArticleInServer(params.slug);
   if (!Article) {
     return { notFound: true };
