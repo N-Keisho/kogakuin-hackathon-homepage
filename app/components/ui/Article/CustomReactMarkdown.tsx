@@ -85,7 +85,7 @@ const CustomReactMarkdown: React.FC<CustomReactMarkdownProps> = ({
               );
             }
 
-            return <a href={href} {...props} />;
+            return <a className="hover:opacity-80" href={href} {...props} />;
           },
         }}
       />
