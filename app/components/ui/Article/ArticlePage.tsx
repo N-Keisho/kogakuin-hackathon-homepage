@@ -20,7 +20,7 @@ const ArticlePage: React.FC<{
 
   return (
     <>
-      <div className="flex flex-col mt-4 md:mt-10 mb-10 flex flex-col items-center">
+      <div className="flex flex-col mt-5 mb-10 flex flex-col items-center">
         <div className="w-11/12 max-w-2xl">
           <BreadcrumbsList title={title} />
           <div className="w-full">
