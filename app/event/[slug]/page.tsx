@@ -1,7 +1,7 @@
 import React from 'react';
 import InfoCard from '../../components/ui/infoCard/InfoCard';
-import  SingleYellowLines  from '../../components/ui/decoration/SingleYellowLines';
-import  PageButton  from '../../components/ui/button/PageButton';
+import SingleYellowLines from '../../components/ui/decoration/SingleYellowLines';
+import PageButton from '../../components/ui/button/PageButton';
 import { getArticles } from '@/libs/article';
 import { Metadata } from 'next';
 import { getArticlesInServer } from '@/libs/articleInServer';
@@ -42,13 +42,13 @@ export async function generateStaticParams() {
 
     const numOfPages = Math.ceil(Article.length / onePageContents);
     return Array.from({ length: numOfPages }, (_, i) => ({
-        slug: (i+1).toString(),
+        slug: (i + 1).toString(),
     }));
 }
 
 export const dynamicParams = false;
 
-export default async function Page({ params }: { params: { slug: string } }){
+export default async function Page({ params }: { params: { slug: string } }) {
 
     // const allArticles = await getArticles();
     const allArticles = await getArticlesInServer();
@@ -61,32 +61,31 @@ export default async function Page({ params }: { params: { slug: string } }){
     const current = (params.slug as unknown as number) - 1;
 
     return (
-        <div className='p-5 justify-center flex flex-col items-center w-full'>
-            <BreadcrumbsList />
-            <h1 className="text-2xl md:text-4xl text-primary-700 font-bold underline mt-4 mb-4 decoration-1 underline-offset-8 text-center ">
-                イベント
-            </h1>
-            {/* <SingleYellowLines /> */}
-            <div className='w-full flex flex-col items-center'>
-                {
-                    Articles.map((article, index) => {
-                        if (index >= current * onePageContents && index < (current+ 1) * onePageContents){
-                            return (
-                                <InfoCard
-                                    key={article.id}
-                                    category="event"
-                                    id={article.id}
-                                    title={article.title}
-                                    description={article.description}
-                                    thumbnaile={article.thumbnail}
-                                    time={article.created_at}
-                                />
-                            );
-                        }
-                    })
-                }
+        <div className="flex flex-col justify-center items-center mt-5">
+            <div className="w-11/12 max-w-2xl">
+                <BreadcrumbsList />
+                <h1>イベント</h1>
+                <div className='w-full flex flex-col items-center'>
+                    {
+                        Articles.map((article, index) => {
+                            if (index >= current * onePageContents && index < (current + 1) * onePageContents) {
+                                return (
+                                    <InfoCard
+                                        key={article.id}
+                                        category="event"
+                                        id={article.id}
+                                        title={article.title}
+                                        description={article.description}
+                                        thumbnaile={article.thumbnail}
+                                        time={article.created_at}
+                                    />
+                                );
+                            }
+                        })
+                    }
+                </div>
+                <PageButton numOfDatas={length} onePageContents={5} pageIndex={current} category='event' />
             </div>
-            <PageButton numOfDatas={length} onePageContents={5} pageIndex={current} category='event' />
         </div>
     );
 };
