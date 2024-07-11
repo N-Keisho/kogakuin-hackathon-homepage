@@ -5,6 +5,7 @@ import PageButton  from '../../components/ui/button/PageButton';
 import { getArticles } from '@/libs/article';
 import { Metadata } from 'next';
 import { getArticlesInServer } from '@/libs/articleInServer';
+import BreadcrumbsList from '@/app/components/ui/BreadcrumbsList/BreadcrumbsList';
 
 const url = "https://hackathon.kogcoder.com";
 const title = "ニュース";
@@ -61,6 +62,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
     return (
         <div className='p-5 justify-center flex flex-col items-center w-full'>
+            <BreadcrumbsList />
             <h1 className="text-2xl md:text-4xl text-primary-700 font-bold underline mt-4 mb-4 decoration-1 underline-offset-8 text-center ">
                 ニュース
             </h1>

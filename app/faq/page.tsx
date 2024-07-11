@@ -1,6 +1,7 @@
 import React from "react";
 import questions from "./questions";
 import { Metadata } from "next";
+import BreadcrumbsList from "../components/ui/BreadcrumbsList/BreadcrumbsList";
 
 const url = "https://hackathon.kogcoder.com";
 const title = "よくあるご質問";
@@ -25,6 +26,7 @@ const Page = () => {
   return (
     <div className="flex flex-col mt-4 md:mt-10 mb-10 flex flex-col items-center">
       <div className="w-11/12 max-w-2xl">
+      <BreadcrumbsList />
         <h1>よくあるご質問</h1>
         <div>
           {questions.map((q, i) => (

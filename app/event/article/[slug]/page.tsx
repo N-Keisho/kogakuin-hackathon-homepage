@@ -66,7 +66,6 @@ export const dynamicParams = false;
 
 export default async function Page({ params }: { params: { slug: string } }) {
   // const Article = await getArticle(params.slug);
-  console.log('slug:', params.slug);
   const Article = await getArticleInServer(params.slug);
   if (!Article) {
     return { notFound: true };

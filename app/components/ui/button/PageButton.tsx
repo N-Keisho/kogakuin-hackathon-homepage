@@ -20,7 +20,7 @@ const PageButton: React.FC<{ numOfDatas: number, onePageContents:number, pageInd
               if (!lowSkiped && i < pageIndex - 1){
                 lowSkiped = true;
                 return (
-                  <a key={i} className={`m-1 h-7 w-7 text-primary-700 hover:bg-primary-400`} >
+                  <a key={i} className={`m-1 h-7 w-7 text-primary-700 hover:bg-primary-400 border-none`} >
                     ...
                   </a>
                 )
@@ -28,7 +28,7 @@ const PageButton: React.FC<{ numOfDatas: number, onePageContents:number, pageInd
               else if (!highSkiped && i > pageIndex + 1){
                 highSkiped = true;
                 return (
-                  <a key={i} className={`m-1 h-7 w-7 text-primary-700 hover:bg-primary-400`} >
+                  <a key={i} className={`m-1 h-7 w-7 text-primary-700 hover:bg-primary-400 border-none`} >
                     ...
                   </a>
                 )
@@ -36,7 +36,7 @@ const PageButton: React.FC<{ numOfDatas: number, onePageContents:number, pageInd
               return null;
             };
             return (
-              <Link key={i} href={`/${category}/${i+1}`} className={`block m-1 pt-0.5 h-7 w-7 text-white bg-primary-700  ${pageIndex == i ? "bg-secondary-400 text-primary-700" : "hover:bg-primary-400"}`} >
+              <Link key={i} href={`/${category}/${i+1}`} className={`block m-1 pt-0.5 h-7 w-7 text-white bg-primary-700 border-none ${pageIndex == i ? "bg-secondary-400 text-primary-700" : "hover:bg-primary-400"}`} >
                 {i + 1}
               </Link>
             )

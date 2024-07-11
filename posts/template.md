@@ -19,7 +19,6 @@ tags: 'イベント'
 - リストアイテム1
 - リストアイテム2
 - リストアイテム3
-
   - リストアイテム3-1
 
 ### セクション2
@@ -38,16 +37,13 @@ tags: 'イベント'
 
 ###### セクション5
 
-![画像の代替テキスト](https://via.placeholder.com/150)
+![画像の代替テキスト](https://via.placeholder.com/150 "画像のタイトル")
 
 ####### セクション6
 
-\`\`\`html
-
+```html
 const message: string = 'Hello, World!';
-
 console.log(message);
+```
 
-\`\`\`
-
-[`<button>`ボタン](https://example.com)
+[<button>ボタン](https://example.com)
