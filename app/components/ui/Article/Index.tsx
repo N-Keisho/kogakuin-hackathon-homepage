@@ -20,21 +20,21 @@ const Index: React.FC<IndexProps> = ({ content, className }) => {
         allowedElements={["h1", "h2", "h3"]}
         components={{
           h1: ({ children }) => (
-            <p>
-              <a href={`#${children}`} className="text-black border-none hover:opacity-80 hover:underline">
-                {children}
-              </a>
-            </p>
-          ),
-          h2: ({ children }) => (
             <p className="indent-4">
               <a href={`#${children}`} className="text-black border-none hover:opacity-80 hover:underline">
                 {children}
               </a>
             </p>
           ),
-          h3: ({ children }) => (
+          h2: ({ children }) => (
             <p className="indent-8">
+              <a href={`#${children}`} className="text-black border-none hover:opacity-80 hover:underline">
+                {children}
+              </a>
+            </p>
+          ),
+          h3: ({ children }) => (
+            <p className="indent-12">
               <a href={`#${children}`} className="text-black border-none hover:opacity-80 hover:underline">
                 {children}
               </a>
