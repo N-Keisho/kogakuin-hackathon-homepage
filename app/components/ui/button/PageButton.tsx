@@ -9,7 +9,7 @@ const PageButton: React.FC<{ numOfDatas: number, onePageContents:number, pageInd
     let highSkiped = false;
   
     return (
-      <div className='text-center'>
+      <div className='text-center flex flex-col items-center justify-center'>
         <Link href={`/${category}/${pageIndex-1}`} className={`block pt-0.5 m-2 h-7 w-7 text-white bg-primary-700 hover:bg-primary-400 ${pageIndex == 0 ? "hidden" : ""}`}>
           <KeyboardArrowLeftIcon />
         </Link>

@@ -2,7 +2,7 @@
 import React from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 interface BreadcrumbsListProps {
   title?: string;
@@ -28,28 +28,36 @@ const BreadcrumbsList: React.FC<BreadcrumbsListProps> = ({
     category = "よくある質問";
     categoryPath = "/faq";
   } else if (pathname.includes("about")) {
-    category = "ハッカソンってなに？"
+    category = "ハッカソンってなに？";
     categoryPath = "/about";
-    title = '';
+    title = "";
   }
 
   return (
     <>
-      <p className={`${className} ${((category === "ニュース" && title) || category == "ハッカソンってなに？") ? "mb-5" : ''}`}>
+      <p
+        className={`${className} ${
+          (category === "ニュース" && title) ||
+          category == "ハッカソンってなに？"
+            ? "mb-5"
+            : ""
+        }`}
+      >
         <Link href="/" className="hover:opacity-80">
           トップ
         </Link>
-        {/* <span>{"  >  "}</span> */}
         <KeyboardArrowRightIcon />
-        <Link href={categoryPath} className="hover:opacity-80">
-          {category}
-        </Link>
-        {title && title !== '' && (
+        {title ? (
+          <Link href={categoryPath} className="hover:opacity-80">
+            {category}
+          </Link>
+        ) : (
+          <strong>{category}</strong>
+        )}
+        {title && title !== "" && (
           <>
             <KeyboardArrowRightIcon />
-            <Link href={pathname} className="hover:opacity-80">
-              {title}
-            </Link>
+            <strong>{title}</strong>
           </>
         )}
       </p>
