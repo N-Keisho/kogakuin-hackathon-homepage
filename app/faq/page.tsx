@@ -1,71 +1,68 @@
-import React from 'react';
-import questions from './questions';
-import { Metadata } from 'next';
+import React from "react";
+import questions from "./questions";
+import { Metadata } from "next";
+import BreadcrumbsList from "../components/ui/BreadcrumbsList/BreadcrumbsList";
 
 const url = "https://hackathon.kogcoder.com";
 const title = "よくあるご質問";
 const description = "工学院ハッカソンに関するよくあるご質問をまとめました．";
 const image = "/img/ogp/ogp_faq.png";
 export const metadata: Metadata = {
+  title: title,
+  description: description,
+  openGraph: {
     title: title,
     description: description,
-    openGraph: {
-        title: title,
-        description: description,
-        images: [`${url}${image}`],
-    },
-    twitter: {
-        title: title,
-        description: description,
-        images: [`${url}${image}`],
-    }
+    images: [`${url}${image}`],
+  },
+  twitter: {
+    title: title,
+    description: description,
+    images: [`${url}${image}`],
+  },
 };
 
 const Page = () => {
-    return (
-        <>
-            <div className='p-5 justify-center flex flex-col items-center w-full'>
-                <h1 className="text-2xl md:text-4xl text-primary-700 font-bold underline mt-4 mb-0 decoration-1 underline-offset-8 text-center ">
-                    よくあるご質問
-                </h1>
-                <div className='flex flex-col w-11/12 max-w-xl items-center'>
-                    {questions.map((q, i) => (
-                        <div key={i} className='w-full'>
-                            <QuestionCategory category={q.category} />
-                            {q.questions.map((qa, j) => (
-                                <Question key={j} question={qa.question} answer={qa.answer} />
-                            ))}
-                        </div>
-                    ))}
-                </div>
+  return (
+    <div className="flex flex-col mt-4 md:mt-10 mb-10 flex flex-col items-center">
+      <div className="w-11/12 max-w-2xl">
+      <BreadcrumbsList />
+        <h1>よくあるご質問</h1>
+        <div>
+          {questions.map((q, i) => (
+            <div key={i} className="w-full mb-10">
+              <QuestionCategory category={q.category} />
+              {q.questions.map((qa, j) => (
+                <Question key={j} question={qa.question} answer={qa.answer} />
+              ))}
             </div>
-        </>
-    );
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Page;
 
+const QuestionCategory: React.FC<{ category: string }> = ({ category }) => {
+  return <h2>{category}</h2>;
+};
 
-const QuestionCategory:React.FC<{ category:string }> = ({ category }) => {
-    return (
-        <div className='bg-secondary-400  w-full mt-10 py-1 md:py-2 px-3 md:px-4'>
-            <a className='text-primary-700 text-xl md:text-2xl font-bold'>{category}</a>
-        </div>
-    );
-}
-
-const Question:React.FC<{ question:string, answer:string }> = ({ question, answer}) => {
-    return (
-        <div className='w-full mt-4'>
-            <div className='mb-2'>
-                <a className='text-primary-700 font-bold text-xl md:text-2xl'>Q</a>
-                <a className='font-bold pl-2 text-lg md:text-xl'>{question}</a>
-            </div>
-            <div className='pl-6'>
-            <a className=' my-4 text-base md:text-lg'>{answer}</a>
-            </div>
-            <div className='border-b border-black h-0 border-dashed mt-3'></div>
-        </div>
-    );
-}
-
+const Question: React.FC<{ question: string; answer: string }> = ({
+  question,
+  answer,
+}) => {
+  return (
+    <div className="w-full mt-4">
+      <h3 className="mb-2 border-none">
+        <span className="text-primary-700 mr-2">Q</span>
+        <span>{question}</span>
+      </h3>
+      <div className="pl-6">
+        <p>{answer}</p>
+      </div>
+      <div className="border-b border-black h-0 border-dashed mt-3"></div>
+    </div>
+  );
+};

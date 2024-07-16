@@ -2,6 +2,7 @@ import React from 'react';
 import ArticlePage from "@/app/components/ui/Article/ArticlePage";
 import { getArticle, getArticles } from '@/libs/article';
 import { Metadata } from 'next'
+import { getArticleInServer, getArticlesInServer } from '@/libs/articleInServer';
 
 const url = "https://hackathon.kogcoder.com";
 export async function generateMetadata(
@@ -9,7 +10,9 @@ export async function generateMetadata(
   ): Promise<Metadata> {
    
     // fetch data
-    const Article = await getArticle(params.slug);
+    // const Article = await getArticle(params.slug);
+    const Article = await getArticleInServer(params.slug);
+
     if (!Article) {
         return {
             title: "ページが見つかりません",
@@ -28,18 +31,21 @@ export async function generateMetadata(
       openGraph: {
         title: title,
         description: Article.description,
-        images: [Article.thumbnail],
+        // images: [Article.thumbnail],
+        images: [`${url}${Article.thumbnail}`],
       },
       twitter: {
         title: title,
         description: Article.description,
-        images: [Article.thumbnail],
+        // images: [Article.thumbnail],
+        images: [`${url}${Article.thumbnail}`],
       }
     }
   }
 
 export async function generateStaticParams(){
-    const allArticles = await getArticles();
+    // const allArticles = await getArticles();
+    const allArticles = await getArticlesInServer();
     if (!allArticles) {
         return [];
     }
@@ -58,7 +64,8 @@ export const dynamicParams = false;
 
 export default async function Page ({params} : {params : {slug : string}}){
 
-    const Article = await getArticle(params.slug);
+    // const Article = await getArticle(params.slug);
+    const Article = await getArticleInServer(params.slug);
     if (!Article) {
         return { notFound: true }
     }

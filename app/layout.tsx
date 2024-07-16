@@ -1,4 +1,4 @@
-import { Inter } from "next/font/google";
+import { Inter, M_PLUS_1} from "next/font/google";
 import "./globals.css";
 import Header from "./components/base/Header";
 import Footer from "./components/base/Footer";
@@ -7,6 +7,7 @@ import Loading from "./components/ui/Loading/Loading";
 import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
+const mPlus1 = M_PLUS_1({ subsets: ["latin"] });
 
 const siteName = "工学院ハッカソン";
 const description = "工学院ハッカソンは工学院大学の学生チャレンジ奨励金を活用し，IT系サークル KogCoder が主催するイベントです．";
@@ -73,7 +74,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={mPlus1.className}>
         <div className="min-h-screen flex flex-col">
           <Header />
           <Suspense fallback={<Loading />}>
