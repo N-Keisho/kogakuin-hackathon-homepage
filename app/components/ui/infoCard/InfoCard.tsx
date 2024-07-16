@@ -35,11 +35,11 @@ const InfoCard: React.FC<InfoCardProps> = ({ category, id, title, description, t
     return (
         <div className='w-full'>
             <Link href={`/${category}/article/${id}`} legacyBehavior>
-                <div className="flex flex-col md:flex-row w-full h-48 md:h-36 my-2 relative bg-white border border-gray-300 hover:animate-pulse">
-                    <div className="md:flex-shrink-0 w-full md:w-1/3 h-32 md:h-auto relative">
+                <div className="flex flex-row w-full md:h-36 my-2 relative bg-white border border-gray-300 hover:animate-pulse">
+                    <div className="flex-shrink-0 w-1/3 h-auto relative">
                         <Image src={thumbnaile} alt="Image" fill style={{ objectFit: 'cover' }} className="object-fit" sizes="(max-width: 1000px) 100vw" />
                     </div>
-                    <div className="p-4">
+                    <div className="p-4 relative">
                         <p className="text-black text-xs opacity-60">{_time}</p>
                         <h4 className="text-black my-1" >{title}</h4>
                         <p className='m-0'>{description}</p>
