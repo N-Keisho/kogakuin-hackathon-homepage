@@ -42,8 +42,8 @@ const CuttentEvent: React.FC<{
 }> = ({ id, thumbnaile }) => {
   if (!id || !thumbnaile) return <></>;
   return (
-    <div className="bg-secondary-400 p-8 md:p-14 text-center flex justify-center items-center">
-      <div className="animate-shake-vertical">
+    <div className="bg-secondary-400 p-8 md:p-14 text-center flex justify-center items-center w-full">
+      <div className="animate-shake-vertical w-11/12 max-w-2xl">
         <TopInfoCard id={id} thumbnaile={thumbnaile} />
       </div>
     </div>

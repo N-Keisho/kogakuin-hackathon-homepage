@@ -61,7 +61,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     const current = (params.slug as unknown as number) - 1;
 
     return (
-        <div className="flex flex-col justify-center items-center mt-5">
+        <div className="flex flex-col justify-center items-center my-5">
             <div className="w-11/12 max-w-2xl">
                 <BreadcrumbsList />
                 <h1>イベント</h1>
