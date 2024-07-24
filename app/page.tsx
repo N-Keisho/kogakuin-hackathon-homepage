@@ -5,7 +5,10 @@ import TopInfoCard from "./components/ui/infoCard/TopInfoCard";
 import { getArticles } from "@/libs/article";
 import { ArticleHead } from "@/types/article";
 import Loading from "./components/ui/Loading/Loading";
-import { getArticleInServer, getArticlesInServer } from "@/libs/articleInServer";
+import {
+  getArticleInServer,
+  getArticlesInServer,
+} from "@/libs/articleInServer";
 
 export default async function Home() {
   // const Data = await getArticles();
@@ -29,6 +32,11 @@ export default async function Home() {
       <Logo />
       <Explanation />
       <Recommendation />
+      <ReCurrentEvent
+        id={CurrentEvent?.id}
+        title={CurrentEvent?.title}
+        thumbnaile={CurrentEvent?.thumbnail}
+      />
       <Think />
       <News NewsData={NewsData} />
       {/* <Contact /> */}
@@ -120,8 +128,11 @@ const Explanation: React.FC = () => {
           <p>参加費はかかりません！無料でご参加いただけます．</p>
         </div>
         <div>
-          <h2>具体的なイメージが湧きません...</h2>
-          <p>現在作品の見本を作成中です！今しばらくお待ちください．</p>
+          <h2>どのようなものを作るんですか？</h2>
+          <p>Figmaなどのデザインツールを使って，アプリの画面のイメージを作っていただきます．</p>
+          <p>アプリの画面を作れたら，ProtoPediaにて作品登録を行ってください．</p>
+          <p>ProtoPediaのイメージについては下記のボタンからご確認いただけます．</p>
+          <SimpleButton url="https://protopedia.net/prototype/private/8c9ec816-3fdf-4dd2-8911-11b893227ca5" text="ProtoPediaのイメージ" />
         </div>
         <div>
           <h2>もっと詳細に知りたいです！</h2>
@@ -181,6 +192,27 @@ const Recommendation: React.FC = () => {
             <p>ものづくりをしてみたい人</p>
           </div>
         </div>
+      </div>
+    </div>
+  );
+};
+
+const ReCurrentEvent: React.FC<{
+  id: number | undefined;
+  title: string | undefined;
+  thumbnaile: string | undefined;
+}> = ({ id, title, thumbnaile }) => {
+  if (!id || !title || !thumbnaile) return <></>;
+  let t = title;
+  if (t.includes("!!!")) t = t.replace("!!!", "");
+  if (t.includes("@@")) t = t.replace("@@", "");
+
+  return (
+    <div className="flex flex-col mt-4 md:mt-10 mb-10 flex flex-col items-center">
+      <div className="w-11/12 max-w-2xl">
+        <h1>現在開催中のイベント</h1>
+        <h2>{t}</h2>
+        <TopInfoCard id={id} thumbnaile={thumbnaile} />
       </div>
     </div>
   );
