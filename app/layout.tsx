@@ -16,9 +16,9 @@ const url = "https://hackathon.kogcoder.com";
 export const metadata = {
   metadataBase: {
     title: siteName,
-    description,
-    url,
-    siteName,
+    description: description,
+    url: url,
+    siteName: siteName,
   },
   title: {
     default:siteName,
@@ -33,8 +33,8 @@ export const metadata = {
     description: {
       default: description,
     },
-    url,
-    siteName,
+    url:url,
+    siteName:siteName,
     locale: "ja_JP",
     type: "website",
     cardtype: "summary_large_image",
