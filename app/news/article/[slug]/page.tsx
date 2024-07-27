@@ -32,13 +32,13 @@ export async function generateMetadata(
         title: title,
         description: Article.description,
         // images: [Article.thumbnail],
-        images: [`${url}${Article.thumbnail}`],
+        images: [`${Article.thumbnail}`],
       },
       twitter: {
         title: title,
         description: Article.description,
         // images: [Article.thumbnail],
-        images: [`${url}${Article.thumbnail}`],
+        images: [`${Article.thumbnail}`],
       }
     }
   }
