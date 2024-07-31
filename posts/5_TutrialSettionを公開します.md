@@ -1,7 +1,7 @@
 ---
 id: 5
 created_at: '2024-07-27'
-title: '!!!@@チュートリアルセッションを公開します！'
+title: '!!!チュートリアルセッションを公開します！'
 thumbnail: 'https://i.imgur.com/XlqGMs8.png'
 description: '8月のチュートリアルセッションではペーパープロトタイピングについてと，Figmaの使い方を紹介します！こちらの資料と解説動画を公開します．'
 user: 'User;'
@@ -27,12 +27,12 @@ tags: 'TagHead[];'
 ## ペーパープロトタイピング
 
 [<button>ペーパープロトタイピングの資料](https://drive.google.com/file/d/1mv3IxE1ugNRBRuFVxaRhXXq_hcMud-Bw/view?usp=sharing)
-
+[<button>ペーパープロトタイピングの説明動画](https://youtu.be/_qirUSALce8?si=Zgo3qhGabFIeAUHY)
 ## Figmaの使い方
 
 [<button>Figmaの使い方の資料](https://drive.google.com/file/d/1GPZ2NMw3t_WBDM_-iJajJyf-komKj0F1/view?usp=sharing)
-
-## オンラインでの講習会
+[<button>Figmaの使い方の説明動画](https://youtu.be/ylEnubfXjQ0?si=SGc5gbWY7N9OqSP7)
+## オンラインでの講習会【終了しました】
 
 上記の資料を使ったオンラインでの講習会も行います！内容は資料のものと同じなので，「一人だと不安だな」「わからないところがある」という方はご参加ください．
 
