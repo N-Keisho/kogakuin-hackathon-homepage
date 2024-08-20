@@ -7,10 +7,10 @@ const url = "https://hackathon.kogcoder.com";
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: number };
+  params: { slug: string };
 }): Promise<Metadata> {
   
-  const Article = await getArticle(params.slug);
+  const Article = await getArticle(params.slug as unknown as number);
 
   if (!Article) {
     return {
@@ -46,18 +46,18 @@ export async function generateStaticParams() {
   }
 
   const Article = allArticles?.articles.filter((article) =>
-    article.tags?.some((tag) => tag.name === 'news')
+    article.tags?.some((tag) => tag.name === 'ニュース')
   );
 
   return Article.map((article) => ({
-    slug: article.id,
+    slug: article.id.toString(),
   }));
 }
 
 export const dynamicParams = false;
 
-export default async function Page({ params }: { params: { slug: number } }) {
-  const Article = await getArticle(params.slug);
+export default async function Page({ params }: { params: { slug: string } }) {
+  const Article = await getArticle(params.slug as unknown as number);
   if (!Article) {
     return { notFound: true };
   }
