@@ -5,10 +5,10 @@ import Link from "next/link";
 const MiniInfoCard: React.FC<{
   id: number;
   title: string;
-  thumbnaile: string | undefined;
+  thumbnaile: string;
   created_at: string;
 }> = ({ id, title, thumbnaile, created_at }) => {
-  if (!thumbnaile || thumbnaile === "") thumbnaile = "/img/other/noimage.png";
+  if (thumbnaile === "") thumbnaile = "/img/other/noimage.png";
 
   let category = "event";
 

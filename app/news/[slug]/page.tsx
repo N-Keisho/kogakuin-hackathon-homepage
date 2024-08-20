@@ -43,13 +43,13 @@ export async function generateStaticParams() {
 
   const numOfPages = Math.ceil(Article.length / onePageContents);
   return Array.from({ length: numOfPages }, (_, i) => ({
-    slug: (i + 1).toString(),
+    slug: (i + 1),
   }));
 }
 
 export const dynamicParams = false;
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: { params: { slug: number } }) {
   const allArticles = await getAllArticles();
   if (!allArticles) {
     return { notFound: true };
