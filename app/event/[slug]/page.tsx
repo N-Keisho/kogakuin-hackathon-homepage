@@ -2,9 +2,8 @@ import React from 'react';
 import InfoCard from '../../components/ui/infoCard/InfoCard';
 import SingleYellowLines from '../../components/ui/decoration/SingleYellowLines';
 import PageButton from '../../components/ui/button/PageButton';
-import { getArticles } from '@/libs/article';
+import { getAllArticles } from '@/libs/article';
 import { Metadata } from 'next';
-import { getArticlesInServer } from '@/libs/articleInServer';
 import BreadcrumbsList from '@/app/components/ui/BreadcrumbsList/BreadcrumbsList';
 
 const url = "https://hackathon.kogcoder.com";
@@ -29,13 +28,14 @@ export const metadata: Metadata = {
 const onePageContents = 5;
 
 export async function generateStaticParams() {
-    // const allArticles = await getArticles();
-    const allArticles = await getArticlesInServer();
+    const allArticles = await getAllArticles();
     if (!allArticles) {
         return [];
     }
 
-    const Article = allArticles.filter((article) => article.title.slice(0, 3) === '!!!');
+    const Article = allArticles?.articles.filter((article) =>
+        article.tags?.some((tag) => tag.name === "イベント")
+      );
     if (Article.length === 0) {
         return [];
     }
@@ -50,13 +50,14 @@ export const dynamicParams = false;
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
-    // const allArticles = await getArticles();
-    const allArticles = await getArticlesInServer();
+    const allArticles = await getAllArticles();
     if (!allArticles) {
         return { notFound: true }
     }
 
-    const Articles = allArticles.filter((article) => article.title.slice(0, 3) === '!!!').map((_, i, a) => a[a.length - i - 1]);
+    const Articles = allArticles.articles
+    .filter((article) => article.tags?.some((tag) => tag.name === "イベント"))
+    .map((_, i, a) => a[a.length - i - 1]);
     const length = Articles.length;
     const current = (params.slug as unknown as number) - 1;
 
@@ -73,11 +74,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                                     <InfoCard
                                         key={article.id}
                                         category="event"
-                                        id={article.id}
-                                        title={article.title}
-                                        description={article.description}
-                                        thumbnaile={article.thumbnail}
-                                        time={article.created_at}
+                                        article={article}
                                     />
                                 );
                             }

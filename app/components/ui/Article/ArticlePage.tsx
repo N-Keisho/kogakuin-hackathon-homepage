@@ -1,7 +1,7 @@
 import Image from "next/image";
 import CustomReactMarkdown from "./CustomReactMarkdown";
 import Index from "./Index";
-import { Article } from "@/types/article";
+import { Article } from "@/types/index";
 import BreadcrumbsList from "../BreadcrumbsList/BreadcrumbsList";
 
 const ArticlePage: React.FC<{
@@ -10,11 +10,6 @@ const ArticlePage: React.FC<{
   isActivated?: boolean;
 }> = ({ Article, Badge = false, isActivated = false }) => {
   let title = Article.title;
-
-  // titleの識別子の削除
-  if (Article.title.includes("!!!")) title = title.replace("!!!", "");
-  if (Article.title.includes("???")) title = title.replace("???", "");
-  if (Article.title.includes("@@")) title = title.replace("@@", "");
 
   const _date = Article.created_at.slice(0, 10);
 
@@ -28,7 +23,7 @@ const ArticlePage: React.FC<{
               <StatusBadge isActivated={isActivated} category="event" />
             )}
             <Image
-              src={Article.thumbnail}
+              src={Article.thumbnail || "/img/other/noimage.png"}
               alt="Thumbnail"
               className="object-fit w-full"
               width={600}

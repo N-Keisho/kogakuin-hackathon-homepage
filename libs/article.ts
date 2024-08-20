@@ -1,29 +1,70 @@
-'use server'
+import type { Article, ArticleHeads, PatchedArticle } from "@/types";
 
-import { Article, ArticleHead } from "@/types/article";
+export async function getArticles(): Promise<ArticleHeads | null> {
+    const response = await fetch(`${process.env.CMS_API_URL}/api/v1/${process.env.GROUP_ID}/article`, {
+        method: "GET",
+        credentials: 'include',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
 
-export async function getArticles(): Promise<ArticleHead[] | null> {
-    try {
-        const url = String(process.env.CMS_URL) + String(process.env.GROUP_NAME) + "/article";
-        const response = await fetch(url);
-        // const response = await fetch(url, {'cache': 'no-cache'});
-        const json: ArticleHead[] = await response.json();
-        return json;
-    } catch (error) {
-        console.error(error);
+    if (!response.ok) {
         return null;
     }
+
+    const data = await response.json();
+    return data;
 }
 
-export async function getArticle(articleID: string): Promise<Article | null> {
-    try {
-        const url = String(process.env.CMS_URL) + String(process.env.GROUP_NAME) + "/article/" + articleID;
-        const response = await fetch(url);
-        // const response = await fetch(url, {'cache': 'no-cache'});
-        const json: Article = await response.json();
-        return json;
-    } catch (error) {
-        console.error(error);
+export async function getAllArticles(): Promise<ArticleHeads | null> {
+    const response = await fetch(`${process.env.CMS_API_URL}/api/v1/${process.env.GROUP_ID}/article?per_page=1000`, {
+        method: "GET",
+        credentials: 'include',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    if (!response.ok) {
         return null;
     }
+
+    const data = await response.json();
+    return data;
+}
+
+export async function getArticlesTags(tag_names: string): Promise<ArticleHeads | null> {
+    const response = await fetch(`${process.env.CMS_API_URL}/api/v1/${process.env.GROUP_ID}/article?tags=${tag_names}`, {
+        method: "GET",
+        credentials: 'include',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    if (!response.ok) {
+        return null;
+    }
+
+    const data = await response.json();
+    return data;
+}
+
+export async function getArticle(articleId: number): Promise<Article | null> {
+    const response = await fetch(`${process.env.CMS_API_URL}/api/v1/${process.env.GROUP_ID}/article/${articleId}`, {
+        method: "GET",
+        credentials: 'include',
+
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+
+    if (!response.ok) {
+        return null;
+    }
+
+    const data = await response.json();
+    return data;
 }

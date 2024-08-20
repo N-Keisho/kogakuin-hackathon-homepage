@@ -2,57 +2,47 @@ import Image from "next/image";
 import SimpleButton from "./components/ui/button/SimpleButton";
 import MiniInfoCard from "./components/ui/infoCard/MiniInfoCard";
 import TopInfoCard from "./components/ui/infoCard/TopInfoCard";
-import { getArticles } from "@/libs/article";
-import { ArticleHead } from "@/types/article";
+import { getAllArticles } from "@/libs/article";
+import { ArticleHeads, ArticleHead } from "@/types/index";
 import Loading from "./components/ui/Loading/Loading";
-import {
-  getArticleInServer,
-  getArticlesInServer,
-} from "@/libs/articleInServer";
 
 export default async function Home() {
-  // const Data = await getArticles();
-  const Data = await getArticlesInServer();
+  const AllArticle: ArticleHeads | null = await getAllArticles();
 
-  if (Data?.length === 0) {
+  if (AllArticle?.articles.length === 0) {
     return <Loading />;
   }
 
-  const CurrentEvent = Data?.filter((data) =>
-    data.title.includes("!!!")
-  ).filter((data) => data.title.includes("@@"))[0];
-  const NewsData = Data ? Data?.map((_, i, a) => a[a.length - i - 1]) : null;
+  const CurrentEvent = AllArticle?.articles.filter((article) =>    
+    article.tags?.some((tag) => tag.name === 'トップ')
+  )[0] || null;
+  const NewsArticle = AllArticle?.articles.map((_,i,a) => a[a.length - i - 1]) || null;
 
   return (
     <>
       <CuttentEvent
-        id={CurrentEvent?.id}
-        thumbnaile={CurrentEvent?.thumbnail}
+        article={CurrentEvent}
       />
       <Logo />
       <Explanation />
       <Recommendation />
       <ReCurrentEvent
-        id={CurrentEvent?.id}
-        title={CurrentEvent?.title}
-        thumbnaile={CurrentEvent?.thumbnail}
+        article={CurrentEvent}
       />
       <Think />
-      <News NewsData={NewsData} />
-      {/* <Contact /> */}
+      <News NewsArticle={NewsArticle} />
     </>
   );
 }
 
 const CuttentEvent: React.FC<{
-  id: number | undefined;
-  thumbnaile: string | undefined;
-}> = ({ id, thumbnaile }) => {
-  if (!id || !thumbnaile) return <></>;
+  article: ArticleHead | null;
+}> = ({ article }) => {
+  if (!article ||!article.id || !article.thumbnail) return <></>;
   return (
     <div className="bg-secondary-400 p-8 md:p-14 text-center flex justify-center items-center w-full">
       <div className="animate-shake-vertical w-11/12 max-w-2xl">
-        <TopInfoCard id={id} thumbnaile={thumbnaile} />
+        <TopInfoCard article={article} />
       </div>
     </div>
   );
@@ -129,10 +119,19 @@ const Explanation: React.FC = () => {
         </div>
         <div>
           <h2>どのようなものを作るんですか？</h2>
-          <p>Figmaなどのデザインツールを使って，アプリの画面のイメージを作っていただきます．</p>
-          <p>アプリの画面を作れたら，ProtoPediaにて作品登録を行ってください．</p>
-          <p>ProtoPediaのイメージについては下記のボタンからご確認いただけます．</p>
-          <SimpleButton url="https://protopedia.net/prototype/private/8c9ec816-3fdf-4dd2-8911-11b893227ca5" text="ProtoPediaのイメージ" />
+          <p>
+            Figmaなどのデザインツールを使って，アプリの画面のイメージを作っていただきます．
+          </p>
+          <p>
+            アプリの画面を作れたら，ProtoPediaにて作品登録を行ってください．
+          </p>
+          <p>
+            ProtoPediaのイメージについては下記のボタンからご確認いただけます．
+          </p>
+          <SimpleButton
+            url="https://protopedia.net/prototype/private/8c9ec816-3fdf-4dd2-8911-11b893227ca5"
+            text="ProtoPediaのイメージ"
+          />
         </div>
         <div>
           <h2>もっと詳細に知りたいです！</h2>
@@ -198,21 +197,18 @@ const Recommendation: React.FC = () => {
 };
 
 const ReCurrentEvent: React.FC<{
-  id: number | undefined;
-  title: string | undefined;
-  thumbnaile: string | undefined;
-}> = ({ id, title, thumbnaile }) => {
-  if (!id || !title || !thumbnaile) return <></>;
-  let t = title;
-  if (t.includes("!!!")) t = t.replace("!!!", "");
-  if (t.includes("@@")) t = t.replace("@@", "");
+  article: ArticleHead | null;
+}> = ({ article }) => {
+  if (!article || !article.id || !article.title || !article.thumbnail) return <></>;
+
+  const isActivated = article.tags?.some((tag) => tag.name === "開催中") || false;
 
   return (
     <div className="flex flex-col mt-4 md:mt-10 mb-10 flex flex-col items-center">
       <div className="w-11/12 max-w-2xl">
-        <h1>現在開催中のイベント</h1>
-        <h2>{t}</h2>
-        <TopInfoCard id={id} thumbnaile={thumbnaile} />
+        <h1>{isActivated ?  '現在開催中のイベント' : '最近開催したイベント'}</h1>
+        <h2>{article.title}</h2>
+        <TopInfoCard article={article} />
       </div>
     </div>
   );
@@ -241,23 +237,20 @@ const Think: React.FC = () => {
   );
 };
 
-const News: React.FC<{ NewsData: ArticleHead[] | null }> = ({ NewsData }) => {
-  if (!NewsData) return <></>;
+const News: React.FC<{ NewsArticle: ArticleHead[] | null }> = ({ NewsArticle }) => {
+  if (!NewsArticle) return <></>;
 
   return (
     <div className="flex flex-col mt-4 md:mt-10 pt-5 pb-10 flex flex-col items-center bg-primary-400/25 ">
       <div className="w-11/12 max-w-2xl">
         <h1 className="bg-primary-700 text-white">最新情報</h1>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {NewsData.map((data, index) => {
-            if (index > 5) return;
+          {NewsArticle.map((data, index) => {
+            if (index > 8) return;
             return (
               <MiniInfoCard
                 key={index}
-                id={data.id}
-                title={data.title}
-                thumbnaile={data.thumbnail}
-                created_at={data.created_at}
+                article={data}
               />
             );
           })}

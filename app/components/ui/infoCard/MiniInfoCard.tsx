@@ -1,36 +1,27 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { ArticleHead } from "@/types/index";
 
 const MiniInfoCard: React.FC<{
-  id: number;
-  title: string;
-  thumbnaile: string;
-  created_at: string;
-}> = ({ id, title, thumbnaile, created_at }) => {
-  if (thumbnaile === "") thumbnaile = "/img/other/noimage.png";
+  article: ArticleHead;
+}> = ({article}) => {
+
+  let title = article.title;
+  let thumbnaile = article.thumbnail;
+  const created_at = article.created_at.slice(0, 10);
+
+  if (title.length > 9) title = title.slice(0, 9) + "...";
+  if (!thumbnaile ||thumbnaile === "") thumbnaile = "/img/other/noimage.png";
 
   let category = "event";
-
-  // titleの識別子の削除
-  if (title.includes("!!!")) title = title.replace("!!!", "");
-  if (title.includes("???")) {
-    title = title.replace("???", "");
+  if (article.tags?.some((tag) => tag.name === "ニュース")) {
     category = "news";
   }
 
-  // titleに@@が含まれている場合@を削除する（開催中のイベント）
-  if (title.includes("@@")) {
-    title = title.replace("@@", "");
-  }
-
-  if (title.length > 9) title = title.slice(0, 9) + "...";
-
-  const date = created_at.slice(0, 10);
-
   return (
     <div className="flex flex-col items-center">
-      <Link href={`/${category}/article/${id}`} legacyBehavior>
+      <Link href={`/${category}/article/${article.id}`} legacyBehavior>
         <div className="w-48 hover:animate-pulse">
           <Image
             src={thumbnaile}
@@ -40,7 +31,7 @@ const MiniInfoCard: React.FC<{
             width={300}
             height={300}
           />
-          <p className="text-sm text-left text-slate-500">{date}</p>
+          <p className="text-sm text-left text-slate-500">{created_at}</p>
           <p className="text-black border-none text-left">{title}</p>
         </div>
       </Link>
