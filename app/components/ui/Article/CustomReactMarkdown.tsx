@@ -13,7 +13,6 @@ const CustomReactMarkdown: React.FC<CustomReactMarkdownProps> = ({
   content,
   className,
 }) => {
-
   return (
     <>
       <ReactMarkdown
@@ -64,18 +63,17 @@ const CustomReactMarkdown: React.FC<CustomReactMarkdownProps> = ({
           ),
           em: ({ children }) => <em className="italic">{children}</em>,
           a: ({ node, href, ...props }) => {
+
             const isButton = node?.children.some(
               (child) =>
                 child.type === "text" && child.value.includes("(button)")
             );
-
             if (isButton) {
               const buttonText = node?.children
                 .filter((child) => child.type === "text")
                 .map((child) => {
                   if (child.type === "text")
-                    return child.value
-                      .replace("(button)", "")
+                    return child.value.replace("(button)", "");
                 })
                 .join("");
 
@@ -84,11 +82,56 @@ const CustomReactMarkdown: React.FC<CustomReactMarkdownProps> = ({
               );
             }
 
+            const isYoutube = href?.includes("youtu.be") || false;
+            if (isYoutube) {
+              return <Youtube url={String(href)} />;
+            }
+
+            // const isPDF = node?.children.some(
+            //   (child) =>
+            //     child.type === "text" && child.value.includes("(PDF)")
+            // );
+            // if (isPDF) {
+            //   return <PDF url={String(href)} />;
+            // }
+
             return <a className="hover:opacity-80" href={href} {...props} />;
           },
         }}
       />
     </>
+  );
+};
+
+const Youtube: React.FC<{ url: string }> = ({ url }) => {
+  const id = url.split("youtu.be/")[1];
+  return (
+    <div className="flex justify-center my-2">
+      <iframe
+        width="560"
+        height="315"
+        src={`https://youtube.com/embed/${id}&rel=0`}
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+      ></iframe>
+    </div>
+  );
+};
+
+const PDF : React.FC<{ url: string }> = ({ url }) => {
+  const id = url.split("/d/")[1].replace("/view?usp=sharing", "");
+  return (
+    <div className="flex justify-center my-2">
+      <embed
+        width="560"
+        height="315"
+        src={`https://drive.google.com/file/d/${id}/preview`}
+        type="application/pdf"
+      />
+    </div>
   );
 };
 
