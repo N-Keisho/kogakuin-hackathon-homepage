@@ -96,12 +96,15 @@ const SNS = () => {
         <li className="mb-1">
           <div className="flex">
             <EmailIcon className="mr-3" />
-            <Image
+            {/* <Image
               src="/img/mail/mail_w.svg"
               alt="hackathon.kogcoder at gmail.com"
               width={200}
               height={100}
-            />
+            /> */}
+            <p className="font-bold">
+              hackathon.kogcoder at gmail.com
+            </p>
           </div>
         </li>
       </ul>
