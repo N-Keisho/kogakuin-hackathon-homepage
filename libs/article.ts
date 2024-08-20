@@ -18,7 +18,7 @@ export async function getArticles(): Promise<ArticleHeads | null> {
 }
 
 export async function getAllArticles(): Promise<ArticleHeads | null> {
-    const response = await fetch(`${process.env.CMS_API_URL}/api/v1/${process.env.GROUP_ID}/article?per_page=10000`, {
+    const response = await fetch(`${process.env.CMS_API_URL}/api/v1/${process.env.GROUP_ID}/article?per_page=1000`, {
         method: "GET",
         credentials: 'include',
         headers: {

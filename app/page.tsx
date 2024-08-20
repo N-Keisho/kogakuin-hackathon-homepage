@@ -3,20 +3,21 @@ import SimpleButton from "./components/ui/button/SimpleButton";
 import MiniInfoCard from "./components/ui/infoCard/MiniInfoCard";
 import TopInfoCard from "./components/ui/infoCard/TopInfoCard";
 import { getAllArticles } from "@/libs/article";
-import { ArticleHeads } from "@/types/index";
+import { ArticleHeads, ArticleHead } from "@/types/index";
 import Loading from "./components/ui/Loading/Loading";
 
 export default async function Home() {
   const Data: ArticleHeads | null = await getAllArticles();
+  // console.log(Data);
 
   if (Data?.articles.length === 0) {
     return <Loading />;
   }
 
-  const CurrentEvent = Data?.articles.filter((data) =>
-    data.tags?.filter((tag) => tag.name === "開催中")
-  );
-  const NewsData = Data ? Data?.map((_, i, a) => a[a.length - i - 1]) : null;
+  const CurrentEvent = Data?.articles.filter((data) =>    
+    data.tags?.some((tag) => tag.name === 'トップ')
+  )[0] || null;
+  const NewsData = Data?.articles.map((_,i,a) => a[a.length - i - 1]) || null;
 
   return (
     <>
@@ -254,7 +255,7 @@ const News: React.FC<{ NewsData: ArticleHead[] | null }> = ({ NewsData }) => {
         <h1 className="bg-primary-700 text-white">最新情報</h1>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {NewsData.map((data, index) => {
-            if (index > 5) return;
+            if (index > 8) return;
             return (
               <MiniInfoCard
                 key={index}
