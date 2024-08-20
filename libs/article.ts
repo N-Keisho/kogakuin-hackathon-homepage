@@ -55,7 +55,7 @@ export async function getArticle(articleId: number): Promise<Article | null> {
     const response = await fetch(`${process.env.CMS_API_URL}/api/v1/${process.env.GROUP_ID}/article/${articleId}`, {
         method: "GET",
         credentials: 'include',
-
+        cache: "no-cache",
         headers: {
             "Content-Type": "application/json"
         }

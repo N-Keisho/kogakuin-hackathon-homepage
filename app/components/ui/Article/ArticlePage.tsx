@@ -3,21 +3,22 @@ import CustomReactMarkdown from "./CustomReactMarkdown";
 import Index from "./Index";
 import { Article } from "@/types/index";
 import BreadcrumbsList from "../BreadcrumbsList/BreadcrumbsList";
+import EditIcon from "@mui/icons-material/Edit";
+import UpdateIcon from "@mui/icons-material/Update";
 
 const ArticlePage: React.FC<{
   Article: Article;
   Badge?: boolean;
   isActivated?: boolean;
 }> = ({ Article, Badge = false, isActivated = false }) => {
-  let title = Article.title;
-
-  const _date = Article.created_at.slice(0, 10);
+  const created_at = Article.created_at.slice(0, 10);
+  const updated_at = Article.updated_at?.slice(0, 10) || null;
 
   return (
     <>
       <div className="flex flex-col mt-5 mb-10 flex flex-col items-center">
         <div className="w-11/12 max-w-2xl">
-          <BreadcrumbsList title={title} />
+          <BreadcrumbsList title={Article.title} />
           <div className="w-full">
             {Badge && (
               <StatusBadge isActivated={isActivated} category="event" />
@@ -30,12 +31,21 @@ const ArticlePage: React.FC<{
               height={600}
             />
           </div>
-          <div className="w-full mb-0">
-            <p className="text-black text-left text-xs md:text-sm mb-0 mt-1">
-              {_date}
+          <div className="w-full mb-0 flex items-center mt-1">
+            <EditIcon className="text-black text-xs md:text-sm opacity-60 mr-1" />
+            <p className="text-black text-left text-xs md:text-sm mb-0 mr-2">
+              {created_at}
             </p>
+            {updated_at && (
+              <>
+                <UpdateIcon className="text-black text-xs md:text-sm opacity-60 mr-1" />
+                <p className="text-black text-left text-xs md:text-sm mb-0">
+                  {updated_at}
+                </p>
+              </>
+            )}
           </div>
-          <h1>{title}</h1>
+          <h1>{Article.title}</h1>
           <div>
             <Index content={Article.body} />
           </div>
