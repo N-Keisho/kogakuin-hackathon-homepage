@@ -66,7 +66,7 @@ const CustomReactMarkdown: React.FC<CustomReactMarkdownProps> = ({
           a: ({ node, href, ...props }) => {
             const isButton = node?.children.some(
               (child) =>
-                child.type === "text" && child.value.includes("<button>")
+                child.type === "text" && child.value.includes("(button)")
             );
 
             if (isButton) {
@@ -75,8 +75,7 @@ const CustomReactMarkdown: React.FC<CustomReactMarkdownProps> = ({
                 .map((child) => {
                   if (child.type === "text")
                     return child.value
-                      .replace("<button>", "")
-                      .replace("</button>", "");
+                      .replace("(button)", "")
                 })
                 .join("");
 
