@@ -1,46 +1,37 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ArticleHead } from '@/types/index';
 
 interface InfoCardProps {
     category: string;
-    id: number;
-    title: string;
-    description: string;
-    thumbnaile: string;
-    time: string;
+    article: ArticleHead;
 }
 
-const InfoCard: React.FC<InfoCardProps> = ({ category, id, title, description, thumbnaile, time }) => {
+const InfoCard: React.FC<InfoCardProps> = ({category, article}) => {
 
-    let isActivated = false;
-
-    // titleの識別子の削除
-    if (title.includes('!!!')) title = title.replace('!!!', '');
-    if (title.includes('???')) title = title.replace('???', '');
-
-    // titleに@@が含まれている場合、isActivatedをtrueにして、@を削除する（開催中のイベント）
-    if (title.includes('@@')) {
-        title = title.replace('@@', '');
-        isActivated = true;
-    }
+    const isActivated = article.tags?.some((tag) => tag.name === "開催中") || false;
+    let title = article.title;
+    let description = article.description || "";
+    let thumbnail = article.thumbnail;
 
     if (title.length > 30) title = title.slice(0, 30) + '...';
     if (description.length > 55) description = description.slice(0, 55) + '...';
 
-    if (thumbnaile === "") thumbnaile = "/img/other/noimage.png";
+    if (!thumbnail || thumbnail === "") thumbnail = "/img/other/noimage.png";
 
-    const _time = time.slice(0, 10);
+    const created_at = article.created_at.slice(0, 10);
+    const updated_at = article.updated_at?.slice(0, 10) || created_at;
 
     return (
         <div className='w-full'>
-            <Link href={`/${category}/article/${id}`} legacyBehavior>
+            <Link href={`/${category}/article/${article.id}`} legacyBehavior>
                 <div className="flex flex-row w-full md:h-36 my-2 relative bg-white border border-gray-300 hover:animate-pulse">
                     <div className="flex-shrink-0 w-1/3 h-auto relative">
-                        <Image src={thumbnaile} alt="Image" fill style={{ objectFit: 'cover' }} className="object-fit" sizes="(max-width: 1000px) 100vw" />
+                        <Image src={thumbnail} alt="Image" fill style={{ objectFit: 'cover' }} className="object-fit" sizes="(max-width: 1000px) 100vw" />
                     </div>
                     <div className="p-4 relative">
-                        <p className="text-black text-xs opacity-60">{_time}</p>
+                        <p className="text-black text-xs opacity-60">{created_at}</p>
                         <h4 className="text-black my-1" >{title}</h4>
                         <p className='m-0'>{description}</p>
                     </div>

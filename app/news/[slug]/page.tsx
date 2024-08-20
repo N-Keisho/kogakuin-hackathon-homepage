@@ -43,13 +43,13 @@ export async function generateStaticParams() {
 
   const numOfPages = Math.ceil(Article.length / onePageContents);
   return Array.from({ length: numOfPages }, (_, i) => ({
-    slug: (i + 1),
+    slug: (i + 1).toString(),
   }));
 }
 
 export const dynamicParams = false;
 
-export default async function Page({ params }: { params: { slug: number } }) {
+export default async function Page({ params }: { params: { slug: string } }) {
   const allArticles = await getAllArticles();
   if (!allArticles) {
     return { notFound: true };
@@ -77,11 +77,7 @@ export default async function Page({ params }: { params: { slug: number } }) {
                 <InfoCard
                   key={article.id}
                   category="news"
-                  id={article.id}
-                  title={article.title}
-                  description={article.description || ""}
-                  thumbnaile={article.thumbnail || '/img/other/noimage.png'}
-                  time={article.created_at}
+                  article={article}
                 />
               );
             }

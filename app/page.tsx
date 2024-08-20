@@ -261,7 +261,7 @@ const News: React.FC<{ NewsData: ArticleHead[] | null }> = ({ NewsData }) => {
                 key={index}
                 id={data.id}
                 title={data.title}
-                thumbnaile={data.thumbnail}
+                thumbnaile={data.thumbnail || ""}
                 created_at={data.created_at}
               />
             );
