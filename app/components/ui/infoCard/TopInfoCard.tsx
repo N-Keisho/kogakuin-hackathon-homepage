@@ -8,7 +8,7 @@ const TopInfoCard: React.FC<{ article: ArticleHead }> = ({ article }) => {
   if (!thumbnail || thumbnail === "") thumbnail = "/img/other/noimage.png";
   return (
     <>
-      <Link href={`/event/article/${article.id}`}>
+      <Link href={`/event/article/${article.name}`}>
         <Image
           src={thumbnail}
           alt="Image"

@@ -27,7 +27,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ category, article }) => {
 
   return (
     <div className="w-full">
-      <Link href={`/${category}/article/${article.id}`} legacyBehavior>
+      <Link href={`/${category}/article/${article.name}`} legacyBehavior>
         <div className="flex flex-row w-full md:h-36 my-2 relative bg-white border border-gray-300 hover:animate-pulse">
           <div className="flex-shrink-0 w-1/3 h-auto relative">
             <Image
