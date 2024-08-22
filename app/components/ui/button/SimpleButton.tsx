@@ -12,7 +12,7 @@ const SimpleButton: React.FC<{ url: string; text: string }> = ({
     <div className="flex justify-center items-center my-2">
       <Link href={`${url}`} legacyBehavior>
         <a
-          className="bg-secondary-400 hover:bg-secondary-300 font-bold text-center rounded-md block w-1/3 py-2 items-center text-black border-none"
+          className="bg-secondary-400 hover:bg-secondary-300 font-bold text-center rounded-md block w-1/2 md:w-1/3 py-2 items-center text-black border-none"
           target={isExternal ? "_blanck" : ""}
           rel={isExternal ? "noopener noreferrer" : ""}
         >

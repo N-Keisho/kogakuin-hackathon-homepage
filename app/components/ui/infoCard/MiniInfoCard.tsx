@@ -21,7 +21,7 @@ const MiniInfoCard: React.FC<{
 
   return (
     <div className="flex flex-col items-center">
-      <Link href={`/${category}/article/${article.id}`} legacyBehavior>
+      <Link href={`/${category}/article/${article.name}`} legacyBehavior>
         <div className="w-48 hover:animate-pulse">
           <Image
             src={thumbnaile}
