@@ -7,7 +7,7 @@ import { ArticleHeads, ArticleHead } from "@/types/index";
 import Loading from "./components/ui/Loading/Loading";
 import { Metadata } from "next";
 
-const title = "トップ";
+const title = "工学院ハッカソン";
 const description = "工学院ハッカソンの公式ホームページです．最新情報やイベントの詳細を掲載いたします．";
 const image = "/img/ogp/ogp.png";
 const url = "https://hackathon.kogcoder.com";
