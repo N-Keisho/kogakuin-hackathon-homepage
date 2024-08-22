@@ -4,13 +4,45 @@ import { getArticle, getAllArticles } from "@/libs/article";
 import { Metadata } from "next";
 
 const url = "https://hackathon.kogcoder.com";
+
+let ArticleNameToId: { [key: string]: number } | null = null;
+async function createArticleNameToId() {
+  const allArticles = await getAllArticles();
+  if (!allArticles) {
+    return [];
+  }
+
+  const NewsArticle = allArticles?.articles.filter((article) =>
+    article.tags?.some((tag) => tag.name === "イベント")
+  );
+
+  ArticleNameToId = NewsArticle.reduce((acc, article) => {
+    acc[article.name] = article.id;
+    return acc;
+  }, {} as { [key: string]: number });
+  return ArticleNameToId;
+}
+
 export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  
-  const Article = await getArticle(params.slug as unknown as number);
+  if (!ArticleNameToId) {
+    await createArticleNameToId();
+    if (!ArticleNameToId) {
+      return {
+        title: "ページが見つかりません",
+        description: "ページが見つかりません",
+        openGraph: {
+          images: [`${url}/img/other/noimage.png`],
+        },
+      };
+    }
+  }
+
+  const id = ArticleNameToId[params.slug];
+  const Article = await getArticle(id);
 
   if (!Article) {
     return {
@@ -50,14 +82,22 @@ export async function generateStaticParams() {
   );
 
   return Article.map((article) => ({
-    slug: article.id.toString(),
+    slug: article.name,
   }));
 }
 
 export const dynamicParams = false;
 
 export default async function Page({ params }: { params: { slug: string} }) {
-  const Article = await getArticle(params.slug as unknown as number);
+  if (!ArticleNameToId) {
+    await createArticleNameToId();
+    if (!ArticleNameToId) {
+      return { notFound: true };
+    }
+  }
+
+  const id = ArticleNameToId[params.slug];
+  const Article = await getArticle(id);
   if (!Article) {
     return { notFound: true };
   }
