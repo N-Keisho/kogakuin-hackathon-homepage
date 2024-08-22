@@ -5,6 +5,26 @@ import TopInfoCard from "./components/ui/infoCard/TopInfoCard";
 import { getAllArticles } from "@/libs/article";
 import { ArticleHeads, ArticleHead } from "@/types/index";
 import Loading from "./components/ui/Loading/Loading";
+import { Metadata } from "next";
+
+const title = "トップ";
+const description = "工学院ハッカソンの公式ホームページです．最新情報やイベントの詳細を掲載いたします．";
+const image = "/img/ogp/ogp.png";
+const url = "https://hackathon.kogcoder.com";
+export const metadata: Metadata = {
+    title: title,
+    description: description,
+    openGraph: {
+        title: title,
+        description: description,
+        images: [`${url}${image}`],
+    },
+    twitter: {
+        title: title,
+        description: description,
+        images: [`${url}${image}`],
+    }
+};
 
 export default async function Home() {
   const AllArticle: ArticleHeads | null = await getAllArticles();
