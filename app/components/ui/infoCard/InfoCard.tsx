@@ -18,7 +18,7 @@ const InfoCard: React.FC<InfoCardProps> = ({ category, article }) => {
   let thumbnail = article.thumbnail;
 
   if (title.length > 30) title = title.slice(0, 30) + "...";
-  if (description.length > 55) description = description.slice(0, 55) + "...";
+  if (description.length > 50) description = description.slice(0, 50) + "...";
 
   if (!thumbnail || thumbnail === "") thumbnail = "/img/other/noimage.png";
 
