@@ -59,6 +59,12 @@ const SiteMap = () => {
           <Link href="/news/1" className="border-none text-white">ニュース</Link>
         </li>
         <li className="mb-1">
+          <Link href="/product" className="border-none text-white">過去作品</Link>
+        </li>
+        <li className="mb-1">
+          <Link href="/tutorial" className="border-none text-white">チュートリアル</Link>
+        </li>
+        <li className="mb-1">
           <Link href="/faq" className="border-none text-white">FAQ</Link>
         </li>
       </ul>

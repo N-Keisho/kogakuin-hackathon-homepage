@@ -12,6 +12,8 @@ const whats_hackathon = "/about";
 const event = "/event/1";
 const news = "/news/1";
 const faq = "/faq";
+const product = "/product";
+const tutorial = "/tutorial";
 
 // ヘッダー
 const Header: React.FC = () => {
@@ -94,7 +96,7 @@ const SideBar: React.FC<{
                   pathName === whats_hackathon ? "underline" : "border-none"
                 }`}
               >
-                ハッカソンってなに？
+                ハッカソンとは？
               </a>
             </Link>
           </li>
@@ -117,6 +119,28 @@ const SideBar: React.FC<{
                 }`}
               >
                 ニュース
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href={tutorial} legacyBehavior>
+              <a
+                className={`hover:text-primary-500 underline-offset-4 font-bold ${
+                  pathName.includes("tutorial") ? "underline" : "border-none"
+                }`}
+              >
+                チュートリアル
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href={product} legacyBehavior>
+              <a
+                className={`hover:text-primary-500 underline-offset-4 font-bold ${
+                  pathName.includes("product") ? "underline" : "border-none"
+                }`}
+              >
+                過去作品
               </a>
             </Link>
           </li>
@@ -149,7 +173,7 @@ const NavBar: React.FC<{ pathName: string }> = ({ pathName }) => {
                 pathName === whats_hackathon ? "underline" : "border-none"
               }`}
             >
-              ハッカソンってなに？
+              ハッカソンとは？
             </a>
           </Link>
         </li>
@@ -174,6 +198,30 @@ const NavBar: React.FC<{ pathName: string }> = ({ pathName }) => {
               }`}
             >
               ニュース
+            </a>
+          </Link>
+        </li>
+        <li className="opacity-75">|</li>
+        <li>
+          <Link href={tutorial} legacyBehavior>
+            <a
+              className={`hover:text-primary-400 underline-offset-4 font-bold ${
+                pathName.includes("tutorial") ? "underline" : "border-none"
+              }`}
+            >
+              チュートリアル
+            </a>
+          </Link>
+        </li>
+        <li className="opacity-75">|</li>
+        <li>
+          <Link href={product} legacyBehavior>
+            <a
+              className={`hover:text-primary-400 underline-offset-4 font-bold ${
+                pathName.includes("product") ? "underline" : "border-none"
+              }`}
+            >
+              過去作品
             </a>
           </Link>
         </li>
