@@ -31,6 +31,14 @@ const BreadcrumbsList: React.FC<BreadcrumbsListProps> = ({
     category = "ハッカソンってなに？";
     categoryPath = "/about";
     title = "";
+  } else if (pathname.includes("tutorial")) {
+    category = "チュートリアル";
+    categoryPath = "/tutorial";
+    title = "";
+  } else if (pathname.includes("product")) {
+    category = "過去作品";
+    categoryPath = "/product";
+    title = "";
   }
 
   return (
@@ -38,7 +46,7 @@ const BreadcrumbsList: React.FC<BreadcrumbsListProps> = ({
       <p
         className={`${className} ${
           (category === "ニュース" && title) ||
-          category == "ハッカソンってなに？"
+          category == "ハッカソンってなに？" || category == "チュートリアル" || category == "過去作品"
             ? "mb-5"
             : ""
         }`}
