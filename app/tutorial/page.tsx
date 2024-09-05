@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 export default async function Page (){
 
-    const Article = await getArticle(3);
+    const Article = await getArticle(8);
     if (!Article) {
         return { notFound: true }
     }

@@ -4,7 +4,7 @@ import { getArticle } from '@/libs/article';
 import { Metadata } from 'next';
 
 const title = "過去作品";
-const description = "過去のハッカソンで作成された作品を紹介します．";
+const description = "過去のハッカソンで作成された作品を掲載しています．";
 const image = "/img/ogp/ogp_product.png";
 const url = "https://hackathon.kogcoder.com";
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 export default async function Page (){
 
-    const Article = await getArticle(3);
+    const Article = await getArticle(9);
     if (!Article) {
         return { notFound: true }
     }
