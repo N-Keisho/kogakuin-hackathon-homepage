@@ -148,10 +148,14 @@ const Explanation: React.FC = () => {
           <p>
             ProtoPediaのイメージについては下記のボタンからご確認いただけます．
           </p>
+          <p>
+            また過去に参加してくださった方の作品は，過去作品ページにてご覧いただけます．
+          </p>
           <SimpleButton
             url="https://protopedia.net/prototype/private/8c9ec816-3fdf-4dd2-8911-11b893227ca5"
             text="ProtoPediaのイメージ"
           />
+          <SimpleButton url="product" text="過去作品ページ" />
         </div>
         <div>
           <h2>もっと詳細に知りたいです！</h2>
