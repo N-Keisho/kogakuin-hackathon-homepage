@@ -126,7 +126,7 @@ const SideBar: React.FC<{
             <Link href={tutorial} legacyBehavior>
               <a
                 className={`hover:text-primary-500 underline-offset-4 font-bold ${
-                  pathName.includes("tutorial") ? "underline" : "border-none"
+                  pathName === tutorial ? "underline" : "border-none"
                 }`}
               >
                 チュートリアル
@@ -137,7 +137,7 @@ const SideBar: React.FC<{
             <Link href={product} legacyBehavior>
               <a
                 className={`hover:text-primary-500 underline-offset-4 font-bold ${
-                  pathName.includes("product") ? "underline" : "border-none"
+                  pathName === product ? "underline" : "border-none"
                 }`}
               >
                 過去作品
@@ -206,7 +206,7 @@ const NavBar: React.FC<{ pathName: string }> = ({ pathName }) => {
           <Link href={tutorial} legacyBehavior>
             <a
               className={`hover:text-primary-400 underline-offset-4 font-bold ${
-                pathName.includes("tutorial") ? "underline" : "border-none"
+                pathName === tutorial ? "underline" : "border-none"
               }`}
             >
               チュートリアル
@@ -218,7 +218,7 @@ const NavBar: React.FC<{ pathName: string }> = ({ pathName }) => {
           <Link href={product} legacyBehavior>
             <a
               className={`hover:text-primary-400 underline-offset-4 font-bold ${
-                pathName.includes("product") ? "underline" : "border-none"
+                pathName === product ? "underline" : "border-none"
               }`}
             >
               過去作品
