@@ -9,8 +9,8 @@ const PageButton: React.FC<{ numOfDatas: number, onePageContents:number, pageInd
     let highSkiped = false;
   
     return (
-      <div className='text-center flex flex-col items-center justify-center'>
-        <Link href={`/${category}/${pageIndex-1}`} className={`block pt-0.5 m-2 h-7 w-7 text-white bg-primary-700 hover:bg-primary-400 ${pageIndex == 0 ? "hidden" : ""}`}>
+      <div className='text-center flex flex-row items-center justify-center'>
+        <Link href={`/${category}/${pageIndex}`} className={`block pt-0.5 m-2 h-7 w-7 text-white bg-primary-700 hover:bg-primary-400 ${pageIndex == 0 ? "hidden" : ""}`}>
           <KeyboardArrowLeftIcon />
         </Link>
         {
@@ -42,7 +42,7 @@ const PageButton: React.FC<{ numOfDatas: number, onePageContents:number, pageInd
             )
           })
         }
-        <Link href={`/${category}/${pageIndex+1}`} className={`block pt-0.5 m-2 h-7 w-7 text-white bg-primary-700 hover:bg-primary-400 ${pageIndex == Math.ceil(numOfDatas / onePageContents) - 1 ? "hidden" : ""}`} >
+        <Link href={`/${category}/${pageIndex+2}`} className={`block pt-0.5 m-2 h-7 w-7 text-white bg-primary-700 hover:bg-primary-400 ${pageIndex == Math.ceil(numOfDatas / onePageContents) - 1 ? "hidden" : ""}`} >
           <KeyboardArrowRightIcon />
         </Link>
       </div>
